@@ -10,7 +10,7 @@
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
     "build": "cd frontend && cross-env INLINE_RUNTIME_CHUNK=false GENERATE_SOURCEMAP=false yarn build",
     "prod": "cd backend && cross-env NODE_ENV=production ZU_SECURE_HEADERS=false yarn start",
-    "release": "standard-version --header",
+    "release": "standard-version",
     "push": "git push --follow-tags origin main"
   },
   "devDependencies": {
