@@ -1,0 +1,26 @@
+{
+  "name": "zero-ui",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "postinstall": "husky install",
+    "installDeps": "yarn install && cd frontend && yarn install && cd ../backend && yarn install && cd ..",
+    "upgradeDeps": "npx npm-check-updates --upgrade && npx npm-check-updates --upgrade --packageFile frontend/package.json && npx npm-check-updates --upgrade --packageFile backend/package.json",
+    "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
+    "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
+    "build": "cd frontend && cross-env INLINE_RUNTIME_CHUNK=false GENERATE_SOURCEMAP=false yarn build",
+    "prod": "cd backend && cross-env NODE_ENV=production ZU_SECURE_HEADERS=false yarn start",
+    "release": "standard-version --header",
+    "push": "git push --follow-tags origin main"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "concurrently": "^6.0.0",
+    "cross-env": "^7.0.3",
+    "husky": "^5.1.3",
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.1.1"
+  }
+}
