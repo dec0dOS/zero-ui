@@ -52,7 +52,7 @@ This project is highly inspired by [ztncui](https://github.com/key-networks/ztnc
 * ZeroUI deployment is simple. Please refer to [installation](#installation) for more info.
 
 
-<details open>
+<details>
 <summary>Wait, I haven't heard about ZeroTier yet...</summary>
 <br>
 
