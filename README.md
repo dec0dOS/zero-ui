@@ -123,9 +123,9 @@ The most simple one-minute installation. Great for the fresh VPS setup.
        ```
    * or you may use the old good iptables:
        ```sh
-       iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
-       iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
-       iptables -I INPUT 6 -m state --state NEW -p udp --dport 9993 -j ACCEPT
+       iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+       iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+       iptables -A INPUT -p udp --dport 9993 -j ACCEPT
        ```
 7. Navigate to `https://YOURDOMAIN.com/app/`.
 Now you could use your ZeroUI instance with HTTPS support and automated certificate renewal.
