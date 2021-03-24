@@ -169,7 +169,7 @@ You could also set up [watchtower](https://github.com/containrrr/watchtower) for
         --restart always \
         containrrr/watchtower \
         --cleanup --include-restarting \
-        dec0dos/zero-ui dec0dos/zerotier-controller
+        zu-main zu-controller
 
 ### Backup
 The easiest way to create your ZeroUI data backup is to use the following commands:
