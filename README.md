@@ -158,7 +158,7 @@ _For the screenshots, please refer to the [screenshots](docs/SCREENSHOTS.md)_
 ### Update
 To get the latest version just run 
 
-    docker-compose down && docker-compose pull && docker-compose up -d --no-build
+    docker-compose pull && docker-compose up -d --no-build
 
 in the folder where `docker-compose.yml` is located. Backup is not required as your data is saved in Docker volumes but recommended.
 You could also set up [watchtower](https://github.com/containrrr/watchtower) for automatic updates.
