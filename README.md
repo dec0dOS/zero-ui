@@ -221,6 +221,7 @@ After you could start ZeroUI development environment:
 
     ZU_CONTROLLER_TOKEN=TOKEN_FROM_authtoken.secret yarn dev
 
+_For other platforms, please refer to [ZeroTier manual](https://www.zerotier.com/manual/#4)_
 
 ## Support
 
