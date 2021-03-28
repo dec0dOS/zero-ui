@@ -22,6 +22,12 @@
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.1"
   },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
