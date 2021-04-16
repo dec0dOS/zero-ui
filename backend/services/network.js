@@ -12,7 +12,7 @@ async function getNetworkAdditionalData(data) {
     .get("additionalConfig");
 
   if (!additionalData.value()) {
-    createNetworkAdditionalData(data);
+    createNetworkAdditionalData(data.id);
   }
 
   delete data.rulesSource;
@@ -56,9 +56,9 @@ async function getNetworksData(nwids) {
 }
 
 exports.createNetworkAdditionalData = createNetworkAdditionalData;
-async function createNetworkAdditionalData(data) {
+async function createNetworkAdditionalData(id) {
   const saveData = {
-    id: data.id,
+    id: id,
     additionalConfig: {
       description: "",
       rulesSource: constants.defaultRulesSource,
