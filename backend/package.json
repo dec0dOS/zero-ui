@@ -15,7 +15,7 @@
     "lodash": "^4.17.21",
     "lowdb": "^1.0.0",
     "morgan": "~1.10.0",
-    "p-debounce": "^3.0.1",
+    "p-debounce": "^3.0.2",
     "pbkdf2-wrapper": "^1.3.2"
   }
 }

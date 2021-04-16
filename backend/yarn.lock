@@ -401,10 +401,10 @@ on-headers@~1.0.2:
   resolved "https://registry.yarnpkg.com/on-headers/-/on-headers-1.0.2.tgz"
   integrity sha512-pZAE+FJLoyITytdqK0U5s+FIpjN0JP3OzFi/u8Rx+EV5/W+JTWGXG8xFzevE7AjBfDqHv/8vL8qQsIhHnqRkrA==
 
-p-debounce@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/p-debounce/-/p-debounce-3.0.1.tgz#51c38b03aa09f319ec507f1d8aba831949c8bbf2"
-  integrity sha512-7n7FWY/f4gmVkd6BwC2EZRbTnAmZbL/Zdrc3qbJRnwkb3OUp4HbPlEN1XybpQk0MML6RDDdePMFIr4dOXXfPNw==
+p-debounce@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/p-debounce/-/p-debounce-3.0.2.tgz#8bc7aa524e512b8572f75c6a41858b7a2222a1ee"
+  integrity sha512-I5Tswd6ow31zGbudKRtKBlgI85n6BQrXdsuv1cN7MjNP3xCRSVsX8L57SzIegEx+b77LXzvGt5GJcXr7gBsiXA==
 
 parseurl@~1.3.3:
   version "1.3.3"
