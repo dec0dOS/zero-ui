@@ -36,7 +36,7 @@ router.post("/", auth.isAuthorized, async function (req, res) {
   api
     .post("controller/network/" + ZT_ADDRESS + "______", reqData)
     .then(async function (controllerRes) {
-      await network.createNetworkAdditionalData(controllerRes.data);
+      await network.createNetworkAdditionalData(controllerRes.data.id);
       const data = await network.getNetworksData([controllerRes.data.id]);
       res.send(data[0]);
     });
