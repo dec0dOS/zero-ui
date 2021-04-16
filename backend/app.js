@@ -49,7 +49,7 @@ if (
 }
 
 initAdmin().then(function (admin) {
-  db.defaults({ users: [admin], networks: {} }).write();
+  db.defaults({ users: [admin], networks: [] }).write();
 });
 
 const routerAPI = express.Router();
