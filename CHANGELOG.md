@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/dec0dOS/zero-ui/compare/v1.0.4...v1.0.5) (2021-04-16)
+
+### Bug Fixes
+
+- **backend/routes/network.js:** fixes bug after refactor ([112476e](https://github.com/dec0dOS/zero-ui/commit/112476e7fc2850ea7caef9c996d1b2610031395c))
+
 ### [1.0.4](https://github.com/dec0dOS/zero-ui/compare/v1.0.3...v1.0.4) (2021-04-16)
 
 ### Bug Fixes
