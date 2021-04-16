@@ -105,7 +105,6 @@ function NetworkMembers() {
       cell: (row) => <ManagedIP member={row} handleChange={handleChange} />,
     },
     {
-      ***REMOVED***
       id: "status",
       name: "Peer status",
       minWidth: "100px",
