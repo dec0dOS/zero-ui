@@ -22,6 +22,17 @@ router.get("/", auth.isAuthorized, async function (req, res) {
   });
 });
 
+// get network
+router.get("/:nwid", auth.isAuthorized, async function (req, res) {
+  const nwid = req.params.nwid;
+  const data = await network.getNetworksData([nwid]);
+  if (data[0]) {
+    res.send(data[0]);
+  } else {
+    res.status(404).send({ error: "Network not found" });
+  }
+});
+
 // create new network
 router.post("/", auth.isAuthorized, async function (req, res) {
   let reqData = req.body;
@@ -40,17 +51,6 @@ router.post("/", auth.isAuthorized, async function (req, res) {
       const data = await network.getNetworksData([controllerRes.data.id]);
       res.send(data[0]);
     });
-});
-
-// get network
-router.get("/:nwid", auth.isAuthorized, async function (req, res) {
-  const nwid = req.params.nwid;
-  const data = await network.getNetworksData([nwid]);
-  if (data[0]) {
-    res.send(data[0]);
-  } else {
-    res.status(404).send({ error: "Network not found" });
-  }
 });
 
 // update network
