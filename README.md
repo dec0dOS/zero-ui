@@ -54,7 +54,7 @@ This project is highly inspired by [ztncui](https://github.com/key-networks/ztnc
 <summary>Wait, I haven't heard about ZeroTier yet...</summary>
 <br>
 
-[ZeroTier](https://www.zerotier.com) is awesome [open source project](https://github.com/zerotier/ZeroTierOne) that is avalible on wide range of [platforms](https://www.zerotier.com/download/).
+[ZeroTier](https://www.zerotier.com) is awesome [open source project](https://github.com/zerotier/ZeroTierOne) that is available on wide range of [platforms](https://www.zerotier.com/download/).
 Most of your hard networking problems could be solved with ZeroTier. It could replace all your complex VPN setups. You can place all your devices on a virtual LAN and manage it easily.
 
 To sum up, ZeroTier combines the capabilities of VPN and SD-WAN, simplifying network management.
