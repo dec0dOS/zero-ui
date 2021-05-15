@@ -1,4 +1,4 @@
-FROM node:current-alpine3.13 as build-stage
+FROM node:current-alpine as build-stage
 
 ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
@@ -12,7 +12,7 @@ COPY ./frontend /app/frontend
 RUN yarn build
 
 
-FROM node:current-alpine3.13
+FROM node:current-alpine
 
 WORKDIR /app/frontend/build
 COPY --from=build-stage /app/frontend/build /app/frontend/build/
