@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "husky install",
     "installDeps": "yarn install && cd frontend && yarn install && cd ../backend && yarn install && cd ..",
-    "upgradeDeps": "npx npm-check-updates --upgrade && npx npm-check-updates --upgrade --packageFile frontend/package.json && npx npm-check-updates --upgrade --packageFile backend/package.json",
+    "upgradeDeps": "npx npm-check-updates --upgrade && yarn upgrade && cd frontend && npx npm-check-updates --upgrade && yarn upgrade && cd ../backend && npx npm-check-updates --upgrade && yarn upgrade && cd ..",
     "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
     "build": "cd frontend && cross-env INLINE_RUNTIME_CHUNK=false GENERATE_SOURCEMAP=false yarn build",
