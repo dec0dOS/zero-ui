@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/dec0dOS/zero-ui/compare/v1.0.7...v1.0.8) (2021-05-15)
+
 ### [1.0.6](https://github.com/dec0dOS/zero-ui/compare/v1.0.5...v1.0.6) (2021-05-15)
 
 ### [1.0.5](https://github.com/dec0dOS/zero-ui/compare/v1.0.4...v1.0.5) (2021-04-16)
