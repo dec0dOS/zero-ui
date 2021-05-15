@@ -54,7 +54,7 @@ jobs:
           context: ./
           file: ./docker/zero-ui/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep_zero-ui.outputs.tags }}
           cache-from: type=local,src=/tmp/.buildx-cache
@@ -67,7 +67,7 @@ jobs:
           context: ./
           file: ./docker/zerotier/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/zerotier-controller:latest
           cache-from: type=local,src=/tmp/.buildx-cache
