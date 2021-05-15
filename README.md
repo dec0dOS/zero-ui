@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/dec0dOS/zero-ui">
-    <img src="docs/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="docs/images/logo.png" alt="Logo" width="150" height="150">
   </a>
 
   <p align="center">
@@ -182,14 +182,20 @@ The easiest way to create your ZeroUI data backup is to use the following comman
 
 See the [open issues](https://github.com/dec0dOS/zero-ui/issues) for a list of proposed features (and known issues).
 
+- [Top Feature Requests ✨](https://github.com/dec0dOS/zero-ui/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
+- [Top Bugs 😱](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
+- [Newest Bugs 🙀](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+
+[![GitHub issues open](https://img.shields.io/github/issues/dec0dOS/zero-ui.svg?maxAge=2592000)](https://github.com/dec0dOS/zero-ui/issues)
+
 ## Contributing
 
 Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
 
 1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feat/amazing_feature`)
+3. Commit your changes (`git commit -m 'Add amazing_feature'`)
+4. Push to the branch (`git push origin feat/amazing_feature`)
 5. Open a pull request
 
 ZeroUI uses [conventional commits](https://www.conventionalcommits.org), so please follow the guidelines.
