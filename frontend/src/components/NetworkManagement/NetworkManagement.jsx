@@ -18,7 +18,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 import API from "utils/API";
 
-function NetworkManagment() {
+function NetworkManagement() {
   const { nwid } = useParams();
   const history = useHistory();
   const [open, setOpen] = useState(false);
@@ -45,7 +45,7 @@ function NetworkManagment() {
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>Managment</Typography>
+        <Typography>Management</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Button
@@ -77,4 +77,4 @@ function NetworkManagment() {
   );
 }
 
-export default NetworkManagment;
+export default NetworkManagement;

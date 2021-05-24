@@ -10,7 +10,7 @@ import NetworkHeader from "components/NetworkHeader";
 import NetworkSettings from "components/NetworkSettings";
 import NetworkMembers from "components/NetworkMembers";
 import NetworkRules from "components/NetworkRules";
-import NetworkManagment from "components/NetworkManagment";
+import NetworkManagement from "components/NetworkManagement";
 
 import API from "utils/API";
 
@@ -54,7 +54,7 @@ function Network() {
           )}
           <NetworkMembers />
           {network["config"] && <NetworkRules network={network} />}
-          <NetworkManagment />
+          <NetworkManagement />
         </div>
       </>
     );
