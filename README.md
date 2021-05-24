@@ -7,7 +7,7 @@
   <p align="center">
     ZeroUI - ZeroTier Controller Web UI - is a web user interface for a self-hosted ZeroTier network controller.
     <br />
-    <a href="https://github.com/dec0dOS/zero-ui"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/dec0dOS/zero-ui/blob/main/docs/SCREENSHOTS.md"><strong>Explore the screenshots »</strong></a>
     <br />
     <br />
     <a href="https://github.com/dec0dOS/zero-ui/issues">Report Bug</a>
@@ -101,6 +101,10 @@ The most simple one-minute installation. Great for the fresh VPS setup.
    ```sh
    wget https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
    ```
+   or
+   ```sh
+   curl -L -O https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
+   ```
 2. Replace `example.com` with your domain name in `docker-compose.yml`
 3. Pull the images
    ```sh
@@ -182,9 +186,9 @@ The easiest way to create your ZeroUI data backup is to use the following comman
 
 See the [open issues](https://github.com/dec0dOS/zero-ui/issues) for a list of proposed features (and known issues).
 
-- [Top Feature Requests ✨](https://github.com/dec0dOS/zero-ui/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
-- [Top Bugs 😱](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
-- [Newest Bugs 🙀](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+- [Top Feature Requests](https://github.com/dec0dOS/zero-ui/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
+- [Top Bugs](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
+- [Newest Bugs](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 [![GitHub issues open](https://img.shields.io/github/issues/dec0dOS/zero-ui.svg?maxAge=2592000)](https://github.com/dec0dOS/zero-ui/issues)
 
