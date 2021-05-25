@@ -56,9 +56,9 @@ async function getNetworksData(nwids) {
 }
 
 exports.createNetworkAdditionalData = createNetworkAdditionalData;
-async function createNetworkAdditionalData(id) {
+async function createNetworkAdditionalData(nwid) {
   const saveData = {
-    id: id,
+    id: nwid,
     additionalConfig: {
       description: "",
       rulesSource: constants.defaultRulesSource,
