@@ -65,7 +65,7 @@ function LogInUser() {
       .catch(function (error) {
         setPassword("");
         setSnackbarOpen(true);
-        console.log(error);
+        console.error(error);
       });
   };
 
