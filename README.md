@@ -16,6 +16,7 @@
   </p>
 </p>
 
+<details open="open">
 <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
 
 - [About](#about)
@@ -33,6 +34,8 @@
 - [Security](#security)
 - [Copyright notice](#copyright-notice)
 - [License](#license)
+
+</details>
 
 ---
 
@@ -201,7 +204,7 @@ Please try to create bug reports that are:
 
 ## Contributing
 
-Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
+First off, thanks for taking the time to contribute! Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
 
 1. Fork the project
 2. Create your feature branch (`git checkout -b feat/amazing_feature`)
