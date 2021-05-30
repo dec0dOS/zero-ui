@@ -22,7 +22,7 @@ assignees: ""
 
 **Related Code**
 
-<!-- If you are able to illustrate the bug or feature request with an example, please provide it here -->
+<!-- If you are able to illustrate the bug or feature request with an example, please provide it here. -->
 
 **Additional Context**
 
