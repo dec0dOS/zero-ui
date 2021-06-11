@@ -1,1 +1,5 @@
 blank_issues_enabled: false
+contact_links:
+  - name: ZeroUI Community Support
+    url: https://github.com/dec0dOS/zero-ui/discussions
+    about: Please ask and answer questions here.
