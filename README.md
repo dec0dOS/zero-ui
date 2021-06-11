@@ -157,7 +157,7 @@ ZeroUI could be deployed as a regular nodejs web application, but it requires Ze
 
 After installation, log in with your credentials that are declared with ZU_DEFAULT_USERNAME and ZU_DEFAULT_PASSWORD.
 
-Currently, almost all actions are available through the UI. Refer to the [roadmap](#roadmap) for more information.
+Currently, almost all main ZeroTier Central features are available. Refer to the [roadmap](#roadmap) for more information.
 
 _For the screenshots, please refer to the [screenshots](docs/SCREENSHOTS.md)._
 
@@ -208,7 +208,7 @@ First off, thanks for taking the time to contribute! Contributions are what make
 
 1. Fork the project
 2. Create your feature branch (`git checkout -b feat/amazing_feature`)
-3. Commit your changes (`git commit -m 'Add amazing_feature'`)
+3. Commit your changes (`git commit -m 'feat: add amazing_feature'`)
 4. Push to the branch (`git push origin feat/amazing_feature`)
 5. Open a pull request
 
@@ -248,7 +248,7 @@ _For other platforms, please refer to [ZeroTier manual](https://www.zerotier.com
 Reach out to me at one of the following places:
 
 - [GitHub issues](https://github.com/dec0dOS/zero-ui/issues/new?assignees=&labels=question&template=03_SUPPORT_QUESTION.md&title=support%3A+)
-- Email in GitHub profile
+- Email in [GitHub profile](https://github.com/dec0dOS)
 
 ## Security
 
