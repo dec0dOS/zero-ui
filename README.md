@@ -249,7 +249,7 @@ _For other platforms, please refer to [ZeroTier manual](https://www.zerotier.com
 
 Reach out to me at one of the following places:
 
-- [GitHub issues](https://github.com/dec0dOS/zero-ui/issues/new?assignees=&labels=question&template=03_SUPPORT_QUESTION.md&title=support%3A+)
+- [GitHub discussions](https://github.com/dec0dOS/zero-ui/discussions)
 - Email in [GitHub profile](https://github.com/dec0dOS)
 
 ## Security
