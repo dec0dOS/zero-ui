@@ -153,7 +153,7 @@ Advanced manual setups are also supported. Check the following environment varia
 | ZU_DEFAULT_PASSWORD | unset (docker-compose.yml: zero-ui) | Default password that will be set on the first run |
 | ZU_DATAPATH | data/db.json | ZeroUI data storage path |
 
-ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller).
+ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
 ## Usage
 
