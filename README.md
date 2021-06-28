@@ -13,7 +13,7 @@
     <a href="https://github.com/dec0dOS/zero-ui/issues">Report Bug</a>
     ·
     <a href="https://github.com/dec0dOS/zero-ui/issues">Request Feature</a>
-    .
+    ·
     <a href="https://github.com/dec0dOS/zero-ui/discussions">Ask a Question</a>
   </p>
 </p>
