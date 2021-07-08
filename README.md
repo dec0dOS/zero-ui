@@ -145,6 +145,7 @@ Advanced manual setups are also supported. Check the following environment varia
 | Name | Default value | Description |
 | ---------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | NODE_ENV | unset | You could learn more [here](https://nodejs.dev/learn/nodejs-the-difference-between-development-and-production) |
+| LISTEN_ADDRESS | 0.0.0.0 | Express server listen address |
 | ZU_SERVE_FRONTEND | true | You could disable frontend serving and use ZeroUI instance as REST API for your ZeroTier controller |
 | ZU_SECURE_HEADERS | true | Enables [helmet](https://helmetjs.github.io) |
 | ZU_CONTROLLER_ENDPOINT | http://localhost:9993/ | ZeroTier controller API endpoint |
