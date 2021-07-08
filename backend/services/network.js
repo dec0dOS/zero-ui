@@ -63,6 +63,7 @@ async function createNetworkAdditionalData(nwid) {
       description: "",
       rulesSource: constants.defaultRulesSource,
     },
+    members: [],
   };
 
   db.get("networks").push(saveData).write();

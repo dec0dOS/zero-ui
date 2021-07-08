@@ -20,6 +20,11 @@ async function getPeer(mid) {
 }
 
 async function getMemberAdditionalData(data) {
+  // DB BUG INITIALIZATION MIGRATION
+  const network = db.get("networks").find({ id: data.nwid });
+  network.defaults({ members: [] }).get("members").write();
+  // END MIGRATION SECTION
+
   const additionalData = db
     .get("networks")
     .find({ id: data.nwid })
