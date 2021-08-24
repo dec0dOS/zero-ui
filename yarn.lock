@@ -4213,6 +4213,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"backend@workspace:backend":
+  version: 0.0.0-use.local
+  resolution: "backend@workspace:backend"
+  dependencies:
+    axios: ^0.21.1
+    compression: ^1.7.4
+    debug: ~4.3.1
+    dotenv: ^10.0.0
+    express: ~4.17.1
+    express-bearer-token: ^2.4.0
+    helmet: ^4.6.0
+    lodash: ^4.17.21
+    lowdb: ^1.0.0
+    morgan: ~1.10.0
+    pbkdf2-wrapper: ^1.3.2
+  languageName: unknown
+  linkType: soft
+
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
@@ -5136,6 +5154,13 @@ __metadata:
   version: 5.62.2
   resolution: "codemirror@npm:5.62.2"
   checksum: 391214c1a177b8684ee3e20eb292de0cd0d0b7541cf84bdac3666c185153f7aec70c7fb128501f6b3739749b29abc27baa9fb7c505ffe28a449b5138ec6076c8
+  languageName: node
+  linkType: hard
+
+"codemirror@npm:^5.62.3":
+  version: 5.62.3
+  resolution: "codemirror@npm:5.62.3"
+  checksum: ae1f6cd6302ff65b5abacdb475a88f4f188775930bb3417a1c5c1d9903aa66da1118a238458b8b5bbac5cf263c7b1e2110477c72afc57d51ca0a9b3215869e2d
   languageName: node
   linkType: hard
 
@@ -8211,6 +8236,32 @@ __metadata:
   checksum: 6080eba0793dce32f475141fb3d54cc15f84ee52e420ee22ac3ab0ad639dc95a1875bc6eb9c0e1140e94972a36a89dc5542491b85f1ab8df0c126241e0f1a61b
   languageName: node
   linkType: hard
+
+"frontend@workspace:frontend":
+  version: 0.0.0-use.local
+  resolution: "frontend@workspace:frontend"
+  dependencies:
+    "@fontsource/roboto": ^4.5.0
+    "@material-ui/core": ^4.12.3
+    "@material-ui/icons": ^4.11.2
+    "@material-ui/styles": ^4.11.4
+    "@uiw/react-codemirror": ^3.1.0
+    axios: ^0.21.1
+    codemirror: ^5.62.3
+    history: ^5.0.1
+    ipaddr.js: ^2.0.1
+    lodash: ^4.17.21
+    react: ^17.0.2
+    react-data-table-component: ^6.11.8
+    react-dom: ^17.0.2
+    react-is: ^17.0.2
+    react-router-dom: ^5.2.0
+    react-scripts: 4.0.3
+    react-use: ^17.2.4
+    source-map-explorer: ^2.5.2
+    styled-components: ^5.3.1
+  languageName: unknown
+  linkType: soft
 
 "fs-access@npm:^1.0.1":
   version: 1.0.1
@@ -14568,7 +14619,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.8.0 || ^17.0.0, react-is@npm:^17.0.1":
+"react-is@npm:^16.8.0 || ^17.0.0, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
@@ -18596,47 +18647,6 @@ resolve@^2.0.0-next.3:
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
   languageName: node
   linkType: hard
-
-"zero-ui-backend@workspace:backend":
-  version: 0.0.0-use.local
-  resolution: "zero-ui-backend@workspace:backend"
-  dependencies:
-    axios: ^0.21.1
-    compression: ^1.7.4
-    debug: ~4.3.1
-    dotenv: ^10.0.0
-    express: ~4.17.1
-    express-bearer-token: ^2.4.0
-    helmet: ^4.6.0
-    lodash: ^4.17.21
-    lowdb: ^1.0.0
-    morgan: ~1.10.0
-    pbkdf2-wrapper: ^1.3.2
-  languageName: unknown
-  linkType: soft
-
-"zero-ui-frontend@workspace:frontend":
-  version: 0.0.0-use.local
-  resolution: "zero-ui-frontend@workspace:frontend"
-  dependencies:
-    "@fontsource/roboto": ^4.5.0
-    "@material-ui/core": ^4.12.3
-    "@material-ui/icons": ^4.11.2
-    "@uiw/react-codemirror": ^3.1.0
-    axios: ^0.21.1
-    history: ^5.0.1
-    ipaddr.js: ^2.0.1
-    lodash: ^4.17.21
-    react: ^17.0.2
-    react-data-table-component: ^6.11.8
-    react-dom: ^17.0.2
-    react-router-dom: ^5.2.0
-    react-scripts: 4.0.3
-    react-use: ^17.2.4
-    source-map-explorer: ^2.5.2
-    styled-components: ^5.3.1
-  languageName: unknown
-  linkType: soft
 
 "zero-ui@workspace:.":
   version: 0.0.0-use.local
