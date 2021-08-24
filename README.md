@@ -156,6 +156,27 @@ Advanced manual setups are also supported. Check the following environment varia
 
 ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
+<details>
+<summary>Controller setup tips</summary>
+<br>
+
+If you are using the existing controller on the host, it may be necessary to allow connection from the Docker container.
+You could do it in two ways:
+
+1. Allowing controller management from any IP address:
+
+```sh
+echo "{\"settings\": {\"portMappingEnabled\": true,\"softwareUpdate\": \"disable\",\"allowManagementFrom\": [\"0.0.0.0/0\"]}}" > /var/lib/zerotier-one/local.conf
+```
+
+> Warning: don't forget to block connections to 9993/TCP from WAN. Direct controller API does not mean to be exposed to WAN, it should be proxified via ZeroUI backend.
+
+2. Adding `network_mode: "host"` to zero-ui in docker-compose.yml.
+
+More info is provided in the following [discussion](https://github.com/dec0dOS/zero-ui/discussions/8).
+
+</details>
+
 ## Usage
 
 After installation, log in with your credentials that are declared with ZU_DEFAULT_USERNAME and ZU_DEFAULT_PASSWORD.
