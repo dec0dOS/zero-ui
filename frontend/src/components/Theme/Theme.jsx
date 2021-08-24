@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 import { red, amber } from "@material-ui/core/colors";
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: amber[500],
