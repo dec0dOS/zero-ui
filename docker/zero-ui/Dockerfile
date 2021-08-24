@@ -6,7 +6,7 @@ ENV GENERATE_SOURCEMAP=false
 WORKDIR /app/frontend
 COPY ./frontend/package*.json /app/frontend
 COPY ./frontend/yarn.lock /app/frontend
-RUN yarn install
+RUN yarn install --network-timeout=30000
 
 COPY ./frontend /app/frontend
 RUN yarn build
@@ -20,7 +20,7 @@ COPY --from=build-stage /app/frontend/build /app/frontend/build/
 WORKDIR /app/backend
 COPY ./backend/package*.json /app/backend
 COPY ./backend/yarn.lock /app/backend
-RUN yarn install
+RUN yarn install --network-timeout=30000
 
 COPY ./backend /app/backend
 
