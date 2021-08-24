@@ -4682,6 +4682,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"codemirror@npm:^5.62.3":
+  version: 5.62.3
+  resolution: "codemirror@npm:5.62.3"
+  checksum: ae1f6cd6302ff65b5abacdb475a88f4f188775930bb3417a1c5c1d9903aa66da1118a238458b8b5bbac5cf263c7b1e2110477c72afc57d51ca0a9b3215869e2d
+  languageName: node
+  linkType: hard
+
 "collect-v8-coverage@npm:^1.0.0":
   version: 1.0.1
   resolution: "collect-v8-coverage@npm:1.0.1"
@@ -16149,6 +16156,7 @@ resolve@^2.0.0-next.3:
     "@material-ui/styles": ^4.11.4
     "@uiw/react-codemirror": ^3.1.0
     axios: ^0.21.1
+    codemirror: ^5.62.3
     history: ^5.0.1
     ipaddr.js: ^2.0.1
     lodash: ^4.17.21
