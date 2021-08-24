@@ -2,7 +2,7 @@
 - name: "breaking-change"
   color: ee0701
   description: "A breaking change for existing users."
-- name: "bugfix"
+- name: "bug"
   color: ee0701
   description: "Inconsistencies or issues which will cause a problem for users or implementors."
 - name: "documentation"
