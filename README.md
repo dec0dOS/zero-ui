@@ -119,9 +119,9 @@ The most simple one-minute installation. Great for the fresh VPS setup.
    ```sh
     docker-compose up -d --no-build
    ```
-5. Check if everything is okay
+5. Check if everything is okay (CTRL-C to stop log preview)
    ```sh
-    docker-compose logs
+    docker-compose logs -f
    ```
 6. Disable your firewall for the following ports: `80/tcp`, `443/tcp` and `9993/udp`
    - on ubuntu/debian with ufw installed:
