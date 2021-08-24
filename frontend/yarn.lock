@@ -7138,6 +7138,7 @@ __metadata:
     "@uiw/react-codemirror": ^3.1.0
     axios: ^0.21.1
     codemirror: ^5.62.3
+    eslint-config-react-app: ^6.0.0
     history: ^5.0.1
     ipaddr.js: ^2.0.1
     lodash: ^4.17.21
