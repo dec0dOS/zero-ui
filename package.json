@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "husky install",
     "installDeps": "cd frontend && yarn install && cd ../backend && yarn install",
-    "upgradeDeps": "npx npm-check-updates --upgrade && yarn install && yarn upgrade && cd frontend && npx npm-check-updates --upgrade && yarn install && yarn upgrade && cd ../backend && npx npm-check-updates --upgrade && yarn install && yarn upgrade",
+    "upgradeDeps": "npx yarn-upgrade-all && cd frontend && npx yarn-upgrade-all && cd ../backend && npx yarn-upgrade-all",
     "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
     "build": "cd frontend && cross-env INLINE_RUNTIME_CHUNK=false GENERATE_SOURCEMAP=false yarn build",
@@ -17,18 +17,18 @@
     "commit": "yarn git-cz"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "commitizen": "^4.2.4",
-    "concurrently": "^6.1.0",
+    "concurrently": "^6.2.1",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.3.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "standard-version": "^9.3.0"
+    "standard-version": "^9.3.1"
   },
   "prettier": {
     "trailingComma": "es5",
