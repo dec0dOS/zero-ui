@@ -3,7 +3,7 @@ FROM node:current-alpine as build-stage
 ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
 
-RUN yarn config set registry https://registry.npmjs.org
+RUN yarn set version berry
 
 WORKDIR /app/frontend
 COPY ./frontend/package*.json /app/frontend

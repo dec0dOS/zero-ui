@@ -1,10 +1,13 @@
 {
   "name": "zero-ui",
   "version": "1.0.15",
-  "private": "true",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
     "postinstall": "husky install",
-    "installDeps": "yarn install && cd frontend && yarn install && cd ../backend && yarn install",
+    "installDeps": "cd frontend && yarn install && cd ../backend && yarn install",
     "upgradeDeps": "npx npm-check-updates --upgrade && yarn install && yarn upgrade && cd frontend && npx npm-check-updates --upgrade && yarn install && yarn upgrade && cd ../backend && npx npm-check-updates --upgrade && yarn install && yarn upgrade",
     "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
