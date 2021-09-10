@@ -4,6 +4,7 @@ const axios = require("axios");
 const api = require("../utils/controller-api");
 const db = require("../utils/db");
 const constants = require("../utils/constants");
+const startStopDNS = require("../utils/zns");
 
 async function getNetworkAdditionalData(data) {
   let additionalData = db
@@ -98,6 +99,20 @@ async function updateNetworkAdditionalData(nwid, data) {
       .map("additionalConfig")
       .map((additionalConfig) => _.assign(additionalConfig, additionalData))
       .write();
+
+    if (data.hasOwnProperty("dnsEnable")) {
+      let token = db.get("users").value()[0];
+      token = token.token;
+      let config = db.get("networks").find({ id: nwid }).value();
+      let ret = startStopDNS(token, config.id, config.additionalConfig);
+      if (ret) {
+        db.get("networks")
+          .filter({ id: nwid })
+          .map("additionalConfig")
+          .map((additionalConfig) => _.assign(additionalConfig, ret))
+          .write();
+      }
+    }
   }
 }
 
