@@ -62,6 +62,9 @@ async function createNetworkAdditionalData(nwid) {
     additionalConfig: {
       description: "",
       rulesSource: constants.defaultRulesSource,
+      dnsEnable: false,
+      dnsDomain: "",
+      dnsWildcard: false,
     },
     members: [],
   };
@@ -78,6 +81,15 @@ async function updateNetworkAdditionalData(nwid, data) {
   }
   if (data.hasOwnProperty("rulesSource")) {
     additionalData.rulesSource = data.rulesSource;
+  }
+  if (data.hasOwnProperty("dnsEnable")) {
+    additionalData.dnsEnable = data.dnsEnable;
+  }
+  if (data.hasOwnProperty("dnsDomain")) {
+    additionalData.dnsDomain = data.dnsDomain;
+  }
+  if (data.hasOwnProperty("dnsWildcard")) {
+    additionalData.dnsWildcard = data.dnsWildcard;
   }
 
   if (additionalData) {

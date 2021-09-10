@@ -8,6 +8,7 @@ import {
   Typography,
   TextField,
   Select,
+  List,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -27,18 +28,18 @@ function NetworkSettings({ network, setNetwork }) {
     }
   };
 
-  const handleChange = (key1, key2, mode = "text", additionalData = null) => (
-    event
-  ) => {
-    const value = parseValue(event, mode, additionalData);
+  const handleChange =
+    (key1, key2, mode = "text", additionalData = null) =>
+    (event) => {
+      const value = parseValue(event, mode, additionalData);
 
-    let updatedNetwork = replaceValue({ ...network }, key1, key2, value);
-    setNetwork(updatedNetwork);
+      let updatedNetwork = replaceValue({ ...network }, key1, key2, value);
+      setNetwork(updatedNetwork);
 
-    let data = setValue({}, key1, key2, value);
+      let data = setValue({}, key1, key2, value);
 
-    sendReq(data);
-  };
+      sendReq(data);
+    };
 
   return (
     <Accordion>
@@ -89,6 +90,56 @@ function NetworkSettings({ network, setNetwork }) {
               <option value={true}>Private</option>
               <option value={false}>Public</option>
             </Select>
+            <Divider />
+            <Typography>ZeroDNS setup</Typography>
+            <List
+              style={{
+                display: "flex",
+                flexDirection: "row",
+              }}
+            >
+              <Grid item>
+                <Checkbox
+                  checked={network["dnsEnable"]}
+                  color="primary"
+                  onChange={handleChange("dnsEnable", null, "checkbox")}
+                />
+                <span>Enable DNS</span>
+              </Grid>
+              <Divider
+                orientation="vertical"
+                style={{
+                  margin: "10px",
+                }}
+                flexItem
+              />
+              <Grid item>
+                <TextField
+                  value={network["dnsDomain"]}
+                  onChange={handleChange("dnsDomain")}
+                  label="Domain"
+                  variant="filled"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </Grid>
+              <Divider
+                orientation="vertical"
+                style={{
+                  margin: "10px",
+                }}
+                flexItem
+              />
+              <Grid item>
+                <Checkbox
+                  checked={network["dnsWildcard"]}
+                  color="primary"
+                  onChange={handleChange("dnsWildcard", null, "checkbox")}
+                />
+                <span>Use wildcards</span>
+              </Grid>
+            </List>
           </Grid>
           <Divider />
           <Grid item>
