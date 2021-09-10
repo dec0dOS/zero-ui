@@ -7,6 +7,8 @@ temp
 .env.test.local
 .env.production.local
 
+.idea
+
 # Created by https://www.toptal.com/developers/gitignore/api/vscode,yarn,react,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=vscode,yarn,react,node
 
@@ -156,9 +158,9 @@ sketch
 
 # if you are NOT using Zero-installs, then:
 # comment the following lines
-!.yarn/cache
+#!.yarn/cache
 
 # and uncomment the following lines
-# .pnp.*
+.pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/vscode,yarn,react,node
