@@ -41,6 +41,11 @@ function NetworkSettings({ network, setNetwork }) {
       sendReq(data);
     };
 
+  console.log(
+    `*** dns="${JSON.stringify(network)}" -> ${JSON.stringify(
+      network["config"]
+    )}`
+  );
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>

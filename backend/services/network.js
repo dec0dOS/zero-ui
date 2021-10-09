@@ -4,7 +4,7 @@ const axios = require("axios");
 const api = require("../utils/controller-api");
 const db = require("../utils/db");
 const constants = require("../utils/constants");
-const startStopDNS = require("../utils/zns");
+const zns = require("../utils/zns");
 
 async function getNetworkAdditionalData(data) {
   let additionalData = db
@@ -22,11 +22,22 @@ async function getNetworkAdditionalData(data) {
   delete data.remoteTraceLevel;
   delete data.remoteTraceTarget;
 
+  let ad = { ...additionalData.value() };
+  data.dns = {
+    domain: ad.dnsDomain,
+    servers: ["pippo"],
+  };
+  if (ad.dnsIP) data.dns["servers"].push(ad.dnsIP);
+  console.log(`*** dns="${JSON.stringify(ad)}" -> ${JSON.stringify(data.dns)}`);
+  delete ad.dnsIP;
+  delete ad.dnsDomain;
+  delete ad.dnsEnable;
+  delete ad.dnsWildcard;
   return {
     id: data.id,
     type: "Network",
     clock: Math.floor(new Date().getTime() / 1000),
-    ...additionalData.value(),
+    ...ad,
     config: data,
   };
 }
@@ -47,13 +58,11 @@ async function getNetworksData(nwids) {
       return [];
     });
 
-  let data = Promise.all(
+  return Promise.all(
     multipleRes.map((el) => {
       return getNetworkAdditionalData(el.data);
     })
   );
-
-  return data;
 }
 
 exports.createNetworkAdditionalData = createNetworkAdditionalData;
@@ -84,6 +93,12 @@ async function updateNetworkAdditionalData(nwid, data) {
     additionalData.rulesSource = data.rulesSource;
   }
   if (data.hasOwnProperty("dnsEnable")) {
+    if (data.dnsEnable) {
+      //TODO: start ZeroNSd and get its IP address
+      additionalData.dnsIP = "127.0.0.1";
+    } else {
+      additionalData.dnsIP = null;
+    }
     additionalData.dnsEnable = data.dnsEnable;
   }
   if (data.hasOwnProperty("dnsDomain")) {
@@ -101,17 +116,7 @@ async function updateNetworkAdditionalData(nwid, data) {
       .write();
 
     if (data.hasOwnProperty("dnsEnable")) {
-      let token = db.get("users").value()[0];
-      token = token.token;
-      let config = db.get("networks").find({ id: nwid }).value();
-      let ret = startStopDNS(token, config.id, config.additionalConfig);
-      if (ret) {
-        db.get("networks")
-          .filter({ id: nwid })
-          .map("additionalConfig")
-          .map((additionalConfig) => _.assign(additionalConfig, ret))
-          .write();
-      }
+      zns.handleNet(db.get("networks").filter({ id: nwid }).value()[0]);
     }
   }
 }
