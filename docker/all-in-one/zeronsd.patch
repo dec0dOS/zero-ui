@@ -1,0 +1,12 @@
+diff --git a/src/utils.rs b/src/utils.rs
+index 0f62d52..0f90e69 100644
+--- a/src/utils.rs
++++ b/src/utils.rs
+@@ -21,6 +21,7 @@ pub(crate) fn central_config(token: String) -> Configuration {
+     let mut config = Configuration::default();
+     config.user_agent = Some(version());
+     config.bearer_access_token = Some(token);
++    config.base_path = "http://localhost:3000/api".to_string();
+     return config;
+ }
+ 
