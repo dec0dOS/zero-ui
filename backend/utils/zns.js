@@ -1,8 +1,8 @@
+const cp = require("child_process");
 const path = require("path");
 const fs = require("fs");
 
 const db = require("../utils/db");
-const cp = require("child_process");
 
 //TODO: does this kind of "optimization" make sense in Node.js?
 let token = null;
@@ -61,7 +61,7 @@ function startDNS(token, nwid, conf) {
               opts.push("-E", e);
               return true;
             } catch (e) {
-              console.warn(`    cannot execute (${e})`);
+              console.warn("    cannot execute");
               return false;
             }
           })
@@ -70,7 +70,7 @@ function startDNS(token, nwid, conf) {
           return;
         }
       }
-      opts.push("start", "-v", "-v");
+      opts.push("start");
       if (conf.hasOwnProperty("dnsWildcard") && conf.dnsWildcard) {
         opts.push("-w");
       }

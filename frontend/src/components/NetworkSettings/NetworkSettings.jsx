@@ -120,7 +120,7 @@ function NetworkSettings({ network, setNetwork }) {
               />
               <Grid item>
                 <TextField
-                  value={network["dnsDomain"]}
+                  value={network["config"]["dns"]["domain"]}
                   onChange={handleChange("dnsDomain")}
                   label="Domain"
                   variant="filled"

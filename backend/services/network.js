@@ -22,13 +22,21 @@ async function getNetworkAdditionalData(data) {
   delete data.remoteTraceLevel;
   delete data.remoteTraceTarget;
 
-  let ad = { ...additionalData.value() };
+  //let ad = { ...additionalData.value() };
+  let ad_ = additionalData.value();
+  let ad = JSON.parse(JSON.stringify(ad_));
   data.dns = {
-    domain: ad.dnsDomain,
-    servers: ["pippo"],
+    domain: ad_.dnsDomain,
+    servers: [],
   };
-  if (ad.dnsIP) data.dns["servers"].push(ad.dnsIP);
-  console.log(`*** dns="${JSON.stringify(ad)}" -> ${JSON.stringify(data.dns)}`);
+  if (ad_.dnsIP) data.dns["servers"].push(ad_.dnsIP);
+  console.log(
+    `*** ad_="${JSON.stringify(ad_, null, 3)}" -> ad="${JSON.stringify(
+      ad,
+      null,
+      3
+    )}" -> ${JSON.stringify(data.dns, null, 3)}`
+  );
   delete ad.dnsIP;
   delete ad.dnsDomain;
   delete ad.dnsEnable;
