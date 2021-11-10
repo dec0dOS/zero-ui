@@ -1,0 +1,75 @@
+# ---- initialize build stage
+FROM node:current-bullseye as builder
+
+# ---- build ZeroTier-One
+RUN apt-get update && apt-get install -y build-essential \
+  && git clone --quiet https://github.com/zerotier/ZeroTierOne.git /src \
+  && make -C /src -f make-linux.mk
+
+# ---- build Zero-UI
+ENV INLINE_RUNTIME_CHUNK=false
+ENV GENERATE_SOURCEMAP=false
+
+RUN yarn set version berry
+
+WORKDIR /app/frontend
+COPY ./frontend/package*.json /app/frontend
+COPY ./frontend/yarn.lock /app/frontend
+RUN yarn install
+
+COPY ./frontend /app/frontend
+RUN yarn build
+
+# ---- build ZeroNSd \
+FROM rust:bullseye as rbuild
+
+ARG IS_LOCAL=0
+ARG VERSION=main
+ARG IS_TAG=0
+
+COPY ./docker/all-in-one/zeronsd.patch /tmp/zeronsd.patch
+RUN apt-get update && apt-get install --no-install-recommends -y git libssl-dev \
+  && git clone https://github.com/zerotier/zeronsd.git \
+  && cd zeronsd \
+  && patch -p 1 </tmp/zeronsd.patch \
+  && sh cargo-docker.sh
+
+# ---- initialize deploy stage
+FROM node:current-bullseye
+
+LABEL description="ZeroTier One as Docker Image"
+LABEL org.opencontainers.image.authors="mcondarelli@soft-in.com"
+
+# ---- copy ZeroTier-One
+ARG ZT_VERSION
+LABEL version="${ZT_VERSION}"
+COPY --from=builder /src/zerotier-one /usr/sbin/
+RUN mkdir -p /var/lib/zerotier-one \
+  && ln -s /usr/sbin/zerotier-one /usr/sbin/zerotier-idtool \
+  && ln -s /usr/sbin/zerotier-one /usr/sbin/zerotier-cli
+EXPOSE 9993/udp
+
+# ---- copy Zero-UI
+WORKDIR /app/frontend/build
+COPY --from=builder /app/frontend/build /app/frontend/build/
+WORKDIR /app/backend
+COPY ./backend/package*.json /app/backend
+COPY ./backend/yarn.lock /app/backend
+RUN yarn install
+COPY ./backend /app/backend
+EXPOSE 4000
+ENV NODE_ENV=production
+ENV ZU_SECURE_HEADERS=false
+ENV ZU_SERVE_FRONTEND=true
+ENV ZU_DATAPATH=/var/lib/zerotier-one/db.json
+
+# ---- copy ZeroNSd
+COPY --from=rbuild /usr/local/cargo/bin/zeronsd /usr/sbin/
+RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates curl
+
+# ---- final setup
+
+VOLUME /var/lib/zerotier-one
+COPY docker/all-in-one/entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
+CMD /entrypoint.sh
