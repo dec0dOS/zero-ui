@@ -2,16 +2,15 @@
 
 ## Reporting a Vulnerability
 
-If there are any vulnerability in **ZeroUI** project, don't hesitate to _report them_.
+If there are any vulnerabilities in **{{cookiecutter.project_name}}**, don't hesitate to _report them_.
 
-1. Use any of the [contact addresses](https://github.com/dec0dOS/zero-ui#support).
+1. Use any of the [private contact addresses](https://github.com/dec0dOS/zero-ui#support).
 2. Describe the vulnerability.
 
-- If you have a fix, explain or attach it.
-- In the near time, expect a reply with the required steps. Also, there may be a demand for a pull request which include the fixes.
+- If you have a fix, that is most welcome -- please attach or summarize it in your message!
 
-##### You should not disclose the vulnerability publicly if you haven't received an answer in some weeks.
+3. We will evaluate the vulnerability and, if necessary, release a fix or mitigating steps to address it. We will contact you to let you know the outcome, and will credit you in the report.
 
-##### If the vulnerability is rejected, you may post it publicly within some hour of rejection, unless the rejection is withdrawn within that time period.
+- Please **do not disclose the vulnerability publicly** until a fix is released!
 
-##### After the vulnerability has been fixed, you may disclose the vulnerability details publicly over some days.
+4. Once we have either a) published a fix, or b) declined to address the vulnerability for whatever reason, you are free to publicly disclose it.

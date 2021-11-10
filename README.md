@@ -145,14 +145,14 @@ Advanced manual setups are also supported. Check the following environment varia
 | Name | Default value | Description |
 | ---------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | NODE_ENV | unset | You could learn more [here](https://nodejs.dev/learn/nodejs-the-difference-between-development-and-production) |
-| LISTEN_ADDRESS | 0.0.0.0 | Express server listen address |
-| ZU_SERVE_FRONTEND | true | You could disable frontend serving and use ZeroUI instance as REST API for your ZeroTier controller |
-| ZU_SECURE_HEADERS | true | Enables [helmet](https://helmetjs.github.io) |
-| ZU_CONTROLLER_ENDPOINT | http://localhost:9993/ | ZeroTier controller API endpoint |
-| ZU_CONTROLLER_TOKEN | from /var/lib/zerotier-one/authtoken.secret | ZeroTier controller API token |
-| ZU_DEFAULT_USERNAME | unset (docker-compose.yml: admin) | Default username that will be set on the first run |
-| ZU_DEFAULT_PASSWORD | unset (docker-compose.yml: zero-ui) | Default password that will be set on the first run |
-| ZU_DATAPATH | data/db.json | ZeroUI data storage path |
+| LISTEN_ADDRESS | `0.0.0.0` | Express server listen address |
+| ZU_SERVE_FRONTEND | `true` | You could disable frontend serving and use ZeroUI instance as REST API for your ZeroTier controller |
+| ZU_SECURE_HEADERS | `true` | Enables [helmet](https://helmetjs.github.io) |
+| ZU_CONTROLLER_ENDPOINT | `http://localhost:9993/` | ZeroTier controller API endpoint |
+| ZU_CONTROLLER_TOKEN | from `/var/lib/zerotier-one/authtoken.secret` | ZeroTier controller API token |
+| ZU_DEFAULT_USERNAME | unset (`docker-compose.yml`: admin) | Default username that will be set on the first run |
+| ZU_DEFAULT_PASSWORD | unset (`docker-compose.yml`: zero-ui) | Default password that will be set on the first run |
+| ZU_DATAPATH | `data/db.json` | ZeroUI data storage path |
 
 ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
@@ -234,7 +234,7 @@ First off, thanks for taking the time to contribute! Contributions are what make
 2. Create your feature branch (`git checkout -b feat/amazing_feature`)
 3. Commit your changes (`git commit -m 'feat: add amazing_feature'`)
 4. Push to the branch (`git push origin feat/amazing_feature`)
-5. Open a pull request
+5. [Open a Pull Request](https://github.com/dec0dOS/zero-ui/compare?expand=1)
 
 ZeroUI uses [conventional commits](https://www.conventionalcommits.org), so please follow the guidelines.
 Run `yarn commit` to open [TUI](https://en.wikipedia.org/wiki/Text-based_user_interface) that follows conventional commits guidelines.
@@ -271,16 +271,16 @@ _For other platforms, please refer to [ZeroTier manual](https://www.zerotier.com
 
 Reach out to me at one of the following places:
 
-- [GitHub discussions](https://github.com/dec0dOS/zero-ui/discussions)
+- [GitHub Discussions](https://github.com/dec0dOS/zero-ui/discussions)
 - Email in [GitHub profile](https://github.com/dec0dOS)
 
 ## Security
 
-ZeroUI follows good practices of security, but 100% security can't be granted in software. ZeroUI is provided "as is" without any warranty. Use at your own risk.
+ZeroUI follows good practices of security, but 100% security cannot be assured. ZeroUI is provided "as is" without any warranty. Use at your own risk.
 
 For enterprise support, a more reliable and scalable solution, please use ZeroTier Central.
 
-_For more info, please refer to the [security](docs/SECURITY.md)._
+_For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
 
 ## Copyright notice
 

@@ -1,8 +1,8 @@
 ---
 - name: "breaking-change"
   color: ee0701
-  description: "A breaking change for existing users."
-- name: "bug"
+  description: "A change that changes the API or breaks backward compatibility for users."
+- name: "bugfix"
   color: ee0701
   description: "Inconsistencies or issues which will cause a problem for users or implementors."
 - name: "documentation"
@@ -13,10 +13,10 @@
   description: "Enhancement of the code, not introducing new features."
 - name: "refactor"
   color: 1d76db
-  description: "Improvement of existing code, not introducing new features."
+  description: "Updating the code with simpler, easier to understand or more efficient syntax or methods, but not introducing new features."
 - name: "performance"
   color: 1d76db
-  description: "Improving performance, not introducing new features."
+  description: "Improving performance of the project, not introducing new features."
 - name: "new-feature"
   color: 0e8a16
   description: "New features or options."
@@ -25,41 +25,41 @@
   description: "Generic maintenance tasks."
 - name: "ci"
   color: 1d76db
-  description: "Work that improves the continue integration."
+  description: "Work that improves the continuous integration."
 - name: "dependencies"
   color: 1d76db
-  description: "Upgrade or downgrade of project dependencies."
+  description: "Change in project dependencies."
 
 - name: "in-progress"
   color: fbca04
-  description: "Issue is currently being resolved by a developer."
+  description: "Issue is currently being worked on by a developer."
 - name: "stale"
   color: fef2c0
-  description: "There has not been activity on this issue or PR for quite some time."
+  description: "No activity for quite some time."
 - name: "no-stale"
   color: fef2c0
-  description: "This issue or PR is exempted from the stable bot."
+  description: "This is exempt from the stale bot."
 
 - name: "security"
   color: ee0701
-  description: "Marks a security issue that needs to be resolved ASAP."
+  description: "Addressing a vulnerability or security risk in this project."
 - name: "incomplete"
   color: fef2c0
-  description: "Marks a PR or issue that is missing information."
+  description: "Missing information."
 - name: "invalid"
   color: fef2c0
-  description: "Marks a PR or issue that is missing information."
+  description: "This is off-topic, spam, or otherwise doesn't apply to this project."
 
 - name: "beginner-friendly"
   color: 0e8a16
-  description: "Good first issue for people wanting to contribute to the project."
+  description: "Good first issue for people wanting to contribute to this project."
 - name: "help-wanted"
   color: 0e8a16
-  description: "We need some extra helping hands or expertise in order to resolve this."
+  description: "We need some extra helping hands or expertise in order to resolve this!"
 
 - name: "priority-critical"
   color: ee0701
-  description: "This should be dealt with ASAP. Not fixing this issue would be a serious error."
+  description: "Must be addressed as soon as possible."
 - name: "priority-high"
   color: b60205
   description: "After critical issues are fixed, these should be dealt with before any further issues."
@@ -72,7 +72,7 @@
 
 - name: "major"
   color: b60205
-  description: "This PR causes a major version bump in the version number."
+  description: "This PR causes a major bump in the version number."
 - name: "minor"
   color: 0e8a16
-  description: "This PR causes a minor version bump in the version number."
+  description: "This PR causes a minor bump in the version number."
