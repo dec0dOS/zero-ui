@@ -29,6 +29,10 @@ function NetworkRules({ network }) {
     capabilities: [...network.config.capabilities],
     tags: [...network.config.tags],
   });
+  const [tagCapByNameData, setTagCapByNameData] = useState({
+    tagsByName: network.tagsByName || {},
+    capabilitiesByName: network.capabilitiesByName || {},
+  });
   const [errors, setErrors] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -37,6 +41,7 @@ function NetworkRules({ network }) {
       const req = await API.post("/network/" + network["config"]["id"], {
         config: { ...flowData },
         rulesSource: editor.getValue(),
+        ...tagCapByNameData,
       });
       console.log("Action", req);
       setSnackbarOpen(true);
@@ -51,14 +56,29 @@ function NetworkRules({ network }) {
     const src = event.getValue();
     setEditor(event);
     let rules = [],
-      caps = [],
-      tags = [];
+      caps = {},
+      tags = {};
     const res = compile(src, rules, caps, tags);
     if (!res) {
+      let capabilitiesByName = {};
+      for (var key in caps) {
+        capabilitiesByName[key] = caps[key].id;
+      }
+
+      let tagsByName = { ...tags };
+      for (let key in tags) {
+        tags[key] = { id: tags[key].id, default: tags[key].default };
+      }
+
       setFlowData({
         rules: [...rules],
-        capabilities: [...caps],
-        tags: [...tags],
+        capabilities: [...Object.values(caps)],
+        tags: [...Object.values(tags)],
+      });
+
+      setTagCapByNameData({
+        tagsByName: tagsByName,
+        capabilitiesByName: capabilitiesByName,
       });
       setErrors([]);
     } else {

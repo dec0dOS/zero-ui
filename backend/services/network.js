@@ -62,6 +62,8 @@ async function createNetworkAdditionalData(nwid) {
     additionalConfig: {
       description: "",
       rulesSource: constants.defaultRulesSource,
+      tagsByName: {},
+      capabilitiesByName: {},
     },
     members: [],
   };
@@ -78,6 +80,12 @@ async function updateNetworkAdditionalData(nwid, data) {
   }
   if (data.hasOwnProperty("rulesSource")) {
     additionalData.rulesSource = data.rulesSource;
+  }
+  if (data.hasOwnProperty("tagsByName")) {
+    additionalData.tagsByName = data.tagsByName;
+  }
+  if (data.hasOwnProperty("capabilitiesByName")) {
+    additionalData.capabilitiesByName = data.capabilitiesByName;
   }
 
   if (additionalData) {
