@@ -1,18 +1,15 @@
-import { useState, useEffect } from "react";
-import { Link as RouterLink, useParams, useHistory } from "react-router-dom";
-import { useLocalStorage } from "react-use";
-
-import { Link, Grid, Typography } from "@material-ui/core";
+import { Grid, Link, Typography } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import useStyles from "./Network.styles";
-
 import NetworkHeader from "components/NetworkHeader";
-import NetworkSettings from "components/NetworkSettings";
+import NetworkManagement from "components/NetworkManagement";
 import NetworkMembers from "components/NetworkMembers";
 import NetworkRules from "components/NetworkRules";
-import NetworkManagement from "components/NetworkManagement";
-
+import NetworkSettings from "components/NetworkSettings";
+import { useCallback, useEffect, useState } from "react";
+import { Link as RouterLink, useHistory, useParams } from "react-router-dom";
+import { useLocalStorage } from "react-use";
 import API from "utils/API";
+import useStyles from "./Network.styles";
 
 function Network() {
   const { nwid } = useParams();
@@ -22,21 +19,22 @@ function Network() {
   const classes = useStyles();
   const history = useHistory();
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const network = await API.get("network/" + nwid);
-        setNetwork(network.data);
-        console.log("Current network:", network.data);
-      } catch (err) {
-        if (err.response.status === 404) {
-          history.push("/404");
-        }
-        console.error(err);
+  const fetchData = useCallback(async () => {
+    try {
+      const network = await API.get("network/" + nwid);
+      setNetwork(network.data);
+      console.log("Current network:", network.data);
+    } catch (err) {
+      if (err.response.status === 404) {
+        history.push("/404");
       }
+      console.error(err);
     }
-    fetchData();
   }, [nwid, history]);
+
+  useEffect(() => {
+    fetchData();
+  }, [nwid, fetchData]);
 
   if (loggedIn) {
     return (
@@ -52,8 +50,10 @@ function Network() {
               <NetworkSettings network={network} setNetwork={setNetwork} />
             </>
           )}
-          <NetworkMembers />
-          {network["config"] && <NetworkRules network={network} />}
+          <NetworkMembers network={network} />
+          {network["config"] && (
+            <NetworkRules network={network} callback={fetchData} />
+          )}
           <NetworkManagement />
         </div>
       </>

@@ -1,16 +1,19 @@
-import { useState } from "react";
-
 import {
   Checkbox,
   Dialog,
-  DialogTitle,
   DialogContent,
+  DialogTitle,
+  FormControlLabel,
   Grid,
   IconButton,
+  Paper,
+  Typography,
 } from "@material-ui/core";
 import BuildIcon from "@material-ui/icons/Build";
+import { useState } from "react";
+import Tag from "./components/Tag";
 
-function MemberSettings({ member, handleChange }) {
+function MemberSettings({ member, network, handleChange }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -54,6 +57,65 @@ function MemberSettings({ member, handleChange }) {
               )}
             />
             <span>Do Not Auto-Assign IPs</span>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography variant="h5">Capabilities</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper style={{ padding: 20 }}>
+                {Object.entries(network["capabilitiesByName"]).length === 0
+                  ? "No capabilities defined"
+                  : ""}
+                {Object.entries(network["capabilitiesByName"]).map(
+                  ([capName, capId]) => (
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={member["config"]["capabilities"].includes(
+                            capId
+                          )}
+                          color="primary"
+                          onChange={handleChange(
+                            member,
+                            "config",
+                            "capabilities",
+                            "capChange",
+                            capId
+                          )}
+                        />
+                      }
+                      key={"cap-" + capId}
+                      label={capName}
+                    />
+                  )
+                )}
+              </Paper>
+            </Grid>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography variant="h5">Tags</Typography>
+            </Grid>
+            {Object.entries(network["tagsByName"]).length === 0 ? (
+              <Grid item xs={12}>
+                <Paper style={{ padding: 20 }}>No tags defined</Paper>
+              </Grid>
+            ) : (
+              ""
+            )}
+            {Object.entries(network["tagsByName"]).map(
+              ([tagName, tagDetail]) => (
+                <Grid item xs={12} sm={6} key={"tag-" + tagName}>
+                  <Tag
+                    member={member}
+                    tagName={tagName}
+                    tagDetail={tagDetail}
+                    handleChange={handleChange}
+                  />
+                </Grid>
+              )
+            )}
           </Grid>
         </DialogContent>
       </Dialog>

@@ -1,28 +1,23 @@
-import { useState } from "react";
-
 import {
   Accordion,
-  AccordionSummary,
   AccordionDetails,
+  AccordionSummary,
   Button,
   Divider,
-  Snackbar,
-  Hidden,
   Grid,
+  Hidden,
+  Snackbar,
   Typography,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
 import CodeMirror from "@uiw/react-codemirror";
 import "codemirror/theme/3024-day.css";
-
 import { compile } from "external/RuleCompiler";
-
 import debounce from "lodash/debounce";
-
+import { useState } from "react";
 import API from "utils/API";
 
-function NetworkRules({ network }) {
+function NetworkRules({ network, callback }) {
   const [editor, setEditor] = useState(null);
   const [flowData, setFlowData] = useState({
     rules: [...network.config.rules],
@@ -48,6 +43,9 @@ function NetworkRules({ network }) {
       const timer = setTimeout(() => {
         setSnackbarOpen(false);
       }, 1500);
+
+      callback();
+
       return () => clearTimeout(timer);
     }
   };
