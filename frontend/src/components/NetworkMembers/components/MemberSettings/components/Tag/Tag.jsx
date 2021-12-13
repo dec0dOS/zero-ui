@@ -93,7 +93,7 @@ function Tag({ member, tagName, tagDetail, handleChange }) {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography
-            variant="h5"
+            variant="h6"
             color={tagValue === "" ? "error" : "primary"}
           >
             {tagName}
@@ -139,7 +139,11 @@ function Tag({ member, tagName, tagDetail, handleChange }) {
             </Select>
           </Grid>
           <Grid item xs={6}>
-            <Input value={tagValue} onChange={handleInputChange} />
+            <Input
+              value={tagValue}
+              onChange={handleInputChange}
+              placeholder="Tag Enum ID"
+            />
           </Grid>
         </Grid>
         <Grid item xs={12}>

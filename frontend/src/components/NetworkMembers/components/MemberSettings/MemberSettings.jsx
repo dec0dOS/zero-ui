@@ -60,7 +60,7 @@ function MemberSettings({ member, network, handleChange }) {
           </Grid>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="h5">Capabilities</Typography>
+              <Typography variant="h6">Capabilities</Typography>
             </Grid>
             <Grid item xs={12}>
               <Paper style={{ padding: 20 }}>
@@ -96,7 +96,7 @@ function MemberSettings({ member, network, handleChange }) {
           </Grid>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="h5">Tags</Typography>
+              <Typography variant="h6">Tags</Typography>
             </Grid>
             {Object.entries(network["tagsByName"] || []).length === 0 ? (
               <Grid item xs={12}>
