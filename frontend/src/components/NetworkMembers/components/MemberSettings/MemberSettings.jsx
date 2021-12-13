@@ -64,10 +64,11 @@ function MemberSettings({ member, network, handleChange }) {
             </Grid>
             <Grid item xs={12}>
               <Paper style={{ padding: 20 }}>
-                {Object.entries(network["capabilitiesByName"]).length === 0
+                {Object.entries(network["capabilitiesByName"] || []).length ===
+                0
                   ? "No capabilities defined"
                   : ""}
-                {Object.entries(network["capabilitiesByName"]).map(
+                {Object.entries(network["capabilitiesByName"] || []).map(
                   ([capName, capId]) => (
                     <FormControlLabel
                       control={
@@ -97,14 +98,14 @@ function MemberSettings({ member, network, handleChange }) {
             <Grid item xs={12}>
               <Typography variant="h5">Tags</Typography>
             </Grid>
-            {Object.entries(network["tagsByName"]).length === 0 ? (
+            {Object.entries(network["tagsByName"] || []).length === 0 ? (
               <Grid item xs={12}>
                 <Paper style={{ padding: 20 }}>No tags defined</Paper>
               </Grid>
             ) : (
               ""
             )}
-            {Object.entries(network["tagsByName"]).map(
+            {Object.entries(network["tagsByName"] || []).map(
               ([tagName, tagDetail]) => (
                 <Grid item xs={12} sm={6} key={"tag-" + tagName}>
                   <Tag
