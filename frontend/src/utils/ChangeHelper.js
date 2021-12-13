@@ -1,3 +1,5 @@
+import { pull } from "lodash";
+
 export function parseValue(
   event,
   mode = "text",
@@ -23,6 +25,25 @@ export function parseValue(
     }
   } else if (mode === "custom") {
     value = data;
+  } else if (mode === "capChange") {
+    value = data[key1][key2];
+    if (event.target.checked) {
+      value.push(id);
+    } else {
+      pull(value, id);
+    }
+  } else if (mode === "tagChange") {
+    value = data[key1][key2];
+    let tagValue = event.target.value;
+    let tagIndex = value.findIndex((item) => {
+      return item[0] === id;
+    });
+    if (tagIndex !== -1) {
+      value.splice(tagIndex, 1);
+    }
+    if (tagValue !== "") {
+      value.push([id, tagValue]);
+    }
   } else {
     value = event.target.value;
   }

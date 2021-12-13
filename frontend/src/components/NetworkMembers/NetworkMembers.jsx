@@ -1,30 +1,26 @@
-import { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
-
 import {
   Accordion,
-  AccordionSummary,
   AccordionDetails,
+  AccordionSummary,
   Checkbox,
   Grid,
-  Typography,
   IconButton,
+  Typography,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import RefreshIcon from "@material-ui/icons/Refresh";
-
+import { useCallback, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-
-import MemberName from "./components/MemberName";
-import ManagedIP from "./components/ManagedIP";
-import DeleteMember from "./components/DeleteMember";
-import MemberSettings from "./components/MemberSettings";
-import AddMember from "./components/AddMember";
-
+import { useParams } from "react-router-dom";
 import API from "utils/API";
 import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
+import AddMember from "./components/AddMember";
+import DeleteMember from "./components/DeleteMember";
+import ManagedIP from "./components/ManagedIP";
+import MemberName from "./components/MemberName";
+import MemberSettings from "./components/MemberSettings";
 
-function NetworkMembers() {
+function NetworkMembers({ network }) {
   const { nwid } = useParams();
   const [members, setMembers] = useState([]);
 
@@ -49,27 +45,23 @@ function NetworkMembers() {
     console.log("Action:", req);
   };
 
-  const handleChange = (
-    member,
-    key1,
-    key2 = null,
-    mode = "text",
-    id = null
-  ) => (event) => {
-    const value = parseValue(event, mode, member, key1, key2, id);
+  const handleChange =
+    (member, key1, key2 = null, mode = "text", id = null) =>
+    (event) => {
+      const value = parseValue(event, mode, member, key1, key2, id);
 
-    const updatedMember = replaceValue({ ...member }, key1, key2, value);
+      const updatedMember = replaceValue({ ...member }, key1, key2, value);
 
-    const index = members.findIndex((item) => {
-      return item["config"]["id"] === member["config"]["id"];
-    });
-    let mutableMembers = [...members];
-    mutableMembers[index] = updatedMember;
-    setMembers(mutableMembers);
+      const index = members.findIndex((item) => {
+        return item["config"]["id"] === member["config"]["id"];
+      });
+      let mutableMembers = [...members];
+      mutableMembers[index] = updatedMember;
+      setMembers(mutableMembers);
 
-    const data = setValue({}, key1, key2, value);
-    sendReq(member["config"]["id"], data);
-  };
+      const data = setValue({}, key1, key2, value);
+      sendReq(member["config"]["id"], data);
+    };
 
   const columns = [
     {
@@ -130,7 +122,11 @@ function NetworkMembers() {
       right: true,
       cell: (row) => (
         <>
-          <MemberSettings member={row} handleChange={handleChange} />
+          <MemberSettings
+            member={row}
+            network={network}
+            handleChange={handleChange}
+          />
           <DeleteMember nwid={nwid} mid={row.config.id} callback={fetchData} />
         </>
       ),

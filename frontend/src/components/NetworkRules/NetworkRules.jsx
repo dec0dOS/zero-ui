@@ -1,33 +1,32 @@
-import { useState } from "react";
-
 import {
   Accordion,
-  AccordionSummary,
   AccordionDetails,
+  AccordionSummary,
   Button,
   Divider,
-  Snackbar,
-  Hidden,
   Grid,
+  Hidden,
+  Snackbar,
   Typography,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
 import CodeMirror from "@uiw/react-codemirror";
 import "codemirror/theme/3024-day.css";
-
 import { compile } from "external/RuleCompiler";
-
 import debounce from "lodash/debounce";
-
+import { useState } from "react";
 import API from "utils/API";
 
-function NetworkRules({ network }) {
+function NetworkRules({ network, callback }) {
   const [editor, setEditor] = useState(null);
   const [flowData, setFlowData] = useState({
     rules: [...network.config.rules],
     capabilities: [...network.config.capabilities],
     tags: [...network.config.tags],
+  });
+  const [tagCapByNameData, setTagCapByNameData] = useState({
+    tagsByName: network.tagsByName || {},
+    capabilitiesByName: network.capabilitiesByName || {},
   });
   const [errors, setErrors] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -37,12 +36,16 @@ function NetworkRules({ network }) {
       const req = await API.post("/network/" + network["config"]["id"], {
         config: { ...flowData },
         rulesSource: editor.getValue(),
+        ...tagCapByNameData,
       });
       console.log("Action", req);
       setSnackbarOpen(true);
       const timer = setTimeout(() => {
         setSnackbarOpen(false);
       }, 1500);
+
+      callback();
+
       return () => clearTimeout(timer);
     }
   };
@@ -51,14 +54,29 @@ function NetworkRules({ network }) {
     const src = event.getValue();
     setEditor(event);
     let rules = [],
-      caps = [],
-      tags = [];
+      caps = {},
+      tags = {};
     const res = compile(src, rules, caps, tags);
     if (!res) {
+      let capabilitiesByName = {};
+      for (var key in caps) {
+        capabilitiesByName[key] = caps[key].id;
+      }
+
+      let tagsByName = { ...tags };
+      for (let key in tags) {
+        tags[key] = { id: tags[key].id, default: tags[key].default };
+      }
+
       setFlowData({
         rules: [...rules],
-        capabilities: [...caps],
-        tags: [...tags],
+        capabilities: [...Object.values(caps)],
+        tags: [...Object.values(tags)],
+      });
+
+      setTagCapByNameData({
+        tagsByName: tagsByName,
+        capabilitiesByName: capabilitiesByName,
       });
       setErrors([]);
     } else {
