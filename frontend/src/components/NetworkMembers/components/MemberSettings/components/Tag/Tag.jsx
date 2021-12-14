@@ -142,7 +142,7 @@ function Tag({ member, tagName, tagDetail, handleChange }) {
             <Input
               value={tagValue}
               onChange={handleInputChange}
-              placeholder="Tag Enum ID"
+              placeholder="Tag Value"
             />
           </Grid>
         </Grid>
