@@ -3,8 +3,6 @@ FROM node:lts-alpine as build-stage
 ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
 
-RUN yarn set version 3.x
-
 WORKDIR /app/frontend
 COPY ./frontend/package*.json /app/frontend
 RUN yarn install
