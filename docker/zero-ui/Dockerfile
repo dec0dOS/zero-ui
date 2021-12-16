@@ -5,7 +5,7 @@ ENV GENERATE_SOURCEMAP=false
 
 WORKDIR /app/frontend
 COPY ./frontend/package*.json /app/frontend
-RUN yarn install
+RUN yarn install --network-timeout 1000000
 
 COPY ./frontend /app/frontend
 RUN yarn build
