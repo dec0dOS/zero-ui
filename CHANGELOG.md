@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/dec0dOS/zero-ui/compare/v1.1.0...v1.1.1) (2021-12-16)
+
+### Bug Fixes
+
+- migrate to yarn v3 ([781a48d](https://github.com/dec0dOS/zero-ui/commit/781a48d341bf386cfbc917c78789f802227bfdef))
+
 ## [1.1.0](https://github.com/dec0dOS/zero-ui/compare/v1.0.21...v1.1.0) (2021-12-16)
 
 ### Features
