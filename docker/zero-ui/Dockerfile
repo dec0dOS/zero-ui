@@ -7,7 +7,6 @@ RUN yarn set version 3.x
 
 WORKDIR /app/frontend
 COPY ./frontend/package*.json /app/frontend
-COPY ./frontend/yarn.lock /app/frontend
 RUN yarn install
 
 COPY ./frontend /app/frontend
@@ -21,7 +20,6 @@ COPY --from=build-stage /app/frontend/build /app/frontend/build/
 
 WORKDIR /app/backend
 COPY ./backend/package*.json /app/backend
-COPY ./backend/yarn.lock /app/backend
 RUN yarn install
 
 COPY ./backend /app/backend
