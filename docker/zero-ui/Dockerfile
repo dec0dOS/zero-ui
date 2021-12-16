@@ -1,9 +1,9 @@
-FROM node:current-alpine as build-stage
+FROM node:lts-alpine as build-stage
 
 ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
 
-RUN yarn set version berry
+RUN yarn set version 3.x
 
 WORKDIR /app/frontend
 COPY ./frontend/package*.json /app/frontend
@@ -14,7 +14,7 @@ COPY ./frontend /app/frontend
 RUN yarn build
 
 
-FROM node:current-alpine
+FROM node:lts-alpine
 
 WORKDIR /app/frontend/build
 COPY --from=build-stage /app/frontend/build /app/frontend/build/
