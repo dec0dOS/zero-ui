@@ -15,7 +15,7 @@ export function parseValue(
     value = event.target.checked;
   } else if (mode === "arrayDel") {
     value = data[key1][key2];
-    if (id) {
+    if (id !== null) {
       value.splice(id, 1);
     }
   } else if (mode === "arrayAdd") {
