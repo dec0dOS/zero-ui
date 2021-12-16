@@ -50,5 +50,6 @@
     "*.{tsx,ts,js,jsx,scss,css,js,json,md}": [
       "yarn prettier --write"
     ]
-  }
+  },
+  "packageManager": "yarn@3.2.0-rc.8"
 }
