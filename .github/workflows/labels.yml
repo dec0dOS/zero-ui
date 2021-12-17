@@ -16,6 +16,6 @@ jobs:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
       - name: 🚀 Run Label Syncer
-        uses: micnncim/action-label-syncer@v1.2.0
+        uses: micnncim/action-label-syncer@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
