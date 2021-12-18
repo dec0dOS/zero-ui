@@ -101,19 +101,29 @@ function NetworkMembers({ network }) {
       name: "Peer status",
       minWidth: "100px",
       cell: (row) =>
-        row.online ? (
-          <Typography style={{ color: "#008000" }}>
-            {"ONLINE (v" +
-              row.config.vMajor +
-              "." +
-              row.config.vMinor +
-              "." +
-              row.config.vRev +
-              ")"}
-          </Typography>
-        ) : (
+        (row.online == 0) ? (
           <Typography color="error">OFFLINE</Typography>
-        ),
+        ) : ( (row.online == 1) ? (
+        
+            <Typography style={{ color: "#008000" }}>
+              {"ONLINE (v" +
+                row.config.vMajor +
+                "." +
+                row.config.vMinor +
+                "." +
+                row.config.vRev +
+                ")"}
+            </Typography>
+         ) : (
+            <Typography style={{ color: "#f1c232" }}>
+              {"RELAYED (v" +
+                row.config.vMajor +
+                "." +
+                row.config.vMinor +
+                "." +
+                row.config.vRev +
+                ")"}
+        )),
     },
     {
       id: "delete",
