@@ -52,7 +52,7 @@ jobs:
 
       - name: Build and push zerotier-controller
         id: docker_build_zerotier-controller
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@master
         with:
           context: ./
           file: ./docker/zerotier/Dockerfile
