@@ -101,9 +101,9 @@ function NetworkMembers({ network }) {
       name: "Peer status",
       minWidth: "100px",
       cell: (row) =>
-        (row.online == 0) ? (
+        (row.online === 0) ? (
           <Typography color="error">OFFLINE</Typography>
-        ) : ( (row.online == 1) ? (
+        ) : ( (row.online === 1) ? (
         
             <Typography style={{ color: "#008000" }}>
               {"ONLINE (v" +
@@ -123,7 +123,24 @@ function NetworkMembers({ network }) {
                 "." +
                 row.config.vRev +
                 ")"}
+            </Typography>
         )),
+    },
+    {
+      id: "physicalip",
+      name: "Physical IP / Latency",
+      minWidth: "220px",
+      cell: (row) =>
+      (row.online === 1) ? (
+        <p>
+          {row.physicalAddress +
+           "/" +
+           row.physicalPort}<br />{
+           "(" +
+           row.latency +
+           " ms)"}
+       </p>
+      ) : (""),
     },
     {
       id: "delete",

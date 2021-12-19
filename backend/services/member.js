@@ -45,10 +45,13 @@ async function getMemberAdditionalData(data) {
     if (peer.paths[0]) {
       peerData.lastOnline = peer.paths[0].lastReceive;
       peerData.physicalAddress = peer.paths[0].address.split("/")[0];
+      peerData.physicalPort = peer.paths[0].address.split("/")[1];
     }
   }
   else
+  {
     peerData.online = 0;
+  }
 
   delete data.lastAuthorizedCredential;
   delete data.lastAuthorizedCredentialType;
