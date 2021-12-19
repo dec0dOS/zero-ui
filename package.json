@@ -10,6 +10,7 @@
     "installDeps": "cd frontend && yarn install && cd ../backend && yarn install",
     "upgradeDeps": "yarn upgrade-interactive",
     "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
+    "lint": "yarn prettier --write .",
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
     "build": "cd frontend && cross-env INLINE_RUNTIME_CHUNK=false GENERATE_SOURCEMAP=false yarn build",
     "prod": "cd backend && cross-env NODE_ENV=production ZU_SECURE_HEADERS=false yarn start",
