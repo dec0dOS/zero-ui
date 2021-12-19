@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/dec0dOS/zero-ui/compare/v1.1.5...v1.2.0) (2021-12-19)
+
+### Features
+
+- update_frontend_online_parsing ([cd6699d](https://github.com/dec0dOS/zero-ui/commit/cd6699d9b7d90c514dd2b870da4b61b8a5ea4ea0))
+
 ### [1.1.5](https://github.com/dec0dOS/zero-ui/compare/v1.1.4...v1.1.5) (2021-12-16)
 
 ### [1.1.4](https://github.com/dec0dOS/zero-ui/compare/v1.1.3...v1.1.4) (2021-12-16)
