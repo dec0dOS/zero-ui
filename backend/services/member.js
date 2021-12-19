@@ -37,19 +37,15 @@ async function getMemberAdditionalData(data) {
   let peerData = {};
   if (peer) {
     peerData.latency = peer.latency;
-    if (peer.latency !== -1)
-      peerData.online = 1;
-    if (peer.latency == -1)
-      peerData.online = 2;
+    if (peer.latency !== -1) peerData.online = 1;
+    if (peer.latency == -1) peerData.online = 2;
     peerData.clientVersion = peer.version;
     if (peer.paths[0]) {
       peerData.lastOnline = peer.paths[0].lastReceive;
       peerData.physicalAddress = peer.paths[0].address.split("/")[0];
       peerData.physicalPort = peer.paths[0].address.split("/")[1];
     }
-  }
-  else
-  {
+  } else {
     peerData.online = 0;
   }
 

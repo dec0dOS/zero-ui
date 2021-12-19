@@ -27,18 +27,18 @@ function NetworkSettings({ network, setNetwork }) {
     }
   };
 
-  const handleChange = (key1, key2, mode = "text", additionalData = null) => (
-    event
-  ) => {
-    const value = parseValue(event, mode, additionalData);
+  const handleChange =
+    (key1, key2, mode = "text", additionalData = null) =>
+    (event) => {
+      const value = parseValue(event, mode, additionalData);
 
-    let updatedNetwork = replaceValue({ ...network }, key1, key2, value);
-    setNetwork(updatedNetwork);
+      let updatedNetwork = replaceValue({ ...network }, key1, key2, value);
+      setNetwork(updatedNetwork);
 
-    let data = setValue({}, key1, key2, value);
+      let data = setValue({}, key1, key2, value);
 
-    sendReq(data);
-  };
+      sendReq(data);
+    };
 
   return (
     <Accordion>
