@@ -86,7 +86,7 @@ function NetworkMembers({ network }) {
     },
     {
       id: "name",
-      name: "Name/Description",
+      name: "Name / Description",
       minWidth: "250px",
       cell: (row) => <MemberName member={row} handleChange={handleChange} />,
     },
