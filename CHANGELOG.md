@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/dec0dOS/zero-ui/compare/v1.2.1...v1.2.2) (2022-04-26)
+
+### Bug Fixes
+
+- fix crash when network had no IP ranges ([8095d2b](https://github.com/dec0dOS/zero-ui/commit/8095d2bea235e348baf3bac515d8aa9eb7adb8cf))
+
 ### [1.2.1](https://github.com/dec0dOS/zero-ui/compare/v1.2.0...v1.2.1) (2021-12-19)
 
 ## [1.2.0](https://github.com/dec0dOS/zero-ui/compare/v1.1.5...v1.2.0) (2021-12-19)
