@@ -20,6 +20,7 @@ function NetworkButton({ network }) {
           <Hidden mdDown>
             <ListItem className={classes.cidr}>
               {network["config"]["ipAssignmentPools"] &&
+                network["config"]["ipAssignmentPools"][0] &&
                 getCIDRAddress(
                   network["config"]["ipAssignmentPools"][0]["ipRangeStart"],
                   network["config"]["ipAssignmentPools"][0]["ipRangeEnd"]
