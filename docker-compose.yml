@@ -1,52 +1,62 @@
 version: "3.9"
 
 services:
-  zerotier:
-    image: dec0dos/zerotier-controller:latest
-    container_name: zu-controller
-    build:
-      context: .
-      dockerfile: ./docker/zerotier/Dockerfile
-    restart: unless-stopped
-    volumes:
-      - controller_data:/var/lib/zerotier-one
-    expose:
-      - "9993/tcp"
-    ports:
-      - "9993:9993/udp"
+#  zerotier:
+#    image: dec0dos/zerotier-controller:latest
+#    container_name: zu-controller
+#    build:
+#      context: .
+#      dockerfile: ./docker/zerotier/Dockerfile
+#    restart: unless-stopped
+#    volumes:
+#      - controller_data:/var/lib/zerotier-one
+#    expose:
+#      - "9993/tcp"
+#    ports:
+#      - "9993:9993/udp"
+  docker-host:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+    restart: on-failure
   zero-ui:
-    image: dec0dos/zero-ui:latest
-    container_name: zu-main
+    image: styliteag/zero-ui-userportal:latest
+    container_name: zero-ui-userportal
     build:
       context: .
       dockerfile: ./docker/zero-ui/Dockerfile
     restart: unless-stopped
     depends_on:
-      - zerotier
+     - docker-host
+    #  - zerotier
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
-      - controller_data:/var/lib/zerotier-one
-      - zero-ui_data:/app/backend/data
+      #- ./controller_data:/var/lib/zerotier-one
+      - /var/lib/zerotier-one:/var/lib/zerotier-one
+      - ./zero-ui_data:/app/config
     environment:
-      - ZU_CONTROLLER_ENDPOINT=http://zerotier:9993/
-      - ZU_SECURE_HEADERS=true
+      - ZU_CONTROLLER_ENDPOINT=http://docker-host:9993/
       - ZU_DEFAULT_USERNAME=admin
-      - ZU_DEFAULT_PASSWORD=zero-ui
+      - ZU_DEFAULT_PASSWORD=geheim
+      #- FLASK_ENV=development
     expose:
-      - "4000"
-  https-proxy:
-    image: caddy:latest
-    container_name: zu-https-proxy
-    restart: unless-stopped
-    depends_on:
-      - zero-ui
-    command: caddy reverse-proxy --from example.com --to zero-ui:4000
-    volumes:
-      - caddy_data:/data
+      - "80"
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+#  https-proxy:
+#    image: caddy:latest
+#    container_name: zu-https-proxy
+#    restart: unless-stopped
+#    depends_on:
+#      - zero-ui
+#    command: caddy reverse-proxy --from example.com --to zero-ui:80
+#    volumes:
+#      - caddy_data:/data
+#    ports:
+#      - "80:80"
+#      - "443:443"
 
-volumes:
-  zero-ui_data:
-  controller_data:
-  caddy_data:
+#volumes:
+#  zero-ui_data:
+#  controller_data:
+#  caddy_data:
