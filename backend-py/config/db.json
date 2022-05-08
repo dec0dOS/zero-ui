@@ -1,0 +1,9 @@
+{
+    "users": {
+        "1": {
+            "username": "admin",
+            "salted_passwort": "$2b$12$leojcBt.FeMsX4i3NjQKQ.MRrI/TVg4sa7T/RI/zLOoDzDeDb4L5u",
+            "role": "admin"
+        }
+    }
+}

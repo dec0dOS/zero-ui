@@ -1,0 +1,26 @@
+[
+    {
+     "type": "MATCH_ETHERTYPE",
+     "not": true,
+     "or": false,
+     "etherType": 2048
+    },
+    {
+     "type": "MATCH_ETHERTYPE",
+     "not": true,
+     "or": false,
+     "etherType": 2054
+    },
+    {
+     "type": "MATCH_ETHERTYPE",
+     "not": true,
+     "or": false,
+     "etherType": 34525
+    },
+    {
+     "type": "ACTION_DROP"
+    },
+    {
+     "type": "ACTION_ACCEPT"
+    }
+   ]

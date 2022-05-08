@@ -11,20 +11,33 @@ COPY ./frontend /app/frontend
 RUN yarn build
 
 
-FROM node:lts-alpine
+### Node Backend
+#FROM node:lts-alpine
+#
+#WORKDIR /app/frontend/build
+#COPY --from=build-stage /app/frontend/build /app/frontend/build/
+#
+#WORKDIR /app/backend
+#COPY ./backend/package*.json /app/backend
+#RUN yarn install
+#
+#COPY ./backend /app/backend
+#
+#EXPOSE 4000
+#ENV NODE_ENV=production
+#ENV ZU_SECURE_HEADERS=true
+#ENV ZU_SERVE_FRONTEND=true
+#
+#CMD [ "node", "./bin/www" ]
 
-WORKDIR /app/frontend/build
-COPY --from=build-stage /app/frontend/build /app/frontend/build/
+#### Python Backend
+FROM tiangolo/uwsgi-nginx-flask:python3.9
 
-WORKDIR /app/backend
-COPY ./backend/package*.json /app/backend
-RUN yarn install
+COPY ./backend-py/requirements.txt /app/requirements.txt
 
-COPY ./backend /app/backend
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-EXPOSE 4000
-ENV NODE_ENV=production
-ENV ZU_SECURE_HEADERS=true
-ENV ZU_SERVE_FRONTEND=true
-
-CMD [ "node", "./bin/www" ]
+COPY ./backend-py /app
+COPY --from=build-stage /app/frontend/build /app/app/
+ENV FLASK_APP=main.py
+EXPOSE 80

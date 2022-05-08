@@ -1,0 +1,6 @@
+flask
+flask_cors
+bcrypt
+tinydb
+loguru
+requests
