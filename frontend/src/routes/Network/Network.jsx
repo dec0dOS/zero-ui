@@ -22,8 +22,8 @@ function Network() {
   const fetchData = useCallback(async () => {
     try {
       const network = await API.get("network/" + nwid);
-      setNetwork(network.data);
-      console.log("Current network:", network.data);
+      console.log("Current network:", network.data.data);
+      setNetwork(network.data.data);
     } catch (err) {
       if (err.response.status === 404) {
         history.push("/404");
@@ -72,7 +72,7 @@ function Network() {
       >
         <Grid item xs={10}>
           <Typography variant="h5">
-            You are not authorized. Please Log In
+            You are not authorized. Please Log In as Admin.
           </Typography>
         </Grid>
       </Grid>

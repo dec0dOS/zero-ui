@@ -19,10 +19,11 @@ function LogInUser() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  
+  const [, setLoggedInUsername] = useLocalStorage("user", null);
   const [, setLoggedIn] = useLocalStorage("loggedIn", false);
   const [, setToken] = useLocalStorage("token", null);
-
+  
   const history = useHistory();
 
   const handleClickOpen = () => {
@@ -57,10 +58,19 @@ function LogInUser() {
         password: password,
       })
       .then(function (response) {
-        setLoggedIn(true);
-        setToken(response.data.token);
-        handleClose();
-        history.go(0);
+        if (response.data.data.role === "admin") {
+          setLoggedIn(true);
+          setToken(response.data.data.token);
+          handleClose();
+          history.go(0); 
+        }
+        else {
+          setLoggedIn("user");
+          setLoggedInUsername(username)
+          setToken(response.data.data.token);
+          handleClose();
+          history.go(0); 
+        }
       })
       .catch(function (error) {
         setPassword("");

@@ -40,12 +40,16 @@ function Bar() {
     history.go(0);
   };
 
+  const onClickGoToManagment = () => {
+    history.push("/user-managment");
+  };
+
   const menuItems = [
-    // TODO: add settings page
-    // {
-    //   name: "Settings",
-    //   to: "/settings",
-    // },
+    {
+      name: "User Managment",
+      to: "/user-managment",
+      onclick: onClickGoToManagment,
+    },
     {
       name: "Log out",
       divide: true,

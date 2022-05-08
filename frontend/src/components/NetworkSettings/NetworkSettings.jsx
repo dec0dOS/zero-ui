@@ -18,6 +18,7 @@ import API from "utils/API";
 import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
 
 function NetworkSettings({ network, setNetwork }) {
+  console.log("NETWORK", network);
   const sendReq = async (data) => {
     try {
       const req = await API.post("/network/" + network["config"]["id"], data);

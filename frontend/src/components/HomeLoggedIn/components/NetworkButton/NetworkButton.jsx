@@ -19,12 +19,14 @@ function NetworkButton({ network }) {
           </ListItem>
           <Hidden mdDown>
             <ListItem className={classes.cidr}>
-              {network["config"]["ipAssignmentPools"] &&
-                network["config"]["ipAssignmentPools"][0] &&
+              {network["config"]["ipAssignmentPools"][0] ? (
                 getCIDRAddress(
                   network["config"]["ipAssignmentPools"][0]["ipRangeStart"],
                   network["config"]["ipAssignmentPools"][0]["ipRangeEnd"]
-                )}
+                )
+              ) : (
+                <div>NO IPs</div>
+              )}
             </ListItem>
           </Hidden>
         </List>

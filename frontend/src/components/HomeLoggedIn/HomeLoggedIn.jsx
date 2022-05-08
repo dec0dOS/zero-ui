@@ -9,6 +9,8 @@ import NetworkButton from "./components/NetworkButton";
 import API from "utils/API";
 import { generateNetworkConfig } from "utils/NetworkConfig";
 
+import Footer from "components/Footer/Footer";
+
 function HomeLoggedIn() {
   const [networks, setNetworks] = useState([]);
 
@@ -18,14 +20,14 @@ function HomeLoggedIn() {
   const createNetwork = async () => {
     const network = await API.post("network", generateNetworkConfig());
     console.log(network);
-    history.push("/network/" + network.data["config"]["id"]);
+    history.push("/network/" + network.data.data["config"]["id"]);
   };
 
   useEffect(() => {
     async function fetchData() {
       const networks = await API.get("network");
-      setNetworks(networks.data);
-      console.log("Networks:", networks.data);
+      setNetworks(networks.data.data);
+      console.log("Networks:", networks.data.data);
     }
     fetchData();
   }, []);
@@ -64,6 +66,7 @@ function HomeLoggedIn() {
           </Grid>
         </Grid>
       </Grid>
+      <Footer></Footer>
     </div>
   );
 }

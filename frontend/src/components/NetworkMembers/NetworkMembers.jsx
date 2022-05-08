@@ -27,8 +27,8 @@ function NetworkMembers({ network }) {
   const fetchData = useCallback(async () => {
     try {
       const members = await API.get("network/" + nwid + "/member");
-      setMembers(members.data);
-      console.log("Members:", members.data);
+      setMembers(members.data.data);
+      console.log("Members:", members.data.data);
     } catch (err) {
       console.error(err);
     }
