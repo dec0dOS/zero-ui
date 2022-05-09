@@ -38,6 +38,9 @@ COPY ./backend-py/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 COPY ./backend-py /app
+
+ENV UWSGI_INI /app/uwsgi.ini
+
 COPY --from=build-stage /app/frontend/build /app/app/
 ENV FLASK_APP=main.py
 EXPOSE 80
