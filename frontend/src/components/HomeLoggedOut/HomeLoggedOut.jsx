@@ -1,6 +1,19 @@
 import { Grid, Typography } from "@material-ui/core";
+import { useLocalStorage } from "react-use";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function HomeLoggedOut() {
+  const [, setLoggedIn] = useLocalStorage("loggedIn", false);
+  const [, setToken] = useLocalStorage("token", null);
+  const history = useHistory();
+  axios.get("/auth/login").then(function (response) {
+    if (!response.data.enabled) {
+      setLoggedIn(true);
+      setToken("");
+      history.go(0);
+    }
+  });
   return (
     <Grid
       container
