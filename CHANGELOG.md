@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/dec0dOS/zero-ui/compare/v1.2.2...v1.3.0) (2022-05-24)
+
+### Features
+
+- disable auth ([#59](https://github.com/dec0dOS/zero-ui/issues/59)) ([e7fb4d0](https://github.com/dec0dOS/zero-ui/commit/e7fb4d0aa84c26493b58a1cd3349fd98a2861191))
+
 ### [1.2.2](https://github.com/dec0dOS/zero-ui/compare/v1.2.1...v1.2.2) (2022-04-26)
 
 ### Bug Fixes
