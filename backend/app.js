@@ -18,7 +18,7 @@ const app = express();
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-if (process.env.ZU_DISABLE_AUTH === "true") {
+if (process.env.ZU_DISABLE_AUTH !== "true") {
   app.use(
     bearerToken({
       headerKey: "Bearer",
