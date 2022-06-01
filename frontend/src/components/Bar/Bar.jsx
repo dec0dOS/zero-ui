@@ -47,11 +47,15 @@ function Bar() {
     //   name: "Settings",
     //   to: "/settings",
     // },
-    !disabledAuth && {
-      name: "Log out",
-      divide: true,
-      onClick: onLogOutClick,
-    },
+    ...(!disabledAuth
+      ? [
+          {
+            name: "Log out",
+            divide: true,
+            onClick: onLogOutClick,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -74,69 +78,68 @@ function Bar() {
           </Typography>
         </Box>
         {/* The filter removes all elements that are "true" or "false" */}
-        {loggedIn &&
-          menuItems.filter((e) => typeof e !== "boolean").length > 0 && (
-            <>
-              <Button color="inherit" onClick={openMenu}>
-                <MenuIcon></MenuIcon>
-              </Button>
+        {loggedIn && menuItems.length > 0 && (
+          <>
+            <Button color="inherit" onClick={openMenu}>
+              <MenuIcon></MenuIcon>
+            </Button>
 
-              <Menu
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={closeMenu}
-              >
-                {menuItems.map((menuItem, index) => {
-                  if (
-                    menuItem.hasOwnProperty("condition") &&
-                    !menuItem.condition
-                  ) {
-                    return null;
-                  }
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={closeMenu}
+            >
+              {menuItems.map((menuItem, index) => {
+                if (
+                  menuItem.hasOwnProperty("condition") &&
+                  !menuItem.condition
+                ) {
+                  return null;
+                }
 
-                  let component = null;
+                let component = null;
 
-                  if (menuItem.to) {
-                    component = (
-                      <MenuItem
-                        key={index}
-                        component={RouterLink}
-                        to={menuItem.to}
-                        onClick={closeMenu}
-                      >
-                        {menuItem.name}
-                      </MenuItem>
-                    );
-                  } else {
-                    component = (
-                      <MenuItem
-                        key={index}
-                        onClick={() => {
-                          closeMenu();
+                if (menuItem.to) {
+                  component = (
+                    <MenuItem
+                      key={index}
+                      component={RouterLink}
+                      to={menuItem.to}
+                      onClick={closeMenu}
+                    >
+                      {menuItem.name}
+                    </MenuItem>
+                  );
+                } else {
+                  component = (
+                    <MenuItem
+                      key={index}
+                      onClick={() => {
+                        closeMenu();
 
-                          menuItem.onClick();
-                        }}
-                      >
-                        {menuItem.name}
-                      </MenuItem>
-                    );
-                  }
+                        menuItem.onClick();
+                      }}
+                    >
+                      {menuItem.name}
+                    </MenuItem>
+                  );
+                }
 
-                  if (menuItem.divide) {
-                    return (
-                      <span key={index}>
-                        <Divider />
+                if (menuItem.divide) {
+                  return (
+                    <span key={index}>
+                      <Divider />
 
-                        {component}
-                      </span>
-                    );
-                  }
+                      {component}
+                    </span>
+                  );
+                }
 
-                  return component;
-                })}
-              </Menu>
-            </>
-          )}
+                return component;
+              })}
+            </Menu>
+          </>
+        )}
         {!loggedIn && LogIn()}
       </Toolbar>
     </AppBar>
