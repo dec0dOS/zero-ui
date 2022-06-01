@@ -14,6 +14,8 @@ function HomeLoggedOut() {
       setDisableAuth(true);
       setToken("");
       history.go(0);
+    } else {
+      setDisableAuth(false);
     }
   });
   return (
