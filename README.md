@@ -250,7 +250,7 @@ To set up a development environment, please follow these steps:
    ```
 2. Install packages
    ```sh
-   yarn install && yarn installDeps
+   yarn install
    ```
 3. Start the development server
    ```sh

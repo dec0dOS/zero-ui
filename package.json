@@ -7,7 +7,6 @@
   ],
   "scripts": {
     "postinstall": "husky install",
-    "installDeps": "cd frontend && yarn install && cd ../backend && yarn install",
     "upgradeDeps": "yarn upgrade-interactive",
     "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
     "lint": "yarn prettier --write .",
@@ -52,5 +51,5 @@
       "yarn prettier --write"
     ]
   },
-  "packageManager": "yarn@3.2.0-rc.8"
+  "packageManager": "yarn@3.2.1"
 }
