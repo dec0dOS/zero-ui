@@ -31,7 +31,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "homepage": "/app",
-  "proxy": "http://localhost:4000",
+  "proxy": "http://127.0.0.1:4000",
   "eslintConfig": {
     "extends": "react-app"
   },
