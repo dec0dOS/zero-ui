@@ -139,7 +139,7 @@ The most simple one-minute installation. Great for the fresh VPS setup.
 7. Navigate to `https://YOURDOMAIN.com/app/`.
    Now you could use your ZeroUI instance with HTTPS support and automated certificate renewal.
 
-> To disable HTTPS, please remove https-proxy from `docker-compose.yml`, set `ZU_SECURE_HEADERS` to `false` and change zero-ui port `expose` to `ports`.
+> To disable HTTPS, remove the `https-proxy` from `docker-compose.yml`, set `ZU_SECURE_HEADERS` to `false` and change zero-ui port `expose` to `ports`.
 
 Advanced manual setups are also supported. Check the following environment variables as a reference:
 | Name | Default value | Description |
@@ -158,7 +158,7 @@ Advanced manual setups are also supported. Check the following environment varia
 ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
 <details>
-<summary>Controller setup tips</summary>
+<summary>Controller setup tips (outside the Docker)</summary>
 <br>
 
 If you are using the existing controller on the host, it may be necessary to allow connection from the Docker container.
