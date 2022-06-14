@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
     depends_on:
       - zero-ui
-    command: caddy reverse-proxy --from example.com --to zero-ui:4000
+    command: caddy reverse-proxy --from YOURDOMAIN.com --to zero-ui:4000
     volumes:
       - caddy_data:/data
     ports:

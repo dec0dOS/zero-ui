@@ -110,7 +110,7 @@ The most simple one-minute installation. Great for the fresh VPS setup.
    ```sh
    curl -L -O https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
    ```
-2. Replace `example.com` with your domain name in `docker-compose.yml`
+2. Replace `YOURDOMAIN.com` with your domain name in `docker-compose.yml`
 3. Pull the images
    ```sh
    docker-compose pull
