@@ -49,14 +49,3 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep_zero-ui.outputs.tags }}
-
-      - name: Build and push zerotier-controller
-        id: docker_build_zerotier-controller
-        uses: docker/build-push-action@master
-        with:
-          context: ./
-          file: ./docker/zerotier/Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd64,linux/arm64,linux/arm
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/zerotier-controller:latest

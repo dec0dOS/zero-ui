@@ -2,14 +2,14 @@ version: "3.9"
 
 services:
   zerotier:
-    image: dec0dos/zerotier-controller:latest
+    image: zyclonite/zerotier:1.10.0
     container_name: zu-controller
-    build:
-      context: .
-      dockerfile: ./docker/zerotier/Dockerfile
     restart: unless-stopped
     volumes:
       - controller_data:/var/lib/zerotier-one
+    environment:
+      - ZT_OVERRIDE_LOCAL_CONF=true
+      - ZT_ALLOW_MANAGEMENT_FROM=0.0.0.0/0
     expose:
       - "9993/tcp"
     ports:
