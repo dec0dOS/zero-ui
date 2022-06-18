@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useLocalStorage } from "react-use";
-import axios from "axios";
 
 import { Divider, Button, Grid, Typography, Box } from "@material-ui/core";
 import useStyles from "./HomeLoggedIn.styles";
@@ -13,21 +11,9 @@ import { generateNetworkConfig } from "utils/NetworkConfig";
 
 function HomeLoggedIn() {
   const [networks, setNetworks] = useState([]);
-  const [, setLoggedIn] = useLocalStorage("loggedIn", false);
-  const [, setDisableAuth] = useLocalStorage("disableAuth", false);
-  const [token, setToken] = useLocalStorage("token", null);
 
   const classes = useStyles();
   const history = useHistory();
-
-  axios.get("/auth/login").then(function (response) {
-    if (response.data.enabled) {
-      setDisableAuth(false);
-      if (!token || token.length === 0) {
-        setLoggedIn(false);
-      }
-    }
-  });
 
   const createNetwork = async () => {
     const network = await API.post("network", generateNetworkConfig());
