@@ -153,7 +153,7 @@ Advanced manual setups are also supported. Check the following environment varia
 | ZU_DEFAULT_USERNAME | unset (`docker-compose.yml`: admin) | Default username that will be set on the first run |
 | ZU_DEFAULT_PASSWORD | unset (`docker-compose.yml`: zero-ui) | Default password that will be set on the first run |
 | ZU_DATAPATH | `data/db.json` | ZeroUI data storage path |
-| ZU_DISABLE_AUTH | unset | If set to true, automatically log in all users. This is useful if ZeroUI is protected by an authentication proxy |
+| ZU_DISABLE_AUTH | unset | If set to true, automatically log in all users. This is useful if ZeroUI is protected by an authentication proxy. Note that when this value is changed, the localStorage of instances of logged-in panels should be cleared |
 
 ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
