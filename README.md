@@ -10,9 +10,9 @@
     <a href="https://github.com/dec0dOS/zero-ui/blob/main/docs/SCREENSHOTS.md"><strong>Explore the screenshots »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/dec0dOS/zero-ui/issues">Report Bug</a>
+    <a href="https://github.com/dec0dOS/zero-ui/issues">Bug Report</a>
     ·
-    <a href="https://github.com/dec0dOS/zero-ui/issues">Request Feature</a>
+    <a href="https://github.com/dec0dOS/zero-ui/issues">Feature Request</a>
     ·
     <a href="https://github.com/dec0dOS/zero-ui/discussions">Ask a Question</a>
   </p>
@@ -247,6 +247,7 @@ To set up a development environment, please follow these steps:
 1. Clone the repo
    ```sh
    git clone https://github.com/dec0dOS/zero-ui.git
+   cd zero-ui
    ```
 2. Install packages
    ```sh
@@ -273,7 +274,6 @@ _For other platforms, please refer to [ZeroTier manual](https://www.zerotier.com
 Reach out to me at one of the following places:
 
 - [GitHub Discussions](https://github.com/dec0dOS/zero-ui/discussions)
-- Email in [GitHub profile](https://github.com/dec0dOS)
 
 ## Security
 
