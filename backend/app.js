@@ -18,11 +18,13 @@ const app = express();
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  bearerToken({
-    headerKey: "Bearer",
-  })
-);
+if (process.env.ZU_DISABLE_AUTH !== "true") {
+  app.use(
+    bearerToken({
+      headerKey: "Bearer",
+    })
+  );
+}
 
 if (
   process.env.NODE_ENV === "production" &&

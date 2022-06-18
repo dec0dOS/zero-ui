@@ -21,6 +21,7 @@ import LogIn from "components/LogIn";
 
 function Bar() {
   const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
+  const [disabledAuth] = useLocalStorage("disableAuth", false);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const history = useHistory();
@@ -46,11 +47,15 @@ function Bar() {
     //   name: "Settings",
     //   to: "/settings",
     // },
-    {
-      name: "Log out",
-      divide: true,
-      onClick: onLogOutClick,
-    },
+    ...(!disabledAuth
+      ? [
+          {
+            name: "Log out",
+            divide: true,
+            onClick: onLogOutClick,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -72,8 +77,7 @@ function Bar() {
             </Link>
           </Typography>
         </Box>
-
-        {loggedIn && (
+        {loggedIn && menuItems.length > 0 && (
           <>
             <Button color="inherit" onClick={openMenu}>
               <MenuIcon></MenuIcon>

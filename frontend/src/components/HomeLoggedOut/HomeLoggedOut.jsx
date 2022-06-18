@@ -6,12 +6,16 @@ import { useHistory } from "react-router-dom";
 function HomeLoggedOut() {
   const [, setLoggedIn] = useLocalStorage("loggedIn", false);
   const [, setToken] = useLocalStorage("token", null);
+  const [, setDisableAuth] = useLocalStorage("disableAuth", false);
   const history = useHistory();
   axios.get("/auth/login").then(function (response) {
     if (!response.data.enabled) {
       setLoggedIn(true);
+      setDisableAuth(true);
       setToken("");
       history.go(0);
+    } else {
+      setDisableAuth(false);
     }
   });
   return (
