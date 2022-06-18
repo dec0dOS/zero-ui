@@ -13,16 +13,18 @@ function HomeLoggedOut() {
 
   useEffect(() => {
     async function fetchData() {
-      axios.get("/auth/login").then(function (response) {
-        if (!response.data.enabled) {
-          setLoggedIn(true);
-          setDisableAuth(true);
-          setToken("");
-          history.go(0);
-        } else {
-          setDisableAuth(false);
-        }
-      });
+      axios
+        .get("/auth/login", { withCredentials: true })
+        .then(function (response) {
+          if (!response.data.enabled) {
+            setLoggedIn(true);
+            setDisableAuth(true);
+            setToken("");
+            history.go(0);
+          } else {
+            setDisableAuth(false);
+          }
+        });
     }
     fetchData();
   }, [history, setDisableAuth, setLoggedIn, setToken]);
