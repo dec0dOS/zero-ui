@@ -77,7 +77,6 @@ function Bar() {
             </Link>
           </Typography>
         </Box>
-        {/* The filter removes all elements that are "true" or "false" */}
         {loggedIn && menuItems.length > 0 && (
           <>
             <Button color="inherit" onClick={openMenu}>
