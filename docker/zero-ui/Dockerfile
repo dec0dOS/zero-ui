@@ -3,16 +3,14 @@ FROM --platform=$BUILDPLATFORM node:lts-alpine as frontend-build
 ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
 
-WORKDIR /app
-COPY package.json /app
-COPY .yarnrc.yml /app/.yarnrc.yml
-COPY .yarn /app/.yarn
-
+WORKDIR /app/frontend
+COPY yarn.lock .yarnrc.yml ./
+COPY .yarn/ ./.yarn/
 COPY ./frontend/package*.json /app/frontend
-RUN yarn workspace frontend install
+RUN yarn install
 
 COPY ./frontend /app/frontend
-RUN yarn workspace frontend build
+RUN yarn build
 
 
 FROM node:lts-alpine
@@ -20,13 +18,11 @@ FROM node:lts-alpine
 WORKDIR /app/frontend/build
 COPY --from=frontend-build /app/frontend/build /app/frontend/build/
 
-WORKDIR /app
-COPY package.json /app
-COPY .yarnrc.yml /app/.yarnrc.yml
-COPY .yarn /app/.yarn
-
+WORKDIR /app/backend
+COPY yarn.lock .yarnrc.yml ./
+COPY .yarn/ ./.yarn/
 COPY ./backend/package*.json /app/backend
-RUN yarn workspace backend install
+RUN yarn install
 
 COPY ./backend /app/backend
 
@@ -34,7 +30,5 @@ EXPOSE 4000
 ENV NODE_ENV=production
 ENV ZU_SECURE_HEADERS=true
 ENV ZU_SERVE_FRONTEND=true
-
-WORKDIR /app/backend
 
 CMD [ "node", "./bin/www" ]
