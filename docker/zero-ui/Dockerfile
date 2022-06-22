@@ -1,4 +1,4 @@
-FROM node:lts-alpine as build-stage
+FROM --platform=$BUILDPLATFORM node:lts-alpine as frontend-build
 
 ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
@@ -14,7 +14,7 @@ RUN yarn build
 FROM node:lts-alpine
 
 WORKDIR /app/frontend/build
-COPY --from=build-stage /app/frontend/build /app/frontend/build/
+COPY --from=frontend-build /app/frontend/build /app/frontend/build/
 
 WORKDIR /app/backend
 COPY ./backend/package*.json /app/backend
