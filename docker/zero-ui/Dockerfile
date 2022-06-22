@@ -4,7 +4,8 @@ ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
 
 WORKDIR /app
-COPY ./.yarn /app
+COPY .yarnrc.yml /app/.yarnrc.yml
+COPY .yarn /app/.yarn
 
 COPY ./frontend/package*.json /app/frontend
 RUN yarn workspace frontend install
@@ -19,7 +20,8 @@ WORKDIR /app/frontend/build
 COPY --from=frontend-build /app/frontend/build /app/frontend/build/
 
 WORKDIR /app
-COPY ./.yarn /app
+COPY .yarnrc.yml /app/.yarnrc.yml
+COPY .yarn /app/.yarn
 
 COPY ./backend/package*.json /app/backend
 RUN yarn workspace backend install
