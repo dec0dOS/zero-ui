@@ -4,6 +4,7 @@ ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
 
 WORKDIR /app
+COPY package.json /app
 COPY .yarnrc.yml /app/.yarnrc.yml
 COPY .yarn /app/.yarn
 
@@ -20,6 +21,7 @@ WORKDIR /app/frontend/build
 COPY --from=frontend-build /app/frontend/build /app/frontend/build/
 
 WORKDIR /app
+COPY package.json /app
 COPY .yarnrc.yml /app/.yarnrc.yml
 COPY .yarn /app/.yarn
 
