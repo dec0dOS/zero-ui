@@ -119,7 +119,7 @@ The most simple one-minute installation. Great for the fresh VPS setup.
    ```sh
     docker-compose up -d --no-build
    ```
-5. Check if everything is okay (CTRL-C to stop log preview)
+5. Check if everything is okay (`CTRL-C` to stop log preview)
    ```sh
     docker-compose logs -f
    ```
@@ -139,7 +139,7 @@ The most simple one-minute installation. Great for the fresh VPS setup.
 7. Navigate to `https://YOURDOMAIN.com/app/`.
    Now you could use your ZeroUI instance with HTTPS support and automated certificate renewal.
 
-> To disable HTTPS, remove the `https-proxy` from `docker-compose.yml`, set `ZU_SECURE_HEADERS` to `false` and change zero-ui port `expose` to `ports`.
+> To disable Caddy proxy and HTTPS, remove the `https-proxy` from `docker-compose.yml`, set `ZU_SECURE_HEADERS` to `false` and change zero-ui port `expose` to `ports`.
 
 Advanced manual setups are also supported. Check the following environment variables as a reference:
 | Name | Default value | Description |
