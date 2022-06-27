@@ -113,7 +113,7 @@ The most simple one-minute installation. Great for the fresh VPS setup.
 2. Replace `YOURDOMAIN.com` with your domain name in `docker-compose.yml`
 3. Pull the images
    ```sh
-   docker-compose pull
+   docker pull dec0dos/zero-ui
    ```
 4. Run the containers
    ```sh
