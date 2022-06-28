@@ -157,6 +157,8 @@ Advanced manual setups are also supported. Check the following environment varia
 
 ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
+For Ansible Role, please refer to [zero-ui-ansible repo](https://github.com/dec0dOS/zero-ui-ansible).
+
 <details>
 <summary>Controller setup tips (outside the Docker)</summary>
 <br>
