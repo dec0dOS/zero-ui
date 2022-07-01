@@ -96,7 +96,7 @@ Deploy:
 The recommended method to install ZeroUI is by using Docker and Docker Compose.
 To install [Docker](https://docs.docker.com/get-docker) and [Docker Compose](https://docs.docker.com/compose/install) on your system, please follow the installation guide from the [official Docker documentation](https://docs.docker.com/get-docker).
 
-For HTTPS setup you will need a domain name.
+For HTTPS setup you will need a domain name. You can get it for free on https://www.duckdns.org
 
 ### Installation
 
