@@ -12,6 +12,7 @@ const authRoutes = require("./routes/auth");
 const networkRoutes = require("./routes/network");
 const memberRoutes = require("./routes/member");
 const controllerRoutes = require("./routes/controller");
+const downFileRoutes = require("./routes/downfile");
 
 const app = express();
 
@@ -64,6 +65,7 @@ routerController.use("", controllerRoutes);
 app.use("/auth", authRoutes);
 app.use("/api", routerAPI); // offical SaaS API compatible
 app.use("/controller", routerController); // other controller-specific routes
+app.use("/downfile", downFileRoutes); // file download routes
 
 // error handlers
 app.get("*", async function (req, res) {
