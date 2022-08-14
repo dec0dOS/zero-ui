@@ -7,26 +7,64 @@ require("dotenv").config();
 
 var app = require("../app");
 var debug = require("debug")("zero-ui:server");
+var fs = require("fs");
 var http = require("http");
+var https = require("https");
+var path = require("path");
+
+const cert_path = path.join(__dirname, "..", "tls", "fullchain.pem");
+const privkey_path = path.join(__dirname, "..", "tls", "privkey.pem");
+
+let can_read_cert = true,
+  can_read_privkey = true;
+let statOptions = { throwIfNoEntry: false };
+let cert_stat = fs.statSync(cert_path, statOptions);
+let privkey_stat = fs.statSync(privkey_path, statOptions);
+
+if (!cert_stat) {
+  console.error(`cannot read cert at ${cert_path}`);
+  can_read_cert = false;
+}
+
+if (!privkey_stat) {
+  console.error(`cannot read privkey at ${privkey_path}`);
+  can_read_privkey = false;
+}
+
+let can_use_tls = can_read_cert && can_read_privkey;
+let server;
+if (can_use_tls) {
+  // only start HTTP server if we cannot find cert and key.
+  let option = {
+    key: fs.readFileSync(privkey_path),
+    cert: fs.readFileSync(cert_path),
+    honorCipherOrder: true,
+    minVersion: "TLSv1.3",
+  };
+  server = https.createServer(option, app);
+  debug("setting up TLS server");
+} else {
+  server = http.createServer(app);
+  debug("setting up HTTP server");
+}
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || "4000");
+var port = normalizePort(process.env.ZU_LISTEN_PORT || "4000");
 app.set("port", port);
-
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, process.env.LISTEN_ADDRESS || "0.0.0.0");
+if (can_use_tls) {
+  // only bind to all network interfaces if TLS is available.
+  server.listen(port, process.env.LISTEN_ADDRESS || "0.0.0.0");
+} else {
+  server.listen(port, process.env.LISTEN_ADDRESS || "localhost");
+}
 server.on("error", onError);
 server.on("listening", onListening);
 
