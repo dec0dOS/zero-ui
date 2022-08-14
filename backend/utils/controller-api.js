@@ -7,7 +7,21 @@ var token;
 if (process.env.ZU_CONTROLLER_TOKEN) {
   token = process.env.ZU_CONTROLLER_TOKEN;
 } else {
-  token = fs.readFileSync("/var/lib/zerotier-one/authtoken.secret", "utf8");
+  if (process.platform === "unix") {
+    token = fs.readFileSync("/var/lib/zerotier-one/authtoken.secret", "utf8");
+  } else if (process.platform === "win32") {
+    token = fs.readFileSync(
+      "C:\\ProgramData\\ZeroTier\\One\\authtoken.secret",
+      "utf8"
+    );
+  } else if (process.platform === "darwin") {
+    token = fs.readFileSync(
+      "/Library/Application Support/ZeroTier/One/authtoken.secret",
+      "utf8"
+    );
+  } else {
+    throw `Unsupported platform ${process.platform}`;
+  }
 }
 
 module.exports = axios.create({
