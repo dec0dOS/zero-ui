@@ -84,7 +84,7 @@ function ManagedRoutes({ routes, handleChange }) {
   return (
     <>
       <Typography style={{ paddingBottom: "10px" }}>
-        Managed Routes ({routes.length})
+        Managed Routes ({routes.length  + "/128"})
       </Typography>
       <Box border={1} borderColor="grey.300">
         <Grid item style={{ margin: "10px" }}>
