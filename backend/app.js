@@ -4,9 +4,11 @@ const logger = require("morgan");
 const compression = require("compression");
 const bearerToken = require("express-bearer-token");
 const helmet = require("helmet");
+const cron = require("node-cron");
 
 const db = require("./utils/db");
 const initAdmin = require("./utils/init-admin");
+const pingAll = require("./utils/ping");
 
 const authRoutes = require("./routes/auth");
 const networkRoutes = require("./routes/network");
@@ -73,5 +75,14 @@ app.use(async function (err, req, res) {
   console.error(err.stack); // TODO: replace with production logger
   res.status(500).json({ error: "500 Internal server error" });
 });
+
+// ping all networks every 5 minutes
+cron.schedule('5 * * * *', () => {
+  const networks = db.get('networks').value();
+  networks.forEach((network) => {
+    pingAll(network);
+  })
+});
+
 
 module.exports = app;
