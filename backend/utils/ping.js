@@ -2,7 +2,7 @@ const api = require("./controller-api");
 const db = require("./db");
 
 export default pingAll;
-const pingAll = async (network) => {
+async function pingAll (network) {
     await Promise.all(network.members.map((async (member) => {
         try {
             await api.get("peer/" + member.id);
