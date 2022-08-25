@@ -25,13 +25,14 @@ async function getMemberAdditionalData(data) {
   network.defaults({ members: [] }).get("members").write();
   // END MIGRATION SECTION
 
-  const additionalData = db
+  const member = db
     .get("networks")
     .find({ id: data.nwid })
     .get("members")
-    .find({ id: data.id })
-    .get("additionalConfig")
-    .value();
+    .find({ id: data.id });
+
+  const additionalData = member.get("additionalConfig").value();
+  const lastOnline = member.get("lastOnline").value() || 0;
 
   const peer = await getPeer(data.id);
   let peerData = {};
@@ -57,11 +58,11 @@ async function getMemberAdditionalData(data) {
 
   return {
     id: data.nwid + "-" + data.id,
-    type: "Member",
-    clock: Math.floor(new Date().getTime() / 1000),
+    clock: new Date().getTime(),
     networkId: data.nwid,
     nodeId: data.id,
     controllerId: ZT_ADDRESS,
+    lastOnline: lastOnline,
     ...additionalData,
     ...peerData,
     config: data,
