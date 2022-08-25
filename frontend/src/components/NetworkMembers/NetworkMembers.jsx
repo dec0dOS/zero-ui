@@ -99,7 +99,7 @@ function NetworkMembers({ network }) {
     },
     {
       id: "status",
-      name: "Last seen",
+      name: "Last Seen",
       minWidth: "100px",
       cell: (row) =>
         row.online === 1 ? (
