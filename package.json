@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "husky install",
     "upgradeDeps": "yarn upgrade-interactive",
+    "upgradeYarn": "yarn set version latest",
     "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
     "lint": "yarn prettier --write .",
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
@@ -51,5 +52,5 @@
       "yarn prettier --write"
     ]
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.3"
 }

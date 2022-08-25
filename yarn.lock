@@ -6348,7 +6348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.16.1":
+"date-fns@npm:^2.16.1, date-fns@npm:^2.29.2":
   version: 2.29.2
   resolution: "date-fns@npm:2.29.2"
   checksum: 08bebcceb0a5dbadae4c55e6592b9d5c07dbd7833433c7e9a1d4a424300db32589b8b48e5979b32863c9b00a48d9bab6663e580c2a4f9f203d46cbf9113b5664
@@ -8211,6 +8211,7 @@ __metadata:
     "@uiw/react-codemirror": ^3.1.0
     axios: ^0.27.2
     codemirror: ^5.62.3
+    date-fns: ^2.29.2
     history: ^5.3.0
     ipaddr.js: ^2.0.1
     lodash: ^4.17.21
