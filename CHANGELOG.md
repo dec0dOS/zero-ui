@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/dec0dOS/zero-ui/compare/v1.4.1...v1.5.0) (2022-08-25)
+
+### Features
+
+- **backend:** add cron and ping members ([d3fdac6](https://github.com/dec0dOS/zero-ui/commit/d3fdac61bdd95c7ff42e7db373cd3973d42ca8ce))
+- last online ([40f98cc](https://github.com/dec0dOS/zero-ui/commit/40f98cc9df322f2b8b4c4a8baed96c96fd2c56d7))
+
 ### [1.4.1](https://github.com/dec0dOS/zero-ui/compare/v1.4.0...v1.4.1) (2022-06-22)
 
 ## [1.4.0](https://github.com/dec0dOS/zero-ui/compare/v1.3.2...v1.4.0) (2022-06-18)
