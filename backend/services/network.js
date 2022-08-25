@@ -23,8 +23,7 @@ async function getNetworkAdditionalData(data) {
 
   return {
     id: data.id,
-    type: "Network",
-    clock: Math.floor(new Date().getTime() / 1000),
+    clock: new Date().getTime(),
     ...additionalData.value(),
     config: data,
   };

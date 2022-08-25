@@ -69,8 +69,8 @@ function NetworkSettings({ network, setNetwork }) {
               value={network["description"]}
               onChange={handleChange("description")}
               multiline
-              rows={2}
-              rowsMax={Infinity}
+              minRows={2}
+              maxRows={Infinity}
               label="Description"
               variant="filled"
               InputLabelProps={{

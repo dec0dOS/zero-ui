@@ -4,9 +4,11 @@ const logger = require("morgan");
 const compression = require("compression");
 const bearerToken = require("express-bearer-token");
 const helmet = require("helmet");
+const cron = require("node-cron");
 
 const db = require("./utils/db");
 const initAdmin = require("./utils/init-admin");
+const pingAll = require("./utils/ping");
 
 const authRoutes = require("./routes/auth");
 const networkRoutes = require("./routes/network");
@@ -21,9 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 if (process.env.ZU_DISABLE_AUTH !== "true") {
   app.use(
     bearerToken({
-      headerKey: "Bearer",
+      headerKey: "token",
     })
   );
+}
+
+if (process.env.NODE_ENV === "production") {
+  console.debug = function () {};
 }
 
 if (
@@ -53,6 +59,18 @@ if (
 initAdmin().then(function (admin) {
   db.defaults({ users: [admin], networks: [] }).write();
 });
+
+if (process.env.ZU_LAST_SEEN_FETCH !== "false") {
+  let schedule = process.env.ZU_LAST_SEEN_SCHEDULE || "*/5 * * * *";
+  cron.schedule(schedule, () => {
+    console.debug("Running scheduled job");
+    const networks = db.get("networks").value();
+    networks.forEach((network) => {
+      console.debug("Processing " + network.id);
+      pingAll(network);
+    });
+  });
+}
 
 const routerAPI = express.Router();
 const routerController = express.Router();

@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "husky install",
     "upgradeDeps": "yarn upgrade-interactive",
+    "upgradeYarn": "yarn set version latest",
     "cleanDeps": "cd frontend && rimraf node_modules && cd ../backend && rimraf node_modules && cd .. && rimraf node_modules",
     "lint": "yarn prettier --write .",
     "dev": "concurrently \"cd frontend && cross-env FAST_REFRESH=true yarn start\" \"cd backend && cross-env NODE_ENV=development ZU_DEFAULT_USERNAME=admin ZU_DEFAULT_PASSWORD=zero-ui nodemon ./bin/www --ignore data/db.json\"",
@@ -17,15 +18,15 @@
     "commit": "yarn git-cz"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.2",
-    "@commitlint/config-conventional": "^17.0.2",
-    "commitizen": "^4.2.4",
-    "concurrently": "^7.2.2",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "commitizen": "^4.2.5",
+    "concurrently": "^7.3.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.2",
-    "nodemon": "^2.0.16",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "standard-version": "^9.5.0"
@@ -51,5 +52,5 @@
       "yarn prettier --write"
     ]
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.3"
 }

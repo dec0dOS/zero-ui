@@ -10,6 +10,6 @@ export default axios.create({
     localStorage.getItem("disableAuth") === "true"
       ? {}
       : {
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+          Authorization: `token ${JSON.parse(localStorage.getItem("token"))}`,
         },
 });

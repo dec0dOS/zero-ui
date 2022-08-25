@@ -14,6 +14,7 @@ import DataTable from "react-data-table-component";
 import { useParams } from "react-router-dom";
 import API from "utils/API";
 import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
+import { formatDistance } from "date-fns";
 import AddMember from "./components/AddMember";
 import DeleteMember from "./components/DeleteMember";
 import ManagedIP from "./components/ManagedIP";
@@ -98,40 +99,40 @@ function NetworkMembers({ network }) {
     },
     {
       id: "status",
-      name: "Peer status",
+      name: "Last Seen",
       minWidth: "100px",
       cell: (row) =>
-        row.online === 0 ? (
-          <Typography color="error">OFFLINE</Typography>
-        ) : row.online === 1 ? (
-          <Typography style={{ color: "#008000" }}>
-            {"ONLINE (v" +
-              row.config.vMajor +
-              "." +
-              row.config.vMinor +
-              "." +
-              row.config.vRev +
-              ")"}
+        row.online === 1 ? (
+          <Typography style={{ color: "#008000" }}>{"ONLINE"}</Typography>
+        ) : row.controllerId === row.config.address ? (
+          <Typography style={{ color: "#c5e31e" }}>{"CONTROLLER"}</Typography>
+        ) : row.online === 0 ? (
+          <Typography color="error">
+            {row.lastOnline !== 0
+              ? formatDistance(row.lastOnline, row.clock, {
+                  includeSeconds: false,
+                  addSuffix: true,
+                })
+              : "OFFLINE"}
           </Typography>
         ) : (
-          <Typography style={{ color: "#f1c232" }}>
-            {"RELAYED (v" +
-              row.config.vMajor +
-              "." +
-              row.config.vMinor +
-              "." +
-              row.config.vRev +
-              ")"}
-          </Typography>
+          <Typography style={{ color: "#f1c232" }}>{"RELAYED"}</Typography>
         ),
     },
     {
       id: "physicalip",
-      name: "Physical IP / Latency",
+      name: "Version / Physical IP / Latency",
       minWidth: "220px",
       cell: (row) =>
         row.online === 1 ? (
           <p>
+            {"v" +
+              row.config.vMajor +
+              "." +
+              row.config.vMinor +
+              "." +
+              row.config.vRev}
+            <br />
             {row.physicalAddress + "/" + row.physicalPort}
             <br />
             {"(" + row.latency + " ms)"}
@@ -181,7 +182,7 @@ function NetworkMembers({ network }) {
                 spacing={0}
                 direction="column"
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
                 style={{
                   minHeight: "50vh",
                 }}
