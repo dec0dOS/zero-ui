@@ -11,7 +11,7 @@
     "dotenv": "^16.0.1",
     "express": "~4.18.1",
     "express-bearer-token": "^2.4.0",
-    "helmet": "^5.1.0",
+    "helmet": "^5.1.1",
     "lodash": "^4.17.21",
     "lowdb": "^1.0.0",
     "morgan": "~1.10.0",
