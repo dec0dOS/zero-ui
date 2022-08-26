@@ -7,8 +7,8 @@ import {
   Paper,
   Select,
   Typography,
-} from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useEffect, useState } from "react";
 import { useDebounce } from "react-use";
 
@@ -100,7 +100,7 @@ function Tag({ member, tagName, tagDetail, handleChange }) {
             {tagValue === "" ? (
               ""
             ) : (
-              <IconButton aria-label="delete" onClick={clearTag}>
+              <IconButton aria-label="delete" onClick={clearTag} size="large">
                 <DeleteIcon />
               </IconButton>
             )}

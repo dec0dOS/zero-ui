@@ -8,8 +8,8 @@ import {
   IconButton,
   Paper,
   Typography,
-} from "@material-ui/core";
-import BuildIcon from "@material-ui/icons/Build";
+} from "@mui/material";
+import BuildIcon from "@mui/icons-material/Build";
 import { useState } from "react";
 import Tag from "./components/Tag";
 
@@ -26,7 +26,7 @@ function MemberSettings({ member, network, handleChange }) {
 
   return (
     <>
-      <IconButton color="primary" onClick={handleClickOpen}>
+      <IconButton color="primary" onClick={handleClickOpen} size="large">
         <BuildIcon style={{ fontSize: 20 }} />
       </IconButton>
       <Dialog open={open} onClose={handleClose}>

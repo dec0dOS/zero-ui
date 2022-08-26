@@ -1,6 +1,9 @@
-import { ThemeProvider } from "@material-ui/styles";
-import { createTheme } from "@material-ui/core/styles";
-import { red, amber } from "@material-ui/core/colors";
+import {
+  ThemeProvider,
+  createTheme,
+  StyledEngineProvider,
+} from "@mui/material/styles";
+import { red, amber } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
@@ -10,12 +13,16 @@ const theme = createTheme({
     secondary: {
       main: red[500],
     },
-    type: "light",
+    mode: "light",
   },
 });
 
 function Theme({ children }) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 export default Theme;

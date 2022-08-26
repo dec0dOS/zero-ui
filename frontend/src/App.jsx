@@ -1,5 +1,6 @@
 import "@fontsource/roboto";
 
+import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 import Theme from "./components/Theme";
@@ -12,6 +13,7 @@ import Network from "./routes/Network/Network";
 function App() {
   return (
     <Theme>
+      <CssBaseline />
       <BrowserRouter basename="/app">
         <Bar />
         <Switch>

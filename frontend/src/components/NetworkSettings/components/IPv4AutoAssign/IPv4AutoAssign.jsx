@@ -9,9 +9,9 @@ import {
   Typography,
   TextField,
   IconButton,
-} from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+} from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 import DataTable from "react-data-table-component";
 

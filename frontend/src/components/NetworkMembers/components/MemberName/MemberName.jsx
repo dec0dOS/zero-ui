@@ -1,4 +1,4 @@
-import { Grid, TextField } from "@material-ui/core";
+import { Grid, TextField } from "@mui/material";
 
 function MemberName({ member, handleChange }) {
   return (

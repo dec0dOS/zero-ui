@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { Grid, List, TextField, IconButton } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import { Grid, List, TextField, IconButton } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 import { validateIP, normilizeIP } from "utils/IP";
 

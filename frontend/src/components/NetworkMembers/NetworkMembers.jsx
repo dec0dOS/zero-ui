@@ -6,9 +6,9 @@ import {
   Grid,
   IconButton,
   Typography,
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import RefreshIcon from "@material-ui/icons/Refresh";
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import RefreshIcon from "@mui/icons-material/Refresh";
 import { useCallback, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useParams } from "react-router-dom";
@@ -166,7 +166,7 @@ function NetworkMembers({ network }) {
       </AccordionSummary>
       <AccordionDetails>
         <Grid container direction="column" spacing={3}>
-          <IconButton color="primary" onClick={fetchData}>
+          <IconButton color="primary" onClick={fetchData} size="large">
             <RefreshIcon />
           </IconButton>
           <Grid container>

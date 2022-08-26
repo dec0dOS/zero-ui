@@ -1,5 +1,5 @@
-import { Grid, Link, Typography } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Grid, Link, Typography } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import NetworkHeader from "components/NetworkHeader";
 import NetworkManagement from "components/NetworkManagement";
 import NetworkMembers from "components/NetworkMembers";
@@ -65,7 +65,7 @@ function Network() {
         spacing={0}
         direction="column"
         alignItems="center"
-        justify="center"
+        justifyContent="center"
         style={{
           minHeight: "50vh",
         }}

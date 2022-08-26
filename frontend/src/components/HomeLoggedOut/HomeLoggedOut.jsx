@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import { useLocalStorage } from "react-use";
 import { useHistory } from "react-router-dom";
 
@@ -35,7 +35,7 @@ function HomeLoggedOut() {
       spacing={0}
       direction="column"
       alignItems="center"
-      justify="center"
+      justifyContent="center"
       style={{
         minHeight: "50vh",
       }}

@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 
 function NotFound() {
   return (
@@ -7,7 +7,7 @@ function NotFound() {
       spacing={0}
       direction="column"
       alignItems="center"
-      justify="center"
+      justifyContent="center"
       style={{
         minHeight: "50vh",
       }}

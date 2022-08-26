@@ -9,7 +9,7 @@ import {
   DialogContent,
   DialogTitle,
   Snackbar,
-} from "@material-ui/core";
+} from "@mui/material";
 
 import axios from "axios";
 

@@ -10,7 +10,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-} from "@material-ui/core";
+} from "@mui/material";
 
 function LogInToken() {
   const [open, setOpen] = useState(false);

@@ -1,4 +1,4 @@
-import { Divider } from "@material-ui/core";
+import { Divider } from "@mui/material";
 
 import LogInUser from "./components/LogInUser";
 import LogInToken from "./components/LogInToken";

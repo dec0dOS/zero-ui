@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import { Divider, Button, Grid, Typography, Box } from "@material-ui/core";
+import { Divider, Button, Grid, Typography, Box } from "@mui/material";
 import useStyles from "./HomeLoggedIn.styles";
 
 import NetworkButton from "./components/NetworkButton";

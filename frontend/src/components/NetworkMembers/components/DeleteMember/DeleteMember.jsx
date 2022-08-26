@@ -8,8 +8,8 @@ import {
   DialogContentText,
   DialogActions,
   IconButton,
-} from "@material-ui/core";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+} from "@mui/material";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 import API from "utils/API";
 
@@ -33,7 +33,7 @@ function DeleteMember({ nwid, mid, callback }) {
 
   return (
     <>
-      <IconButton color="primary" onClick={handleClickOpen}>
+      <IconButton color="primary" onClick={handleClickOpen} size="large">
         <DeleteOutlineIcon color="secondary" style={{ fontSize: 20 }} />
       </IconButton>
       <Dialog open={open} onClose={handleClose}>

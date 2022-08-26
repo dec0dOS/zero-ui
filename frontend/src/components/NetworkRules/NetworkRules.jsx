@@ -8,8 +8,8 @@ import {
   Hidden,
   Snackbar,
   Typography,
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CodeMirror from "@uiw/react-codemirror";
 import "codemirror/theme/3024-day.css";
 import { compile } from "external/RuleCompiler";
@@ -99,7 +99,7 @@ function NetworkRules({ network, callback }) {
           onChange={onChange}
           options={{ tabSize: 2, lineWrapping: true }}
         />
-        <Hidden mdDown>
+        <Hidden lgDown>
           <div>
             <CodeMirror
               value={JSON.stringify(flowData, null, 2)}

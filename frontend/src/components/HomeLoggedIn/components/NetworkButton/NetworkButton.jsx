@@ -1,7 +1,7 @@
 import "./NetworkButton.css";
 import { Link } from "react-router-dom";
 
-import { List, ListItem, Hidden } from "@material-ui/core";
+import { List, ListItem, Hidden } from "@mui/material";
 import useStyles from "./NetworkButton.styles";
 
 import { getCIDRAddress } from "utils/IP";
@@ -17,7 +17,7 @@ function NetworkButton({ network }) {
           <ListItem className={classes.name}>
             {network["config"]["name"]}
           </ListItem>
-          <Hidden mdDown>
+          <Hidden lgDown>
             <ListItem className={classes.cidr}>
               {network["config"]["ipAssignmentPools"] &&
                 network["config"]["ipAssignmentPools"][0] &&

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { List, Typography, IconButton, TextField } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
+import { List, Typography, IconButton, TextField } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 import API from "utils/API";
 

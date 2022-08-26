@@ -8,8 +8,8 @@ import {
   Typography,
   TextField,
   Select,
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import ManagedRoutes from "./components/ManagedRoutes";
 import IPv4AutoAssign from "./components/IPv4AutoAssign";
