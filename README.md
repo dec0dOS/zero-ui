@@ -236,6 +236,12 @@ docker run -d \
 ### Backup
 
 You should regularly back up the `zerotier-one` and `data` folders in your ZeroUI installation directory.
+You should do it manually before the upgrade via the following commands:
+
+```sh
+tar cvf backup-ui.tar data/
+tar cvf backup-zt.tar zerotier-one/
+```
 
 ## Roadmap
 
