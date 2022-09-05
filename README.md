@@ -121,7 +121,7 @@ or
 curl -L -O https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
 ```
 
-3. Replace `YOURDOMAIN.com` with your domain name in `docker-compose.yml`
+3. Replace `YOURDOMAIN.com` with your domain name and set admin credentials (`ZU_DEFAULT_PASSWORD`) in `docker-compose.yml`
 4. Pull the image
 
 ```sh

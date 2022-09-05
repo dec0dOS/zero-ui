@@ -41,10 +41,7 @@ services:
       - zero-ui
     command: caddy reverse-proxy --from YOURDOMAIN.com --to zero-ui:4000
     volumes:
-      - caddy_data:/data
+      - ./caddy:/data
     ports:
       - "80:80"
       - "443:443"
-
-volumes:
-  caddy_data:
