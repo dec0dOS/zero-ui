@@ -6,7 +6,7 @@ services:
     container_name: zu-controller
     restart: unless-stopped
     volumes:
-      - controller_data:/var/lib/zerotier-one
+      - ./zerotier-one:/var/lib/zerotier-one
     environment:
       - ZT_OVERRIDE_LOCAL_CONF=true
       - ZT_ALLOW_MANAGEMENT_FROM=0.0.0.0/0
@@ -24,8 +24,8 @@ services:
     depends_on:
       - zerotier
     volumes:
-      - controller_data:/var/lib/zerotier-one
-      - zero-ui_data:/app/backend/data
+      - ./zerotier-one:/var/lib/zerotier-one
+      - ./data:/app/backend/data
     environment:
       - ZU_CONTROLLER_ENDPOINT=http://zerotier:9993/
       - ZU_SECURE_HEADERS=true
@@ -47,6 +47,4 @@ services:
       - "443:443"
 
 volumes:
-  zero-ui_data:
-  controller_data:
   caddy_data:

@@ -102,7 +102,12 @@ For HTTPS setup you will need a domain name. You can get it for free on https://
 
 The most simple one-minute installation. Great for the fresh VPS setup.
 
-1. Download the `docker-compose.yml` file
+1. Create project directory
+   ```sh
+   mkdir -p /srv/zero-ui/
+   cd /srv/zero-ui/
+   ```
+2. Download the `docker-compose.yml` file
    ```sh
    wget https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
    ```
@@ -110,20 +115,20 @@ The most simple one-minute installation. Great for the fresh VPS setup.
    ```sh
    curl -L -O https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
    ```
-2. Replace `YOURDOMAIN.com` with your domain name in `docker-compose.yml`
-3. Pull the image
+3. Replace `YOURDOMAIN.com` with your domain name in `docker-compose.yml`
+4. Pull the image
    ```sh
    docker pull dec0dos/zero-ui
    ```
-4. Run the containers
+5. Run the containers
    ```sh
     docker-compose up -d --no-build
    ```
-5. Check if everything is okay (`CTRL-C` to stop log preview)
+6. Check if everything is okay (`CTRL-C` to stop log preview)
    ```sh
     docker-compose logs -f
    ```
-6. Disable your firewall for the following ports: `80/tcp`, `443/tcp` and `9993/udp`
+7. Disable your firewall for the following ports: `80/tcp`, `443/tcp` and `9993/udp`
    - on ubuntu/debian with ufw installed:
      ```sh
      ufw allow 80/tcp
@@ -136,7 +141,7 @@ The most simple one-minute installation. Great for the fresh VPS setup.
      iptables -A INPUT -p tcp --dport 443 -j ACCEPT
      iptables -A INPUT -p udp --dport 9993 -j ACCEPT
      ```
-7. Navigate to `https://YOURDOMAIN.com/app/`.
+8. Navigate to `https://YOURDOMAIN.com/app/`.
    Now you could use your ZeroUI instance with HTTPS support and automated certificate renewal.
 
 > To disable Caddy proxy and HTTPS, remove the `https-proxy` from `docker-compose.yml`, set `ZU_SECURE_HEADERS` to `false` and change zero-ui port `expose` to `ports`.
@@ -209,10 +214,7 @@ You could also set up [watchtower](https://github.com/containrrr/watchtower) for
 
 ### Backup
 
-The easiest way to create your ZeroUI data backup is to use the following commands:
-
-    docker run --rm --volumes-from zu-controller -v $(pwd):/backup ubuntu tar cvf /backup/backup-controller.tar /var/lib/zerotier-one
-    docker run --rm --volumes-from zu-main -v $(pwd):/backup ubuntu tar cvf /backup/backup-ui.tar /app/backend/data
+You should regularly back up the `zerotier-one` and `data` folders in your ZeroUI installation directory.
 
 ## Roadmap
 
