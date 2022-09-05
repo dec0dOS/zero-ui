@@ -49,10 +49,10 @@
 
 This project is highly inspired by [ztncui](https://github.com/key-networks/ztncui) and was developed to address the current limitations of applying the self-hosted [network controllers](https://github.com/zerotier/ZeroTierOne/tree/master/controller). Some [ztncui](https://github.com/key-networks/ztncui) problems cannot be fixed because of the core architecture of the project. ZeroUI tries to solve them and implements the following features:
 
-- Full React-powered lightweight [SPA](https://en.wikipedia.org/wiki/Single-page_application) that brings better user experience, and ZeroUI is mobile-friendly.
+- Full React-powered lightweight [SPA](https://en.wikipedia.org/wiki/Single-page_application) that brings a better user experience, and ZeroUI is mobile-friendly.
 - ZeroUI has ZeroTier Central compatible API. That means you could use CLI tools and custom applications made only for ZeroTier Central to manage your networks.
 - ZeroUI implements controller-specific workarounds that address some existing [issues](https://github.com/zerotier/ZeroTierOne/issues/859). ZTNCUI [does not](https://github.com/key-networks/ztncui/issues/63).
-- ZeroUI is more feature complete. ZeroUI has almost all network-controller supported features, for example, rule editor. The development process hasn't stopped, so you will enjoy new features and bug fixes in the near future.
+- ZeroUI is more feature complete. ZeroUI has almost all network-controller-supported features, for example, rule editor. The development process hasn't stopped, so you will enjoy new features and bug fixes shortly.
 - ZeroUI deployment is simple. Please refer to [installation](#installation) for more info.
 
 <details>
@@ -83,7 +83,7 @@ Backend:
 - [Express](https://expressjs.com)
 - [Lowdb](https://github.com/typicode/lowdb)
 
-Deploy:
+Ready to use deployment solution:
 
 - [Docker](https://www.docker.com)
 - [Docker Compose](https://docs.docker.com/compose/)
@@ -96,51 +96,68 @@ Deploy:
 The recommended method to install ZeroUI is by using Docker and Docker Compose.
 To install [Docker](https://docs.docker.com/get-docker) and [Docker Compose](https://docs.docker.com/compose/install) on your system, please follow the installation guide from the [official Docker documentation](https://docs.docker.com/get-docker).
 
-For HTTPS setup you will need a domain name. You can get it for free on https://www.duckdns.org.
+For HTTPS setup you will need a domain name. You can get it for free at https://www.duckdns.org.
 
 ### Installation
 
 The most simple one-minute installation. Great for the fresh VPS setup.
 
-1. Create project directory
-   ```sh
-   mkdir -p /srv/zero-ui/
-   cd /srv/zero-ui/
-   ```
+1. Create a project directory
+
+```sh
+mkdir -p /srv/zero-ui/
+cd /srv/zero-ui/
+```
+
 2. Download the `docker-compose.yml` file
-   ```sh
-   wget https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
-   ```
-   or
-   ```sh
-   curl -L -O https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
-   ```
+
+```sh
+wget https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
+```
+
+or
+
+```sh
+curl -L -O https://raw.githubusercontent.com/dec0dOS/zero-ui/main/docker-compose.yml
+```
+
 3. Replace `YOURDOMAIN.com` with your domain name in `docker-compose.yml`
 4. Pull the image
-   ```sh
-   docker pull dec0dos/zero-ui
-   ```
+
+```sh
+docker pull dec0dos/zero-ui
+```
+
 5. Run the containers
-   ```sh
-    docker-compose up -d --no-build
-   ```
+
+```sh
+docker-compose up -d --no-build
+```
+
 6. Check if everything is okay (`CTRL-C` to stop log preview)
-   ```sh
-    docker-compose logs -f
-   ```
+
+```sh
+docker-compose logs -f
+```
+
 7. Disable your firewall for the following ports: `80/tcp`, `443/tcp` and `9993/udp`
-   - on ubuntu/debian with ufw installed:
-     ```sh
-     ufw allow 80/tcp
-     ufw allow 443/tcp
-     ufw allow 9993/udp
-     ```
-   - or you may use the old good iptables:
-     ```sh
-     iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-     iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-     iptables -A INPUT -p udp --dport 9993 -j ACCEPT
-     ```
+
+- on Ubuntu/Debian with ufw installed:
+
+```sh
+ ufw allow 80/tcp
+ ufw allow 443/tcp
+ ufw allow 9993/udp
+```
+
+- or you may use the old good iptables:
+
+```sh
+ iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+ iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+ iptables -A INPUT -p udp --dport 9993 -j ACCEPT
+```
+
 8. Navigate to `https://YOURDOMAIN.com/app/`.
    Now you could use your ZeroUI instance with HTTPS support and automated certificate renewal.
 
@@ -162,7 +179,7 @@ Advanced manual setups are also supported. Check the following environment varia
 | ZU_LAST_SEEN_FETCH | `true`| Enables [Last Seen feature](https://github.com/dec0dOS/zero-ui/issues/40) |
 | ZU_LAST_SEEN_SCHEDULE | `*/5 * * * *` | Last Seen cron-like schedule |
 
-ZeroUI could be deployed as a regular nodejs web application, but it requires ZeroTier controller that is installed with `zerotier-one` package. More info about the network controller you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
+ZeroUI could be deployed as a regular nodejs web application, but it requires a ZeroTier controller that is installed with the `zerotier-one` package. For more info about the network controller, you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
 For Ansible Role, please refer to [zero-ui-ansible repo](https://github.com/dec0dOS/zero-ui-ansible).
 
@@ -179,7 +196,7 @@ You could do it in two ways:
 echo "{\"settings\": {\"portMappingEnabled\": true,\"softwareUpdate\": \"disable\",\"allowManagementFrom\": [\"0.0.0.0/0\"]}}" > /var/lib/zerotier-one/local.conf
 ```
 
-> Warning: don't forget to block connections to 9993/TCP from WAN. Direct controller API does not mean to be exposed to WAN, it should be proxified via ZeroUI backend.
+> Warning: don't forget to block connections to 9993/TCP from WAN. Direct controller API does not mean to be exposed to WAN, it should be proxified via the ZeroUI backend.
 
 2. Adding `network_mode: "host"` to zero-ui in docker-compose.yml.
 
@@ -199,18 +216,22 @@ _For the screenshots, please refer to the [screenshots](docs/SCREENSHOTS.md)._
 
 To get the latest version just run
 
-    docker-compose pull && docker-compose up -d --no-build
+```sh
+docker-compose pull && docker-compose up -d --no-build
+```
 
 in the folder where `docker-compose.yml` is located. Backup is not required as your data is saved in Docker volumes but recommended.
 You could also set up [watchtower](https://github.com/containrrr/watchtower) for automatic updates.
 
-    docker run -d \
-        --name watchtower \
-        -v /var/run/docker.sock:/var/run/docker.sock \
-        --restart always \
-        containrrr/watchtower \
-        --cleanup --include-restarting \
-        zu-main zu-controller
+```sh
+docker run -d \
+ --name watchtower \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ --restart always \
+ containrrr/watchtower \
+ --cleanup --include-restarting \
+ zu-main zu-controller
+```
 
 ### Backup
 
@@ -220,8 +241,8 @@ You should regularly back up the `zerotier-one` and `data` folders in your ZeroU
 
 See the [open issues](https://github.com/dec0dOS/zero-ui/issues) for a list of proposed features (and known issues).
 
-- [Top Feature Requests](https://github.com/dec0dOS/zero-ui/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
-- [Top Bugs](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your own votes using the 👍 reaction)
+- [Top Feature Requests](https://github.com/dec0dOS/zero-ui/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
+- [Top Bugs](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
 - [Newest Bugs](https://github.com/dec0dOS/zero-ui/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 [![GitHub issues open](https://img.shields.io/github/issues/dec0dOS/zero-ui.svg?maxAge=2592000)](https://github.com/dec0dOS/zero-ui/issues)
@@ -235,7 +256,7 @@ Please try to create bug reports that are:
 
 ## Contributing
 
-First off, thanks for taking the time to contribute! Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
+First off, thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
 
 1. Fork the project
 2. Create your feature branch (`git checkout -b feat/amazing_feature`)
@@ -251,27 +272,37 @@ Run `yarn commit` to open [TUI](https://en.wikipedia.org/wiki/Text-based_user_in
 To set up a development environment, please follow these steps:
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/dec0dOS/zero-ui.git
-   cd zero-ui
-   ```
+
+```sh
+git clone https://github.com/dec0dOS/zero-ui.git
+cd zero-ui
+```
+
 2. Install packages
-   ```sh
-   yarn install
-   ```
+
+```sh
+yarn install
+```
+
 3. Start the development server
-   ```sh
-   yarn dev
-   ```
+
+```sh
+yarn dev
+```
+
 4. Navigate to http://localhost:3000
 
-It is also required to install ZeroTier controller. On Linux installing `zerotier-one` package is enough, other platforms require some tweaking. Firstly you should get the controller token. On macOS, you could find it with the following command:
+It is also required to install the ZeroTier controller. On Linux installing the `zerotier-one` package is enough, other platforms require some tweaking. Firstly you should get the controller token. On macOS, you could find it with the following command:
 
-    sudo cat "/Library/Application Support/ZeroTier/One/authtoken.secret"
+```sh
+sudo cat "/Library/Application Support/ZeroTier/One/authtoken.secret"
+```
 
-After you could start ZeroUI development environment:
+After you could start the ZeroUI development environment:
 
-    ZU_CONTROLLER_TOKEN=TOKEN_FROM_authtoken.secret yarn dev
+```sh
+ZU_CONTROLLER_TOKEN=TOKEN_FROM_authtoken.secret yarn dev
+```
 
 _For other platforms, please refer to [ZeroTier manual](https://www.zerotier.com/manual/#4)._
 
