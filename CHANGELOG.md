@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/dec0dOS/zero-ui/compare/v1.5.0...v1.5.1) (2022-10-09)
+
+### Bug Fixes
+
+- **backend/app.js:** fix internal error handler ([15e4051](https://github.com/dec0dOS/zero-ui/commit/15e405162590b2e79dfc32751625f5425613bc52))
+- **backend/services/member.js:** correctly delete members with unset additionalData ([450a6ad](https://github.com/dec0dOS/zero-ui/commit/450a6ad19414723ce00c48caba98743143a3041f))
+
 ## [1.5.0](https://github.com/dec0dOS/zero-ui/compare/v1.4.1...v1.5.0) (2022-08-25)
 
 ### Features
