@@ -87,8 +87,8 @@ app.use("/controller", routerController); // other controller-specific routes
 app.get("*", async function (req, res) {
   res.status(404).json({ error: "404 Not found" });
 });
-app.use(async function (err, req, res) {
-  console.error(err.stack); // TODO: replace with production logger
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
   res.status(500).json({ error: "500 Internal server error" });
 });
 
