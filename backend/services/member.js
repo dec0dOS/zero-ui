@@ -171,6 +171,8 @@ async function deleteMemberAdditionalData(nwid, mid) {
        .write();
   */
 
+  await updateMemberAdditionalData(nwid, mid, {});
+
   db.get("networks")
     .filter({ id: nwid })
     .map("members")
