@@ -3,10 +3,10 @@ import HomeLoggedOut from "../../src/components/HomeLoggedOut";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import { act } from "react-dom/test-utils";
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
-var axios = require("axios");
-var MockAdapter = require("axios-mock-adapter");
-var mock = new MockAdapter(axios);
+let mock = new MockAdapter(axios);
 
 describe("HomeLoggedOut", () => {
   test("renders HomeLoggedOut when authentication is enabled", () => {
