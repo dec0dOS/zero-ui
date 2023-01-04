@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import NetworkHeader from "../../src/components/NetworkHeader";
-//import testNetwork from "./utils/testNetwork";
 
 export const testNetwork = {
   id: "0d303702cd0f1fc6",
