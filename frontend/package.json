@@ -23,12 +23,17 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "12.1.5",
+    "axios-mock-adapter": "^1.21.2",
+    "jest-transform-css": "^6.0.0",
     "source-map-explorer": "^2.5.2"
   },
   "scripts": {
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "test:unit": "npx jest --coverage --testPathPattern='unit'"
   },
   "homepage": "/app",
   "proxy": "http://127.0.0.1:4000",
