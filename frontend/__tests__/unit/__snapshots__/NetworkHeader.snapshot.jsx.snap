@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders HomeLoggedOut unchanged 1`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-item"
+  >
+    <h5
+      class="MuiTypography-root MuiTypography-h5"
+    >
+      <span>
+        0d303702cd0f1fc6
+      </span>
+    </h5>
+    <h6
+      class="MuiTypography-root MuiTypography-h6"
+      style="font-style: italic;"
+    >
+      <span>
+        new-net-11166
+      </span>
+    </h6>
+    <span>
+      Test Network
+    </span>
+  </div>
+</div>
+`;
