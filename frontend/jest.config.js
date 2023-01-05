@@ -1,7 +1,7 @@
 // Add any custom config to be passed to Jest
 const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  moduleDirectories: ["node_modules", "<rootDir>/"],
+  moduleDirectories: ["node_modules", "<rootDir>/", "src/components"],
   transform: {
     // Use babel-jest to transpile tests with the below presets
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object

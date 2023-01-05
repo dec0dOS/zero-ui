@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import HomeLoggedOut from "../../src/components/HomeLoggedOut";
+import HomeLoggedOut from "HomeLoggedOut";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import { act } from "react-dom/test-utils";
