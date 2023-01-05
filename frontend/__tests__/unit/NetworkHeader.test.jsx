@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import NetworkHeader from "NetworkHeader";
+import NetworkHeader from "components/NetworkHeader";
 
 export const testNetwork = {
   id: "0d303702cd0f1fc6",

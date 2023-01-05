@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import NetworkHeader from "NetworkHeader";
+import NetworkHeader from "components/NetworkHeader";
 import { testNetwork } from "./NetworkHeader.test";
 
 it("renders HomeLoggedOut unchanged", () => {
