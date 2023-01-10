@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders HomeLoggedOut unchanged 1`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-center"
+    style="min-height: 50vh;"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10"
+    >
+      <h5
+        class="MuiTypography-root MuiTypography-h5"
+      >
+        <span>
+          ZeroUI - ZeroTier Controller Web UI - is a web user interface for a self-hosted ZeroTier network controller.
+        </span>
+      </h5>
+      <p
+        class="MuiTypography-root MuiTypography-body1"
+      >
+        <span>
+          Please Log In to continue
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
