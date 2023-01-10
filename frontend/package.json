@@ -26,6 +26,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "12.1.5",
     "axios-mock-adapter": "^1.21.2",
+    "jest": "^29.3.1",
     "jest-transform-css": "^6.0.0",
     "source-map-explorer": "^2.5.2"
   },
@@ -33,7 +34,7 @@
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "test:unit": "npx jest --coverage --testPathPattern='unit'"
+    "test:unit": "jest --coverage --testPathPattern='unit'"
   },
   "homepage": "/app",
   "proxy": "http://127.0.0.1:4000",
