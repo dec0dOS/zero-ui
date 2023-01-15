@@ -24,7 +24,7 @@ const customJestConfig = {
   moduleNameMapper: {
     "^uuid$": require.resolve("uuid"),
     "^@fontsource/roboto$": "identity-obj-proxy",
-    "\\.(png)$": "identity-obj-proxy",
+    "\\.(png|css)$": "identity-obj-proxy",
   },
   testPathIgnorePatterns: ["<rootDir>/cypress/"],
 };

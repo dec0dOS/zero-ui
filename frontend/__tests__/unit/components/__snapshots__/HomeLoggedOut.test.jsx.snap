@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders HomeLoggedOut unchanged 1`] = `
+exports[`HomeLoggedOut renders HomeLoggedOut unchanged 1`] = `
 <div>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-center"

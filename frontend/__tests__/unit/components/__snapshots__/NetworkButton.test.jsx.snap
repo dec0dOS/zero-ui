@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NetworkHeader renders NetworkButton unchanged 1`] = `
+<div>
+  <div
+    class="netBtn"
+    role="button"
+  >
+    <a
+      class="makeStyles-link-1"
+      href="/network/0d303702cd0f1fc6"
+    >
+      <ul
+        class="MuiList-root makeStyles-flexContainer-2 MuiList-padding"
+      >
+        <li
+          class="MuiListItem-root makeStyles-nwid-4 MuiListItem-gutters"
+        >
+          0d303702cd0f1fc6
+        </li>
+        <li
+          class="MuiListItem-root makeStyles-name-3 MuiListItem-gutters"
+        >
+          new-net-11166
+        </li>
+      </ul>
+    </a>
+  </div>
+</div>
+`;
