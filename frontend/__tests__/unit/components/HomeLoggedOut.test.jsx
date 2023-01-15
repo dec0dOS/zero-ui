@@ -6,10 +6,15 @@ import { act } from "react-dom/test-utils";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 
-let mock = new MockAdapter(axios);
-
 describe("HomeLoggedOut", () => {
+  it("renders HomeLoggedOut unchanged", () => {
+    const { container } = render(<HomeLoggedOut />);
+    expect(container).toMatchSnapshot();
+  });
+
   test("renders HomeLoggedOut when authentication is enabled", () => {
+    let mock = new MockAdapter(axios);
+
     const history = createMemoryHistory();
     const goSpy = jest.spyOn(history, "go");
 
@@ -33,6 +38,8 @@ describe("HomeLoggedOut", () => {
   });
 
   test("renders HomeLoggedOut when authentication is disabled", async () => {
+    let mock = new MockAdapter(axios);
+
     const history = createMemoryHistory();
     const goSpy = jest.spyOn(history, "go");
 

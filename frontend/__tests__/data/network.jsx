@@ -1,6 +1,3 @@
-import { render, screen } from "@testing-library/react";
-import NetworkHeader from "components/NetworkHeader";
-
 export const testNetwork = {
   id: "0d303702cd0f1fc6",
   clock: 1672834445703,
@@ -73,25 +70,3 @@ export const testNetwork = {
     },
   },
 };
-
-describe("NetworkHeader", () => {
-  test("renders NetworkHeader with a test network", () => {
-    render(<NetworkHeader network={testNetwork} />);
-
-    const networkId = screen.getByRole("heading", {
-      name: "0d303702cd0f1fc6",
-      level: 5,
-    });
-
-    const networkName = screen.getByRole("heading", {
-      name: "new-net-11166",
-      level: 6,
-    });
-
-    const networkDescription = screen.getByText(/Test Network/);
-
-    expect(networkId).toBeInTheDocument();
-    expect(networkName).toBeInTheDocument();
-    expect(networkDescription).toBeInTheDocument();
-  });
-});
