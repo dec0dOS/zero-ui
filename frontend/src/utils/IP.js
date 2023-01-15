@@ -5,7 +5,7 @@ export function getCIDRAddress(start, end) {
   return start.replace(/.$/, 0) + "/" + cidr;
 }
 
-function getCIDR(start, end) {
+export function getCIDR(start, end) {
   const startInt = toInt(start);
   const endInt = toInt(end);
   const binaryXOR = startInt ^ endInt;
@@ -13,13 +13,15 @@ function getCIDR(start, end) {
     return 32;
   } else {
     const binaryStr = binaryXOR.toString(2);
+    // TODO: Both types of bits are counted here so using the
+    // length of binaryStr would simplify the code.
     const zeroCount = binaryStr.split("0").length - 1;
     const oneCount = binaryStr.split("1").length - 1;
     return 32 - (zeroCount + oneCount);
   }
 }
 
-function toInt(addr) {
+export function toInt(addr) {
   const ip = ipaddr.parse(addr);
   const arr = ip.octets;
   let ipInt = 0;
