@@ -25,9 +25,9 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "12.1.5",
+    "@testing-library/user-event": "^14.4.3",
     "axios-mock-adapter": "^1.21.2",
-    "jest": "^29.3.1",
-    "jest-environment-jsdom": "^29.3.1",
+    "jest": "26.6.0",
     "jest-transform-css": "^6.0.0",
     "source-map-explorer": "^2.5.2"
   },
