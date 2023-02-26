@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeLoggedIn renders HomeLoggedIn unchanged (no network) 1`] = `
+<div>
+  <div
+    class="makeStyles-root-1"
+  >
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-createBtn-2 MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Create A Network
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <hr
+      class="MuiDivider-root"
+    />
+    <div
+      class="MuiGrid-root makeStyles-container-3 MuiGrid-container MuiGrid-spacing-xs-3"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+      >
+        <h5
+          class="MuiTypography-root MuiTypography-h5"
+        >
+          Controller networks
+        </h5>
+        <div
+          class="MuiBox-root MuiBox-root-4"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          Networks
+        </p>
+        <div
+          class="MuiGrid-root MuiGrid-item"
+        >
+          <div>
+            Please create at least one network
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`HomeLoggedIn renders HomeLoggedIn unchanged (with network) 1`] = `
+<div>
+  <div
+    class="makeStyles-root-5"
+  >
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-createBtn-6 MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Create A Network
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <hr
+      class="MuiDivider-root"
+    />
+    <div
+      class="MuiGrid-root makeStyles-container-7 MuiGrid-container MuiGrid-spacing-xs-3"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+      >
+        <h5
+          class="MuiTypography-root MuiTypography-h5"
+        >
+          Controller networks
+        </h5>
+        Network controller address
+        <div
+          class="MuiBox-root MuiBox-root-8"
+        >
+          0d303702cd
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          Networks
+        </p>
+        <div
+          class="MuiGrid-root MuiGrid-item"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <div
+              class="netBtn"
+              role="button"
+            >
+              <a
+                class="makeStyles-link-9"
+                href="/network/0d303702cd0f1fc6"
+              >
+                <ul
+                  class="MuiList-root makeStyles-flexContainer-10 MuiList-padding"
+                >
+                  <li
+                    class="MuiListItem-root makeStyles-nwid-12 MuiListItem-gutters"
+                  >
+                    0d303702cd0f1fc6
+                  </li>
+                  <li
+                    class="MuiListItem-root makeStyles-name-11 MuiListItem-gutters"
+                  >
+                    new-net-11166
+                  </li>
+                </ul>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
