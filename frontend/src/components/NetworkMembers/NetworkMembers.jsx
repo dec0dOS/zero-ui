@@ -3,8 +3,10 @@ import {
   AccordionDetails,
   AccordionSummary,
   Checkbox,
+  Divider,
   Grid,
   IconButton,
+  TextField,
   Typography,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -24,6 +26,9 @@ import MemberSettings from "./components/MemberSettings";
 function NetworkMembers({ network }) {
   const { nwid } = useParams();
   const [members, setMembers] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [filterActive, setFilterActive] = useState(false);
+  const [filterInactive, setFilterInactive] = useState(false);
 
   const fetchData = useCallback(async () => {
     try {
@@ -48,21 +53,21 @@ function NetworkMembers({ network }) {
 
   const handleChange =
     (member, key1, key2 = null, mode = "text", id = null) =>
-    (event) => {
-      const value = parseValue(event, mode, member, key1, key2, id);
+      (event) => {
+        const value = parseValue(event, mode, member, key1, key2, id);
 
-      const updatedMember = replaceValue({ ...member }, key1, key2, value);
+        const updatedMember = replaceValue({ ...member }, key1, key2, value);
 
-      const index = members.findIndex((item) => {
-        return item["config"]["id"] === member["config"]["id"];
-      });
-      let mutableMembers = [...members];
-      mutableMembers[index] = updatedMember;
-      setMembers(mutableMembers);
+        const index = members.findIndex((item) => {
+          return item["config"]["id"] === member["config"]["id"];
+        });
+        let mutableMembers = [...members];
+        mutableMembers[index] = updatedMember;
+        setMembers(mutableMembers);
 
-      const data = setValue({}, key1, key2, value);
-      sendReq(member["config"]["id"], data);
-    };
+        const data = setValue({}, key1, key2, value);
+        sendReq(member["config"]["id"], data);
+      };
 
   const columns = [
     {
@@ -170,11 +175,44 @@ function NetworkMembers({ network }) {
             <RefreshIcon />
           </IconButton>
           <Grid container>
+            <Grid item sm={6}>
+              <Typography>Search (Addr/Name)</Typography>
+              <TextField
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+              />
+            </Grid>
+            <Grid item sm="auto">
+              <Typography>Display Filter</Typography>
+              <Checkbox
+                checked={filterActive}
+                color="primary"
+                onChange={(e) => setFilterActive(e.target.checked)}
+              />
+              <span>Active</span>
+              <Checkbox
+                checked={filterInactive}
+                color="primary"
+                onChange={(e) => setFilterInactive(e.target.checked)}
+              />
+              <span>Inactive</span>
+            </Grid>
+            <Divider />
+          </Grid>
+          <Grid container>
             {members.length ? (
               <DataTable
                 noHeader={true}
                 columns={columns}
-                data={[...members]}
+                data={[...members]
+                  .filter((x) => {
+                    return (
+                      (x.name.includes(filter) || x.id.includes(filter)) &&
+                      (filterActive ? x.online === 1 : true) &&
+                      (filterInactive ? x.online === 0 : true)
+                    )
+                  })
+                }
               />
             ) : (
               <Grid
