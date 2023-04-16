@@ -13,6 +13,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import ManagedRoutes from "./components/ManagedRoutes";
 import IPv4AutoAssign from "./components/IPv4AutoAssign";
+import IPv6AutoAssign from "./components/IPv6AutoAssign";
 
 import API from "utils/API";
 import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
@@ -104,10 +105,13 @@ function NetworkSettings({ network, setNetwork }) {
               handleChange={handleChange}
             />
           </Grid>
-          {/* TODO: */}
-          {/* <Grid item>
-            <Typography>IPv6 Auto-Assign</Typography>
-          </Grid> */}
+          <Grid item>
+            <IPv6AutoAssign
+              id={network["id"]}
+              v6AssignMode={network["config"]["v6AssignMode"]}
+              handleChange={handleChange}
+            />
+          </Grid>
           <Divider />
           <Grid item>
             <TextField
