@@ -57,21 +57,21 @@ function NetworkMembers({ network }) {
 
   const handleChange =
     (member, key1, key2 = null, mode = "text", id = null) =>
-      (event) => {
-        const value = parseValue(event, mode, member, key1, key2, id);
+    (event) => {
+      const value = parseValue(event, mode, member, key1, key2, id);
 
-        const updatedMember = replaceValue({ ...member }, key1, key2, value);
+      const updatedMember = replaceValue({ ...member }, key1, key2, value);
 
-        const index = members.findIndex((item) => {
-          return item["config"]["id"] === member["config"]["id"];
-        });
-        let mutableMembers = [...members];
-        mutableMembers[index] = updatedMember;
-        setMembers(mutableMembers);
+      const index = members.findIndex((item) => {
+        return item["config"]["id"] === member["config"]["id"];
+      });
+      let mutableMembers = [...members];
+      mutableMembers[index] = updatedMember;
+      setMembers(mutableMembers);
 
-        const data = setValue({}, key1, key2, value);
-        sendReq(member["config"]["id"], data);
-      };
+      const data = setValue({}, key1, key2, value);
+      sendReq(member["config"]["id"], data);
+    };
 
   const columns = [
     {
@@ -203,9 +203,20 @@ function NetworkMembers({ network }) {
             </Grid>
             <Grid item sm={3}>
               <Typography>Sort by</Typography>
-              <RadioGroup value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                <FormControlLabel value="name" control={<Radio />} label="Name" />
-                <FormControlLabel value="id" control={<Radio />} label="Address" />
+              <RadioGroup
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <FormControlLabel
+                  value="name"
+                  control={<Radio />}
+                  label="Name"
+                />
+                <FormControlLabel
+                  value="id"
+                  control={<Radio />}
+                  label="Address"
+                />
               </RadioGroup>
             </Grid>
             <Divider />
@@ -221,10 +232,9 @@ function NetworkMembers({ network }) {
                       (x.name.includes(filter) || x.id.includes(filter)) &&
                       (filterActive ? x.online === 1 : true) &&
                       (filterInactive ? x.online === 0 : true)
-                    )
+                    );
                   })
-                  .sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
-                }
+                  .sort((a, b) => a[sortBy].localeCompare(b[sortBy]))}
               />
             ) : (
               <Grid
