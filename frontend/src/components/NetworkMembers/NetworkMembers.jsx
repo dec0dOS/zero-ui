@@ -180,7 +180,7 @@ function NetworkMembers({ network }) {
           </IconButton>
           <Grid container>
             <Grid item sm={3}>
-              <Typography>Search (Addr/Name)</Typography>
+              <Typography>Search (Address / Name)</Typography>
               <TextField
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
