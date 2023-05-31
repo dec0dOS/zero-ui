@@ -12,12 +12,12 @@ router.get("/", auth.isAuthorized, async function (req, res) {
   api
     .get("controller/network/" + nwid + "/member")
     .then(async function (controllerRes) {
-      const mids = Object.keys(controllerRes.data);
+      const mids = controllerRes.data.map((i) => Object.keys(i)[0]);
       const data = await member.getMembersData(nwid, mids);
       res.send(data);
     })
-    .catch(function () {
-      res.status(404).send({ error: "Network not found" });
+    .catch(function (err) {
+      res.status(404).send({ error: `Network not found ${err}` });
     });
 });
 
