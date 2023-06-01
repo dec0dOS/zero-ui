@@ -65,9 +65,9 @@ if (process.env.ZU_LAST_SEEN_FETCH !== "false") {
   cron.schedule(schedule, () => {
     console.debug("Running scheduled job");
     const networks = db.get("networks").value();
-    networks.forEach((network) => {
-      console.debug("Processing " + network.id);
-      pingAll(network);
+    networks.forEach(async (network) => {
+      console.debug("Processing network " + network.id);
+      await pingAll(network);
     });
   });
 }
