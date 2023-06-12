@@ -56,6 +56,73 @@ exports[`Bar renders Bar unchanged when logged in 1`] = `
 </div>
 `;
 
+exports[`Bar renders Bar unchanged when logged in, after clicking button to open menu 1`] = `
+<div
+  aria-hidden="true"
+>
+  <header
+    class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorSecondary MuiPaper-elevation4"
+    style="background: rgb(0, 0, 0);"
+  >
+    <div
+      class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-3"
+      >
+        <h6
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-colorInherit"
+        >
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineNone MuiTypography-colorInherit"
+            href="/"
+          >
+            <img
+              alt="logo"
+              height="100"
+              src="test-file-stub"
+              width="100"
+            />
+          </a>
+        </h6>
+      </div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        >
+          <span
+            class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+            style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+          >
+            <span
+              class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+            />
+          </span>
+        </span>
+      </button>
+    </div>
+  </header>
+</div>
+`;
+
 exports[`Bar renders Bar unchanged when logged out 1`] = `
 <div>
   <header
