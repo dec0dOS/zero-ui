@@ -37,7 +37,8 @@
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "test:unit": "jest --coverage --testPathPattern='unit'"
+    "test:unit": "jest --coverage --testPathPattern='unit' --silent",
+    "test": "jest --coverage"
   },
   "homepage": "/app",
   "proxy": "http://127.0.0.1:4000",

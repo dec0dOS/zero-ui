@@ -1,6 +1,6 @@
 export function generateNetworkConfig() {
   const randSubnetPart = getRandomInt(0, 254).toString();
-  const randNamePart = new Date().getTime();
+  const randNamePart = new Date(Date.now()).getTime();
   return {
     config: {
       name: "new-net-" + randNamePart.toString().substring(8),
@@ -26,7 +26,7 @@ export function generateNetworkConfig() {
   };
 }
 
-function getRandomInt(min, max) {
+export function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
