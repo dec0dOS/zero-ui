@@ -3,8 +3,13 @@ import {
   AccordionDetails,
   AccordionSummary,
   Checkbox,
+  Divider,
+  FormControlLabel,
   Grid,
   IconButton,
+  Radio,
+  RadioGroup,
+  TextField,
   Typography,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -24,6 +29,10 @@ import MemberSettings from "./components/MemberSettings";
 function NetworkMembers({ network }) {
   const { nwid } = useParams();
   const [members, setMembers] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [filterActive, setFilterActive] = useState(false);
+  const [filterInactive, setFilterInactive] = useState(false);
+  const [sortBy, setSortBy] = useState("id");
 
   const fetchData = useCallback(async () => {
     try {
@@ -170,11 +179,62 @@ function NetworkMembers({ network }) {
             <RefreshIcon />
           </IconButton>
           <Grid container>
+            <Grid item sm={3}>
+              <Typography>Search (Address / Name)</Typography>
+              <TextField
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+              />
+            </Grid>
+            <Grid item sm={3}>
+              <Typography>Display Filter</Typography>
+              <Checkbox
+                checked={filterActive}
+                color="primary"
+                onChange={(e) => setFilterActive(e.target.checked)}
+              />
+              <span>Active</span>
+              <Checkbox
+                checked={filterInactive}
+                color="primary"
+                onChange={(e) => setFilterInactive(e.target.checked)}
+              />
+              <span>Inactive</span>
+            </Grid>
+            <Grid item sm={3}>
+              <Typography>Sort by</Typography>
+              <RadioGroup
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <FormControlLabel
+                  value="name"
+                  control={<Radio />}
+                  label="Name"
+                />
+                <FormControlLabel
+                  value="id"
+                  control={<Radio />}
+                  label="Address"
+                />
+              </RadioGroup>
+            </Grid>
+            <Divider />
+          </Grid>
+          <Grid container>
             {members.length ? (
               <DataTable
                 noHeader={true}
                 columns={columns}
-                data={[...members]}
+                data={[...members]
+                  .filter((x) => {
+                    return (
+                      (x.name.includes(filter) || x.id.includes(filter)) &&
+                      (filterActive ? x.online === 1 : true) &&
+                      (filterInactive ? x.online === 0 : true)
+                    );
+                  })
+                  .sort((a, b) => a[sortBy].localeCompare(b[sortBy]))}
               />
             ) : (
               <Grid
