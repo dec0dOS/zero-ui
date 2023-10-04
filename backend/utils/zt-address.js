@@ -6,6 +6,7 @@ module.exports = async function () {
     return res.data.address;
   } catch (err) {
     console.error(
+      // @ts-ignore
       "Couldn't connect to the controller on " + err.config.baseURL
     );
   }

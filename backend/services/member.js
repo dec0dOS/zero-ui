@@ -71,6 +71,7 @@ async function getMemberAdditionalData(data) {
     networkId: data.nwid,
     nodeId: data.id,
     controllerId: ZT_ADDRESS,
+    // @ts-ignore
     lastOnline: lastOnline,
     ...additionalData,
     ...peerData,

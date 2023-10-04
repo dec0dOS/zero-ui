@@ -8,6 +8,7 @@ const api = require("../utils/controller-api");
 
 // get all members
 router.get("/", auth.isAuthorized, async function (req, res) {
+  // @ts-ignore
   const nwid = req.params.nwid;
   api
     .get("controller/network/" + nwid + "/member")
@@ -23,6 +24,7 @@ router.get("/", auth.isAuthorized, async function (req, res) {
 
 // get member
 router.get("/:mid", auth.isAuthorized, async function (req, res) {
+  // @ts-ignore
   const nwid = req.params.nwid;
   const mid = req.params.mid;
   const data = await member.getMembersData(nwid, [mid]);
@@ -35,6 +37,7 @@ router.get("/:mid", auth.isAuthorized, async function (req, res) {
 
 // update member
 router.post("/:mid", auth.isAuthorized, async function (req, res) {
+  // @ts-ignore
   const nwid = req.params.nwid;
   const mid = req.params.mid;
   member.updateMemberAdditionalData(nwid, mid, req.body);
@@ -56,6 +59,7 @@ router.post("/:mid", auth.isAuthorized, async function (req, res) {
 
 // delete member
 router.delete("/:mid", auth.isAuthorized, async function (req, res) {
+  // @ts-ignore
   const nwid = req.params.nwid;
   const mid = req.params.mid;
   member.deleteMemberAdditionalData(nwid, mid);
