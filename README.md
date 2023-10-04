@@ -47,7 +47,7 @@ This project drew inspiration from [ztncui](https://github.com/key-networks/ztnc
 
 - It is a lightweight [Single Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application) built with React, providing an improved user experience, and it is mobile-friendly.
 - ZeroUI is compatible with the ZeroTier Central API, allowing you to use CLI tools and custom applications designed for ZeroTier Central to manage your networks.
-- ZeroUI implements controller-specific workarounds to address certain existing [issues](https://github.com/zerotier/ZeroTierOne/issues/859) that are not addressed in ZTNCUI [issues](https://github.com/key-networks/ztncui/issues/63).
+- ZeroUI implements controller-specific workarounds to address certain existing [issues](https://github.com/zerotier/ZeroTierOne/issues/859) that are not addressed in [ZTNCUI](https://github.com/key-networks/ztncui/issues/63).
 - ZeroUI is more feature-complete, supporting almost all network controller features, including a rule editor. Development is ongoing, so you can expect regular updates with new features and bug fixes.
 - Deploying ZeroUI is straightforward; refer to the [installation](#installation) section for more information.
 
