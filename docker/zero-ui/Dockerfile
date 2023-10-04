@@ -2,7 +2,6 @@ FROM --platform=$BUILDPLATFORM node:lts-alpine as frontend-build
 
 ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
-ENV NODE_OPTIONS=--openssl-legacy-provider
 
 WORKDIR /app/frontend
 COPY yarn.lock .yarnrc.yml ./
