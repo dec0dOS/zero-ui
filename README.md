@@ -221,17 +221,6 @@ docker-compose pull && docker-compose up -d --no-build
 ```
 
 in the folder where `docker-compose.yml` is located. Backup is not required as your data is saved in Docker volumes but recommended.
-You could also set up [watchtower](https://github.com/containrrr/watchtower) for automatic updates.
-
-```sh
-docker run -d \
- --name watchtower \
- -v /var/run/docker.sock:/var/run/docker.sock \
- --restart always \
- containrrr/watchtower \
- --cleanup --include-restarting \
- zu-main zu-controller
-```
 
 ### Backup
 
