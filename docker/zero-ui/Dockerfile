@@ -2,14 +2,13 @@ FROM --platform=$BUILDPLATFORM node:lts-alpine as frontend-build
 
 ENV GENERATE_SOURCEMAP=false
 
-WORKDIR /app/frontend
 WORKDIR /app/
 COPY --link package.json yarn.lock* .yarnrc.yml ./
 COPY --link .yarn/ ./.yarn
+WORKDIR /app/frontend
 COPY --link ./frontend/package.json /app/frontend
 RUN yarn workspaces focus frontend
 COPY --link ./frontend /app/frontend
-WORKDIR /app/frontend
 RUN yarn build
 
 
