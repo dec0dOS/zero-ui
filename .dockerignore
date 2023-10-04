@@ -3,7 +3,9 @@
 *Dockerfile*
 *docker-compose*
 node_modules
-jsconfig.js
+jsconfig.json
+tsconfig.json
+.eslintrc.json
 .DS_Store
 tmp
 temp
@@ -13,4 +15,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+.yarn/cache
 backend/data/db.json
