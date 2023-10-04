@@ -3,8 +3,6 @@
 *Dockerfile*
 *docker-compose*
 node_modules
-jsconfig.json
-tsconfig.json
 .eslintrc.json
 .DS_Store
 tmp
