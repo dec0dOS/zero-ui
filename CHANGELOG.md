@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/dec0dOS/zero-ui/compare/v1.5.1...v1.5.2) (2023-10-04)
+
+### Bug Fixes
+
+- fix network member api resp handling ([856682b](https://github.com/dec0dOS/zero-ui/commit/856682bad1ccd46970681e45bea8a992043c38f4))
+- ping peer response handling ([db8f497](https://github.com/dec0dOS/zero-ui/commit/db8f4979e65d23d93de99ffa428c9b9a3d3fd952))
+- revert fix for 1.12.0 ([5d041f6](https://github.com/dec0dOS/zero-ui/commit/5d041f6db63345950cb5782d586c71e0402b7ce7))
+
 ### [1.5.1](https://github.com/dec0dOS/zero-ui/compare/v1.5.0...v1.5.1) (2022-10-09)
 
 ### Bug Fixes
