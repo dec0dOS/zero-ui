@@ -31,6 +31,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "rimraf": "^5.0.5",
     "source-map-explorer": "^2.5.3",
+    "typescript": "^5.2.2",
     "vite": "^4.4.10"
   },
   "scripts": {
@@ -39,6 +40,7 @@
     "serve": "vite preview",
     "clean": "rimraf build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "typecheck": "tsc --pretty --noEmit -p tsconfig.json",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "homepage": "/app",

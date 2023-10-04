@@ -1,22 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// import { join, parse, resolve } from "path";
-// import * as url from "url";
-// const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
-
-// function entryPoints(...paths) {
-//   const entries = paths.map(parse).map((entry) => {
-//     const { dir, base, name } = entry;
-//     const key = join(dir, name);
-//     const path = resolve(__dirname, dir, base);
-//     return [key, path];
-//   });
-
-//   const config = Object.fromEntries(entries);
-//   return config;
-// }
-
 export default defineConfig({
   base: "/app",
   server: {
