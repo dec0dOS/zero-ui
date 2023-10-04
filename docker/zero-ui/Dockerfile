@@ -6,8 +6,8 @@ RUN mkdir -p /app/frontend
 WORKDIR /app/
 COPY --link tsconfig.json package.json yarn.lock* .yarnrc.yml ./
 COPY --link .yarn/ ./.yarn
-WORKDIR /app/frontend/
 COPY --link ./frontend/package*.json /app/frontend
+WORKDIR /app/frontend/
 RUN yarn workspaces focus frontend
 COPY --link ./frontend /app/frontend
 RUN yarn build
@@ -22,8 +22,8 @@ RUN mkdir -p /app/backend
 WORKDIR /app/
 COPY --link package.json yarn.lock* .yarnrc.yml ./
 COPY --link .yarn/ ./.yarn
-WORKDIR /app/backend/
 COPY --link ./backend/package*.json /app/backend
+WORKDIR /app/backend/
 RUN yarn workspaces focus --production backend && yarn cache clean
 
 COPY --link ./backend /app/backend
