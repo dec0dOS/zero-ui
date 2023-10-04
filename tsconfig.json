@@ -9,6 +9,5 @@
     "strict": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true
-  },
-  "include": ["backend", "frontend"]
+  }
 }

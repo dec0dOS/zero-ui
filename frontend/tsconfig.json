@@ -1,18 +1,10 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": "src",
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true,
-    "skipLibCheck": true,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "target": "ESNext",
-    "lib": ["ESNext", "dom"],
-    "strict": true,
-    "noImplicitAny": false,
-    "allowSyntheticDefaultImports": true,
     "jsx": "preserve"
   },
   "include": ["src"]
