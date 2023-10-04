@@ -124,7 +124,7 @@ function NetworkRules({ network, callback }) {
             width: "250px",
           }}
         >
-          {!!errors.length ? (
+          {errors.length ? (
             <Typography color="error">
               {"[" + errors[0] + ":" + errors[1] + "] " + errors[2]}
             </Typography>

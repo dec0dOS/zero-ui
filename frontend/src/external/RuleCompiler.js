@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 // rule-compiler.js from ZeroTierOne before its relicensing
 // source:

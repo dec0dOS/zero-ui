@@ -1,31 +1,30 @@
 FROM --platform=$BUILDPLATFORM node:lts-alpine as frontend-build
 
-ENV INLINE_RUNTIME_CHUNK=false
 ENV GENERATE_SOURCEMAP=false
-ENV NODE_OPTIONS=--openssl-legacy-provider
 
+WORKDIR /app/
+COPY --link tsconfig.json package.json yarn.lock* .yarnrc.yml ./
+COPY --link .yarn/ ./.yarn
 WORKDIR /app/frontend
-COPY yarn.lock .yarnrc.yml ./
-COPY .yarn/ ./.yarn/
-COPY ./frontend/package*.json /app/frontend
-RUN yarn install
-
-COPY ./frontend /app/frontend
+COPY --link ./frontend/package.json /app/frontend
+RUN yarn workspaces focus frontend
+COPY --link ./frontend /app/frontend
 RUN yarn build
 
 
 FROM node:lts-alpine
 
 WORKDIR /app/frontend/build
-COPY --from=frontend-build /app/frontend/build /app/frontend/build/
+COPY --link --from=frontend-build /app/frontend/build /app/frontend/build/
 
+WORKDIR /app/
+COPY --link package.json yarn.lock* .yarnrc.yml ./
+COPY --link .yarn/ ./.yarn
 WORKDIR /app/backend
-COPY yarn.lock .yarnrc.yml ./
-COPY .yarn/ ./.yarn/
-COPY ./backend/package*.json /app/backend
-RUN yarn install
+COPY --link ./backend/package.json /app/backend
+RUN yarn workspaces focus --production backend && yarn cache clean
 
-COPY ./backend /app/backend
+COPY --link ./backend /app/backend
 
 EXPOSE 4000
 ENV NODE_ENV=production

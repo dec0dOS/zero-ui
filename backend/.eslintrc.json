@@ -1,0 +1,63 @@
+{
+  "plugins": [
+    "@typescript-eslint",
+    "unicorn",
+    "jsdoc",
+    "import",
+    "promise",
+    "sonarjs"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:n/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:jsdoc/recommended",
+    "plugin:import/recommended",
+    "plugin:promise/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:security/recommended"
+  ],
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "jsdoc/require-jsdoc": ["warn", { "publicOnly": true }],
+    "jsdoc/require-description": "off",
+    "import/no-unresolved": "off",
+    "unicorn/no-empty-file": "off",
+    "unicorn/consistent-function-scoping": [
+      "error",
+      {
+        "checkArrowFunctions": false
+      }
+    ],
+    "unicorn/prefer-module": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/catch-error-name": "off",
+    "unicorn/prefer-ternary": "off",
+    "unicorn/prefer-event-target": "off",
+    "security/detect-object-injection": "off",
+    "security/detect-non-literal-fs-filename": "off"
+  }
+}

@@ -36,6 +36,7 @@ if (
   process.env.NODE_ENV === "production" &&
   process.env.ZU_SECURE_HEADERS !== "false"
 ) {
+  // @ts-ignore
   app.use(helmet());
 }
 

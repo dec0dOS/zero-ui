@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "lib": ["ESNext", "dom"],
+    "strict": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true
+  }
+}

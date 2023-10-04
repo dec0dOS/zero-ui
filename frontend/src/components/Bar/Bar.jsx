@@ -90,7 +90,7 @@ function Bar() {
             >
               {menuItems.map((menuItem, index) => {
                 if (
-                  menuItem.hasOwnProperty("condition") &&
+                  Object.prototype.hasOwnProperty.call(menuItem, "condition") &&
                   !menuItem.condition
                 ) {
                   return null;
