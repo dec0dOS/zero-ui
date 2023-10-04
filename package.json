@@ -1,6 +1,6 @@
 {
   "name": "zero-ui",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "workspaces": [
     "backend",
     "frontend"
