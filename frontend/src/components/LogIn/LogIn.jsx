@@ -6,7 +6,7 @@ import LogInToken from "./components/LogInToken";
 function LogIn() {
   return (
     <>
-      {process.env.NODE_ENV === "development" && (
+      {import.meta.env.DEV && (
         <>
           <LogInToken />
           <Divider orientation="vertical" />
