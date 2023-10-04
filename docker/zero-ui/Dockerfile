@@ -4,29 +4,29 @@ ENV GENERATE_SOURCEMAP=false
 
 RUN mkdir -p /app/frontend
 WORKDIR /app/
-COPY --link tsconfig.json package.json yarn.lock* .yarnrc.yml ./
-COPY --link .yarn/ ./.yarn
-COPY --link ./frontend/package*.json /app/frontend
+COPY tsconfig.json package.json yarn.lock* .yarnrc.yml ./
+COPY .yarn/ ./.yarn
 WORKDIR /app/frontend/
+COPY ./frontend/package*.json /app/frontend
 RUN yarn workspaces focus frontend
-COPY --link ./frontend /app/frontend
+COPY ./frontend /app/frontend
 RUN yarn build
 
 
 FROM node:lts-alpine
 
 WORKDIR /app/frontend/build
-COPY --link --from=frontend-build /app/frontend/build /app/frontend/build/
+COPY --from=frontend-build /app/frontend/build /app/frontend/build/
 
 RUN mkdir -p /app/backend
 WORKDIR /app/
-COPY --link package.json yarn.lock* .yarnrc.yml ./
-COPY --link .yarn/ ./.yarn
-COPY --link ./backend/package*.json /app/backend
+COPY package.json yarn.lock* .yarnrc.yml ./
+COPY .yarn/ ./.yarn
 WORKDIR /app/backend/
+COPY ./backend/package*.json /app/backend
 RUN yarn workspaces focus --production backend && yarn cache clean
 
-COPY --link ./backend /app/backend
+COPY ./backend /app/backend
 
 EXPOSE 4000
 ENV NODE_ENV=production
