@@ -1,4 +1,4 @@
-exports.defaultRulesSource = `
+export const defaultRulesSource = `
 # This is a default rule set that allows IPv4 and IPv6 traffic but otherwise
 # behaves like a standard Ethernet switch.
 
@@ -26,7 +26,7 @@ drop
 accept;
 `;
 
-exports.defaultRules = `
+export const defaultRules = `
 [
   {
    "type": "MATCH_ETHERTYPE",

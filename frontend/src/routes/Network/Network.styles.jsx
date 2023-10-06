@@ -5,7 +5,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
   },
   container: {
-    margin: "1%",
+    margin: "3%",
+  },
+  breadcrumbs: {
+    paddingTop: "2%",
+    paddingLeft: "2%",
   },
 }));
 

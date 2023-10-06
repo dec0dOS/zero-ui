@@ -1,8 +1,6 @@
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
+import low from "lowdb";
+import FileSync from "lowdb/adapters/FileSync.js";
 
 const adapter = new FileSync(process.env.ZU_DATAPATH || "data/db.json");
 
-const db = low(adapter);
-
-module.exports = db;
+export const db = low(adapter);

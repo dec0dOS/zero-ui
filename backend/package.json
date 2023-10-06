@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "node ./bin/www",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",

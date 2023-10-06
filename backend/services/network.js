@@ -1,11 +1,11 @@
-const _ = require("lodash");
-const axios = require("axios");
+import _ from "lodash";
+import axios from "axios";
 
-const api = require("../utils/controller-api");
-const db = require("../utils/db");
-const constants = require("../utils/constants");
+import { api } from "../utils/controller-api.js";
+import { db } from "../utils/db.js";
+import { defaultRulesSource } from "../utils/constants.js";
 
-async function getNetworkAdditionalData(data) {
+export async function getNetworkAdditionalData(data) {
   let additionalData = db
     .get("networks")
     .find({ id: data.id })
@@ -29,8 +29,7 @@ async function getNetworkAdditionalData(data) {
   };
 }
 
-exports.getNetworksData = getNetworksData;
-async function getNetworksData(nwids) {
+export async function getNetworksData(nwids) {
   const prefix = "/controller/network/";
   const links = nwids.map((nwid) => prefix + nwid);
 
@@ -54,13 +53,12 @@ async function getNetworksData(nwids) {
   return data;
 }
 
-exports.createNetworkAdditionalData = createNetworkAdditionalData;
-async function createNetworkAdditionalData(nwid) {
+export async function createNetworkAdditionalData(nwid) {
   const saveData = {
     id: nwid,
     additionalConfig: {
       description: "",
-      rulesSource: constants.defaultRulesSource,
+      rulesSource: defaultRulesSource,
       tagsByName: {},
       capabilitiesByName: {},
     },
@@ -70,8 +68,7 @@ async function createNetworkAdditionalData(nwid) {
   db.get("networks").push(saveData).write();
 }
 
-exports.updateNetworkAdditionalData = updateNetworkAdditionalData;
-async function updateNetworkAdditionalData(nwid, data) {
+export async function updateNetworkAdditionalData(nwid, data) {
   let additionalData = {};
 
   if (data.hasOwnProperty("description")) {
@@ -96,7 +93,6 @@ async function updateNetworkAdditionalData(nwid, data) {
   }
 }
 
-exports.deleteNetworkAdditionalData = deleteNetworkAdditionalData;
-async function deleteNetworkAdditionalData(nwid) {
+export async function deleteNetworkAdditionalData(nwid) {
   db.get("networks").remove({ id: nwid }).write();
 }

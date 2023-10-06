@@ -1,7 +1,7 @@
-const crypto = require("crypto");
-const hashPassword = require("pbkdf2-wrapper/hashText");
+import crypto from "crypto";
+import hashPassword from "pbkdf2-wrapper/hashText.js";
 
-module.exports = async function () {
+export async function initAdmin() {
   if (!process.env.ZU_DEFAULT_PASSWORD || !process.env.ZU_DEFAULT_USERNAME) {
     console.error("ZU_DEFAULT_PASSWORD or ZU_DEFAULT_USERNAME not found!");
     process.exit(1);
@@ -13,4 +13,4 @@ module.exports = async function () {
     password_hash: hash,
     token: crypto.randomBytes(16).toString("hex"),
   };
-};
+}

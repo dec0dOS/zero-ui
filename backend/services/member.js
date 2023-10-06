@@ -1,9 +1,9 @@
-const _ = require("lodash");
-const axios = require("axios");
+import _ from "lodash";
+import axios from "axios";
 
-const api = require("../utils/controller-api");
-const db = require("../utils/db");
-const getZTAddress = require("../utils/zt-address");
+import { api } from "../utils/controller-api.js";
+import { db } from "../utils/db.js";
+import { getZTAddress } from "../utils/zt-address.js";
 
 let ZT_ADDRESS = null;
 getZTAddress().then(function (address) {
@@ -91,8 +91,7 @@ async function filterDeleted(nwid, mid) {
   else return;
 }
 
-exports.getMembersData = getMembersData;
-async function getMembersData(nwid, mids) {
+export async function getMembersData(nwid, mids) {
   const prefix = "/controller/network/" + nwid + "/member/";
   const filtered = (
     await Promise.all(mids.map(async (mid) => await filterDeleted(nwid, mid)))
@@ -119,8 +118,7 @@ async function getMembersData(nwid, mids) {
   return data;
 }
 
-exports.updateMemberAdditionalData = updateMemberAdditionalData;
-async function updateMemberAdditionalData(nwid, mid, data) {
+export async function updateMemberAdditionalData(nwid, mid, data) {
   if (data.config && data.config.authorized) {
     db.get("networks")
       .filter({ id: nwid })
@@ -172,8 +170,7 @@ async function updateMemberAdditionalData(nwid, mid, data) {
   }
 }
 
-exports.deleteMemberAdditionalData = deleteMemberAdditionalData;
-async function deleteMemberAdditionalData(nwid, mid) {
+export async function deleteMemberAdditionalData(nwid, mid) {
   // ZT controller bug
   /* db.get("networks")
        .find({ id: nwid })

@@ -1,6 +1,6 @@
-const api = require("../utils/controller-api");
+import { api } from "../utils/controller-api.js";
 
-module.exports = async function () {
+export async function getZTAddress() {
   try {
     const res = await api.get("status");
     return res.data.address;
@@ -10,4 +10,4 @@ module.exports = async function () {
       "Couldn't connect to the controller on " + err.config.baseURL
     );
   }
-};
+}

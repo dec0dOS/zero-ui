@@ -1,7 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const auth = require("../services/auth");
+import { authorize } from "../services/auth.js";
 
 router.get("/login", async function (req, res) {
   if (process.env.ZU_DISABLE_AUTH === "true") {
@@ -13,7 +13,7 @@ router.get("/login", async function (req, res) {
 
 router.post("/login", async function (req, res) {
   if (req.body.username && req.body.password) {
-    auth.authorize(req.body.username, req.body.password, function (err, user) {
+    authorize(req.body.username, req.body.password, function (err, user) {
       if (user) {
         res.send({ token: user["token"] });
       } else {
@@ -27,4 +27,4 @@ router.post("/login", async function (req, res) {
   }
 });
 
-module.exports = router;
+export default router;

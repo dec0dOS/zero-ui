@@ -1,13 +1,13 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const auth = require("../services/auth");
-const api = require("../utils/controller-api");
+import { isAuthorized } from "../services/auth.js";
+import { api } from "../utils/controller-api.js";
 
-router.get("/status", auth.isAuthorized, async function (req, res) {
+router.get("/status", isAuthorized, async function (req, res) {
   api.get("status").then(function (controllerRes) {
     res.send(controllerRes.data);
   });
 });
 
-module.exports = router;
+export default router;
