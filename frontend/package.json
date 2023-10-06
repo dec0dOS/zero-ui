@@ -41,19 +41,6 @@
     "clean": "rimraf build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --pretty --noEmit -p tsconfig.json",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
-  },
-  "homepage": "/app",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "analyze": "vite build --sourcemap true && source-map-explorer 'build/assets/*.js'  --no-border-checks"
   }
 }
