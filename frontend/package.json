@@ -22,8 +22,13 @@
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
+    "@types/codemirror": "^5.60.10",
+    "@types/lodash": "^4.14.199",
     "@types/react": "^17.0.67",
     "@types/react-dom": "^17.0.21",
+    "@types/react-is": "^17.0.5",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.28",
     "@vitejs/plugin-react": "^4.1.0",
     "eslint": "^8.51.0",
     "eslint-plugin-react": "^7.33.2",
