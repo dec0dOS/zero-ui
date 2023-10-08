@@ -4,7 +4,7 @@ import logger from "morgan";
 import compression from "compression";
 import bearerToken from "express-bearer-token";
 import helmet from "helmet";
-import cron from "node-cron";
+import { Cron } from "croner";
 
 import { db } from "./utils/db.js";
 import { initAdmin } from "./utils/init-admin.js";
@@ -63,7 +63,7 @@ initAdmin().then(function (admin) {
 
 if (process.env.ZU_LAST_SEEN_FETCH !== "false") {
   let schedule = process.env.ZU_LAST_SEEN_SCHEDULE || "*/5 * * * *";
-  cron.schedule(schedule, () => {
+  Cron(schedule, () => {
     console.debug("Running scheduled job");
     const networks = db.get("networks").value();
     networks.forEach(async (network) => {

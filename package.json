@@ -54,5 +54,8 @@
       "yarn prettier --write"
     ]
   },
-  "packageManager": "yarn@4.0.0-rc.53"
+  "packageManager": "yarn@4.0.0-rc.53",
+  "dependencies": {
+    "croner": "^7.0.2"
+  }
 }
