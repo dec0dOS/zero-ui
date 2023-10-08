@@ -9134,7 +9134,6 @@ __metadata:
     "@commitlint/config-conventional": "npm:^17.7.0"
     commitizen: "npm:^4.3.0"
     concurrently: "npm:^8.2.1"
-    croner: "npm:^7.0.2"
     cross-env: "npm:^7.0.3"
     cz-conventional-changelog: "npm:^3.3.0"
     husky: "npm:^8.0.3"
