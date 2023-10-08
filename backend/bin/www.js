@@ -1,13 +1,16 @@
 #!/usr/bin/env node
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 
 /**
  * Module dependencies.
  */
 
-var app = require("../app");
-var debug = require("debug")("zero-ui:server");
-var http = require("http");
+import app from "../app.js";
+
+import debug from "debug";
+debug("zero-ui:server");
+import http from "node:http";
 
 /**
  * Get port from environment and store in Express.
@@ -82,6 +85,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr?.port;
   debug("Listening on " + bind);
 }

@@ -1,12 +1,12 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const auth = require("../services/auth");
-const network = require("../services/network");
+import * as auth from "../services/auth.js";
+import * as network from "../services/network.js";
 
-const api = require("../utils/controller-api");
-const constants = require("../utils/constants");
-const getZTAddress = require("../utils/zt-address");
+import { api } from "../utils/controller-api.js";
+import { defaultRules } from "../utils/constants.js";
+import { getZTAddress } from "../utils/zt-address.js";
 
 let ZT_ADDRESS = null;
 getZTAddress().then(function (address) {
@@ -40,7 +40,7 @@ router.post("/", auth.isAuthorized, async function (req, res) {
     const config = reqData.config;
     delete reqData.config;
     reqData = config;
-    reqData.rules = JSON.parse(constants.defaultRules);
+    reqData.rules = JSON.parse(defaultRules);
   } else {
     res.status(400).send({ error: "Bad request" });
   }
@@ -87,4 +87,4 @@ router.delete("/:nwid", auth.isAuthorized, async function (req, res) {
     });
 });
 
-module.exports = router;
+export default router;

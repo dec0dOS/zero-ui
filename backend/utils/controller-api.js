@@ -1,5 +1,5 @@
-const axios = require("axios");
-const fs = require("fs");
+import axios from "axios";
+import fs from "node:fs";
 
 const baseURL = process.env.ZU_CONTROLLER_ENDPOINT || "http://localhost:9993/";
 
@@ -10,7 +10,7 @@ if (process.env.ZU_CONTROLLER_TOKEN) {
   token = fs.readFileSync("/var/lib/zerotier-one/authtoken.secret", "utf8");
 }
 
-module.exports = axios.create({
+export const api = axios.create({
   baseURL: baseURL,
   responseType: "json",
   headers: {

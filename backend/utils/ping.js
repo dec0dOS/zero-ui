@@ -1,9 +1,9 @@
-const _ = require("lodash");
+import _ from "lodash";
 
-const api = require("./controller-api");
-const db = require("./db");
+import { api } from "./controller-api.js";
+import { db } from "./db.js";
 
-async function pingAll(network) {
+export async function pingAll(network) {
   await Promise.all(
     network.members.map(async (member) => {
       console.debug("Processing member " + member.id);
@@ -29,5 +29,3 @@ async function pingAll(network) {
     })
   );
 }
-
-module.exports = pingAll;

@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const auth = require("../services/auth");
-const api = require("../utils/controller-api");
+import * as auth from "../services/auth.js";
+import { api } from "../utils/controller-api.js";
 
 router.get("/status", auth.isAuthorized, async function (req, res) {
   api.get("status").then(function (controllerRes) {
@@ -10,4 +10,4 @@ router.get("/status", auth.isAuthorized, async function (req, res) {
   });
 });
 
-module.exports = router;
+export default router;

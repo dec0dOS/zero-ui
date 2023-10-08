@@ -1,8 +1,7 @@
-const db = require("../utils/db");
-const verifyHash = require("pbkdf2-wrapper/verifyHash");
+import { db } from "../utils/db.js";
+import verifyHash from "pbkdf2-wrapper/verifyHash.js";
 
-exports.authorize = authorize;
-async function authorize(username, password, callback) {
+export async function authorize(username, password, callback) {
   try {
     var users = await db.get("users");
   } catch (err) {
@@ -18,8 +17,7 @@ async function authorize(username, password, callback) {
   }
 }
 
-exports.isAuthorized = isAuthorized;
-async function isAuthorized(req, res, next) {
+export async function isAuthorized(req, res, next) {
   if (process.env.ZU_DISABLE_AUTH === "true") {
     next();
   } else {

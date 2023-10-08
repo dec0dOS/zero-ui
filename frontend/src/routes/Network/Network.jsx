@@ -39,10 +39,12 @@ function Network() {
   if (loggedIn) {
     return (
       <>
-        <Link color="inherit" component={RouterLink} to="/" underline="none">
-          <ArrowBackIcon className={classes.backIcon}></ArrowBackIcon>
-          Networks
-        </Link>
+        <div className={classes.breadcrumbs}>
+          <Link color="inherit" component={RouterLink} to="/" underline="none">
+            <ArrowBackIcon className={classes.backIcon}></ArrowBackIcon>
+            Networks
+          </Link>
+        </div>
         <div className={classes.container}>
           {network["config"] && (
             <>

@@ -1,7 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const auth = require("../services/auth");
+import * as auth from "../services/auth.js";
 
 router.get("/login", async function (req, res) {
   if (process.env.ZU_DISABLE_AUTH === "true") {
@@ -27,4 +27,4 @@ router.post("/login", async function (req, res) {
   }
 });
 
-module.exports = router;
+export default router;

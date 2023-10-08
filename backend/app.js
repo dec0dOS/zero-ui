@@ -1,19 +1,19 @@
-const express = require("express");
-const path = require("path");
-const logger = require("morgan");
-const compression = require("compression");
-const bearerToken = require("express-bearer-token");
-const helmet = require("helmet");
-const cron = require("node-cron");
+import express from "express";
+import path from "path";
+import logger from "morgan";
+import compression from "compression";
+import bearerToken from "express-bearer-token";
+import helmet from "helmet";
+import { Cron } from "croner";
 
-const db = require("./utils/db");
-const initAdmin = require("./utils/init-admin");
-const pingAll = require("./utils/ping");
+import { db } from "./utils/db.js";
+import { initAdmin } from "./utils/init-admin.js";
+import { pingAll } from "./utils/ping.js";
 
-const authRoutes = require("./routes/auth");
-const networkRoutes = require("./routes/network");
-const memberRoutes = require("./routes/member");
-const controllerRoutes = require("./routes/controller");
+import authRoutes from "./routes/auth.js";
+import networkRoutes from "./routes/network.js";
+import memberRoutes from "./routes/member.js";
+import controllerRoutes from "./routes/controller.js";
 
 const app = express();
 
@@ -63,7 +63,7 @@ initAdmin().then(function (admin) {
 
 if (process.env.ZU_LAST_SEEN_FETCH !== "false") {
   let schedule = process.env.ZU_LAST_SEEN_SCHEDULE || "*/5 * * * *";
-  cron.schedule(schedule, () => {
+  Cron(schedule, () => {
     console.debug("Running scheduled job");
     const networks = db.get("networks").value();
     networks.forEach(async (network) => {
@@ -93,4 +93,4 @@ app.use(function (err, req, res, next) {
   res.status(500).json({ error: "500 Internal server error" });
 });
 
-module.exports = app;
+export default app;

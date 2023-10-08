@@ -1,10 +1,10 @@
-const express = require("express");
+import express from "express";
 const router = express.Router({ mergeParams: true });
 
-const auth = require("../services/auth");
-const member = require("../services/member");
+import * as auth from "../services/auth.js";
+import * as member from "../services/member.js";
 
-const api = require("../utils/controller-api");
+import { api } from "../utils/controller-api.js";
 
 // get all members
 router.get("/", auth.isAuthorized, async function (req, res) {
@@ -86,4 +86,4 @@ router.delete("/:mid", auth.isAuthorized, async function (req, res) {
     });
 });
 
-module.exports = router;
+export default router;
