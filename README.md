@@ -197,7 +197,7 @@ For more information, please refer to this [discussion](https://github.com/dec0d
 
 After installation, log in with the credentials declared with `ZU_DEFAULT_USERNAME` and `ZU_DEFAULT_PASSWORD`.
 
-Currently, almost all main ZeroTier Central features are available. Refer to the [roadmap](#roadmap) for more information.
+Currently, some main ZeroTier Central features are missing. Refer to the [roadmap](#roadmap) for more information.
 
 _For screenshots, please refer to the [screenshots](docs/SCREENSHOTS.md) section._
 
@@ -209,7 +209,7 @@ To get the latest version, simply run
 docker-compose pull && docker-compose up -d --no-build
 ```
 
-in the folder where `docker-compose.yml` is located. While backups are not required as your data is saved in Docker volumes, it is recommended.
+in the folder where `docker-compose.yml` is located. Backups may not be necessary since most of your data is usually saved at the controller level, but it's still a good idea to consider them as a precautionary measure.
 
 ### Backup
 
