@@ -1233,12 +1233,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.9":
-  version: 18.2.11
-  resolution: "@types/react-dom@npm:18.2.11"
+"@types/react-dom@npm:^17.0.21":
+  version: 17.0.21
+  resolution: "@types/react-dom@npm:17.0.21"
   dependencies:
-    "@types/react": "npm:*"
-  checksum: 255c30c8a00b5da4806715c8e5c1cb4e443196c980f3c031212f61bc438316bbcdb48edc517f6df19af0ba36a1508c42bdbd736df1d94d5efd19a874e8f71888
+    "@types/react": "npm:^17"
+  checksum: d62e793b979d9405d3e29df45ba2ddaa73aa0e12bf2dad30beef46d2b9ed467fd0dbd14e83470073abfe8ea6d5e11c56ef85054b29f87c5dd90e68b30492b274
   languageName: node
   linkType: hard
 
@@ -1251,7 +1251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.24":
+"@types/react@npm:*":
   version: 18.2.25
   resolution: "@types/react@npm:18.2.25"
   dependencies:
@@ -1259,6 +1259,17 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: e777471a58bde47a710c7a1906eb9fcafa793671179fc9c0187694f916da043adac5ebd4b87c8cc14c42fd4979376e7a6acabae02b99450c2a5e198155880161
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17, @types/react@npm:^17.0.67":
+  version: 17.0.67
+  resolution: "@types/react@npm:17.0.67"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 4a3a79d99c4e40484b26d3525ca8ab6e2d0e7303d267e972e86605aa86bd483f806c1b36b2526b1772d1b6fe3c04ffc64cf6317b175057f624c0f389c381a434
   languageName: node
   linkType: hard
 
@@ -1871,7 +1882,7 @@ __metadata:
     croner: "npm:^7.0.2"
     debug: "npm:^4.3.4"
     dotenv: "npm:^16.3.1"
-    eslint: "npm:^8.50.0"
+    eslint: "npm:^8.51.0"
     eslint-plugin-import: "npm:^2.28.1"
     eslint-plugin-jsdoc: "npm:^46.8.2"
     eslint-plugin-n: "npm:^16.1.0"
@@ -3702,7 +3713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.50.0":
+"eslint@npm:^8.51.0":
   version: 8.51.0
   resolution: "eslint@npm:8.51.0"
   dependencies:
@@ -4178,14 +4189,14 @@ __metadata:
     "@material-ui/core": "npm:^4.12.4"
     "@material-ui/icons": "npm:^4.11.3"
     "@material-ui/styles": "npm:^4.11.5"
-    "@types/react": "npm:^18.2.24"
-    "@types/react-dom": "npm:^18.2.9"
+    "@types/react": "npm:^17.0.67"
+    "@types/react-dom": "npm:^17.0.21"
     "@uiw/react-codemirror": "npm:^3.1.0"
     "@vitejs/plugin-react": "npm:^4.1.0"
     axios: "npm:^0.27.2"
     codemirror: "npm:^5.62.3"
     date-fns: "npm:^2.29.2"
-    eslint: "npm:^8.50.0"
+    eslint: "npm:^8.51.0"
     eslint-plugin-react: "npm:^7.33.2"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-react-refresh: "npm:^0.4.3"
@@ -4200,9 +4211,9 @@ __metadata:
     react-use: "npm:^17.4.0"
     rimraf: "npm:^5.0.5"
     source-map-explorer: "npm:^2.5.3"
-    styled-components: "npm:^5.3.5"
+    styled-components: "npm:^5.3.11"
     typescript: "npm:^5.2.2"
-    vite: "npm:^4.4.10"
+    vite: "npm:^4.4.11"
   languageName: unknown
   linkType: soft
 
@@ -8302,7 +8313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^5.3.5":
+"styled-components@npm:^5.3.11":
   version: 5.3.11
   resolution: "styled-components@npm:5.3.11"
   dependencies:
@@ -8852,7 +8863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^4.4.10":
+"vite@npm:^4.4.11":
   version: 4.4.11
   resolution: "vite@npm:4.4.11"
   dependencies:
