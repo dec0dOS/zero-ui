@@ -2020,6 +2020,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:^48.0.1"
     express: "npm:^4.18.2"
     express-bearer-token: "npm:^2.4.0"
+    express-rate-limit: "npm:^7.1.1"
     helmet: "npm:^5.1.1"
     lodash: "npm:^4.17.21"
     lowdb: "npm:^1.0.0"
@@ -4002,6 +4003,15 @@ __metadata:
     cookie: "npm:^0.3.1"
     cookie-parser: "npm:^1.4.4"
   checksum: c4de0ac6b5b746206c519c6d1c82da1f5bb8a2102c85ed8d7b37f7807061682f8549bd98763f1d62be574d0c31d64ae40dd2bc561eed83f62acf878f6c849485
+  languageName: node
+  linkType: hard
+
+"express-rate-limit@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "express-rate-limit@npm:7.1.1"
+  peerDependencies:
+    express: ^4 || ^5
+  checksum: 28fc48e25e52b269a37a9e223fcd2a234022466645737c182eec2d2a72fdfdb42a396738a062924ee37ff56719957ae0ef092cfde510ba34b63d554ce094f6ba
   languageName: node
   linkType: hard
 
