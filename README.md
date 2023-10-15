@@ -168,6 +168,8 @@ Advanced manual setups are also supported. Check the following environment varia
 | ZU_DISABLE_AUTH | unset | If set to true, automatically log in all users. This is useful if ZeroUI is protected by an authentication proxy. Note that when this value is changed, the localStorage of instances of logged-in panels should be cleared |
 | ZU_LAST_SEEN_FETCH | `true`| Enables [Last Seen feature](https://github.com/dec0dOS/zero-ui/issues/40) |
 | ZU_LAST_SEEN_SCHEDULE | `*/5 * * * *` | Last Seen cron-like schedule |
+| ZT_BAN_TIME | 30 | The duration of the user's ban. (in minutes). You should write it on `environment` zerotier service |
+| ZT_TRIES_TO_BAN | 50 | User/password combination attemps before ban. You should write it on `environment` zerotier service |
 
 ZeroUI could be deployed as a regular nodejs web application, but it requires a ZeroTier controller that is installed with the `zerotier-one` package. For more info about the network controller, you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
