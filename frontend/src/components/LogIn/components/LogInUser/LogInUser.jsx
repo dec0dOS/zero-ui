@@ -17,6 +17,8 @@ function LogInUser() {
   const [open, setOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
+  const [error, setError] = useState("");
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -65,7 +67,8 @@ function LogInUser() {
       .catch(function (error) {
         setPassword("");
         setSnackbarOpen(true);
-        console.error(error);
+        setError(error.response.data.error);
+        // console.error(error.response.data.error);
       });
   };
 
@@ -114,7 +117,7 @@ function LogInUser() {
           vertical: "top",
           horizontal: "center",
         }}
-        message="Invalid username or password"
+        message={error}
       />
     </>
   );
