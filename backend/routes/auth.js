@@ -5,8 +5,8 @@ const router = express.Router();
 import * as auth from "../services/auth.js";
 
 const loginLimiter = rateLimit({
-  windowMs: (Number(process.env.ZT_BAN_TIME) || 30) * 60 * 1000, // 30 minutes
-  max: Number(process.env.ZT_TRIES_TO_BAN) || 50, // limit each IP to 50 requests per windowMs
+  windowMs: (Number(process.env.ZU_LOGIN_LIMIT_WINDOW) || 30) * 60 * 1000, // 30 minutes
+  max: Number(process.env.ZT_LOGIN_LIMIT_ATTEMPTS) || 50, // limit each IP to 50 requests per windowMs
   message: {
     status: 429,
     error: "Too many login attempts, please try again in 15 minutes.",
