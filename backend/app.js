@@ -1,5 +1,6 @@
-import express from "express";
 import path from "path";
+import * as url from "url";
+import express from "express";
 import logger from "morgan";
 import compression from "compression";
 import bearerToken from "express-bearer-token";
@@ -16,6 +17,7 @@ import memberRoutes from "./routes/member.js";
 import controllerRoutes from "./routes/controller.js";
 
 const app = express();
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 app.use(logger("dev"));
 app.use(express.json());
