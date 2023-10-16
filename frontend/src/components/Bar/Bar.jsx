@@ -19,6 +19,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import LogIn from "components/LogIn";
 
+import { useTranslation } from "react-i18next";
+
 function Bar() {
   const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
   const [disabledAuth] = useLocalStorage("disableAuth", false);
@@ -41,16 +43,18 @@ function Bar() {
     history.go(0);
   };
 
+  const { t, i18n } = useTranslation();
+
   const menuItems = [
     // TODO: add settings page
-    // {
-    //   name: "Settings",
-    //   to: "/settings",
-    // },
+    {
+      name: "Settings",
+      to: "/settings",
+    },
     ...(!disabledAuth
       ? [
           {
-            name: "Log out",
+            name: t("logOut"),
             divide: true,
             onClick: onLogOutClick,
           },
@@ -115,7 +119,6 @@ function Bar() {
                       key={index}
                       onClick={() => {
                         closeMenu();
-
                         menuItem.onClick();
                       }}
                     >

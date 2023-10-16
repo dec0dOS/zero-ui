@@ -12,6 +12,8 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 
+import { useTranslation } from "react-i18next";
+
 function LogInToken() {
   const [open, setOpen] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -41,6 +43,8 @@ function LogInToken() {
     }
   };
 
+  const { t, i18n } = useTranslation();
+
   const LogIn = () => {
     if (token.length !== 32) {
       setErrorText("Token length error");
@@ -55,12 +59,12 @@ function LogInToken() {
   return (
     <div>
       <Button onClick={handleClickOpen} color="inherit" variant="outlined">
-        Token Log In
+        {t("logInToken")}
       </Button>
       <Dialog open={open} onClose={handleClose} onKeyPress={handleKeyPress}>
-        <DialogTitle>Log In</DialogTitle>
+        <DialogTitle>{t("logIn")}</DialogTitle>
         <DialogContent>
-          <DialogContentText>ADVANCED FEATURE.</DialogContentText>
+          <DialogContentText>{t("advancedFeature")}</DialogContentText>
           <TextField
             value={token}
             onChange={(e) => {
@@ -76,10 +80,10 @@ function LogInToken() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Cancel
+            {t("cancel")}
           </Button>
           <Button onClick={LogIn} color="primary">
-            Log In
+            {t("logIn")}
           </Button>
         </DialogActions>
       </Dialog>

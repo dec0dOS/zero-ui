@@ -1,12 +1,14 @@
 import { Grid, TextField } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 function MemberName({ member, handleChange }) {
+  const { t, i18n } = useTranslation();
   return (
     <Grid>
       <TextField
         value={member.name}
         onChange={handleChange(member, "name")}
-        label="Name"
+        label={t("name")}
         variant="filled"
         InputLabelProps={{
           shrink: true,
@@ -15,7 +17,7 @@ function MemberName({ member, handleChange }) {
       <TextField
         value={member.description}
         onChange={handleChange(member, "description")}
-        label="Description"
+        label={t("description")}
         variant="filled"
         InputLabelProps={{
           shrink: true,

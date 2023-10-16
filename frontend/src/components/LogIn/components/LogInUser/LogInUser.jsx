@@ -13,6 +13,8 @@ import {
 
 import axios from "axios";
 
+import { useTranslation } from "react-i18next";
+
 function LogInUser() {
   const [open, setOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -72,13 +74,15 @@ function LogInUser() {
       });
   };
 
+  const { t, i18n } = useTranslation();
+
   return (
     <>
       <Button onClick={handleClickOpen} color="primary" variant="contained">
-        Log In
+        {t("logIn")}
       </Button>
       <Dialog open={open} onClose={handleClose} onKeyPress={handleKeyPress}>
-        <DialogTitle>Log In</DialogTitle>
+        <DialogTitle>{t("logIn")}</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -104,10 +108,10 @@ function LogInUser() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Cancel
+            {t("cancel")}
           </Button>
           <Button onClick={LogIn} color="primary">
-            Log In
+            {t("logIn")}
           </Button>
         </DialogActions>
       </Dialog>
@@ -117,7 +121,7 @@ function LogInUser() {
           vertical: "top",
           horizontal: "center",
         }}
-        message={error}
+        message={t(error)}
       />
     </>
   );

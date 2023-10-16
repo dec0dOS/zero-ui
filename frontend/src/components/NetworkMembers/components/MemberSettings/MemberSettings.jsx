@@ -13,7 +13,10 @@ import BuildIcon from "@material-ui/icons/Build";
 import { useState } from "react";
 import Tag from "./components/Tag";
 
+import { useTranslation } from "react-i18next";
+
 function MemberSettings({ member, network, handleChange }) {
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -43,7 +46,7 @@ function MemberSettings({ member, network, handleChange }) {
                 "checkbox"
               )}
             />
-            <span>Allow Ethernet Bridging</span>
+            <span>{t("allowBridging")}</span>
           </Grid>
           <Grid item>
             <Checkbox
@@ -56,17 +59,17 @@ function MemberSettings({ member, network, handleChange }) {
                 "checkbox"
               )}
             />
-            <span>Do Not Auto-Assign IPs</span>
+            <span>{t("noAutoIP")}</span>
           </Grid>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="h6">Capabilities</Typography>
+              <Typography variant="h6">{t("capabilities")}</Typography>
             </Grid>
             <Grid item xs={12}>
               <Paper style={{ padding: 20 }}>
                 {Object.entries(network["capabilitiesByName"] || []).length ===
                 0
-                  ? "No capabilities defined"
+                  ? t("noCapDef")
                   : ""}
                 {Object.entries(network["capabilitiesByName"] || []).map(
                   ([capName, capId]) => (
@@ -96,11 +99,11 @@ function MemberSettings({ member, network, handleChange }) {
           </Grid>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="h6">Tags</Typography>
+              <Typography variant="h6">{t("tags")}</Typography>
             </Grid>
             {Object.entries(network["tagsByName"] || []).length === 0 ? (
               <Grid item xs={12}>
-                <Paper style={{ padding: 20 }}>No tags defined</Paper>
+                <Paper style={{ padding: 20 }}>{t("noTagDef")}</Paper>
               </Grid>
             ) : (
               ""
