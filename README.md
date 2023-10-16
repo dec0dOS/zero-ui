@@ -165,11 +165,12 @@ Advanced manual setups are also supported. Check the following environment varia
 | ZU_DEFAULT_USERNAME | unset (`docker-compose.yml`: admin) | Default username that will be set on the first run |
 | ZU_DEFAULT_PASSWORD | unset (`docker-compose.yml`: zero-ui) | Default password that will be set on the first run |
 | ZU_DATAPATH | `data/db.json` | ZeroUI data storage path |
-| ZU_DISABLE_AUTH | unset | If set to true, automatically log in all users. This is useful if ZeroUI is protected by an authentication proxy. Note that when this value is changed, the localStorage of instances of logged-in panels should be cleared |
+| ZU_DISABLE_AUTH | `false` | If set to true, automatically log in all users. This is useful if ZeroUI is protected by an authentication proxy. Note that when this value is changed, the localStorage of instances of logged-in panels should be cleared |
 | ZU_LAST_SEEN_FETCH | `true`| Enables [Last Seen feature](https://github.com/dec0dOS/zero-ui/issues/40) |
 | ZU_LAST_SEEN_SCHEDULE | `*/5 * * * *` | Last Seen cron-like schedule |
+| ZU_LOGIN_LIMIT | `false` | Enable rate limiter for /login endpoint |
 | ZU_LOGIN_LIMIT_WINDOW | 30 | The duration of the IP ban in minutes |
-| ZT_LOGIN_LIMIT_ATTEMPTS | 50 | Login attemps before ban |
+| ZU_LOGIN_LIMIT_ATTEMPTS | 50 | Login attemps before ban |
 
 ZeroUI could be deployed as a regular nodejs web application, but it requires a ZeroTier controller that is installed with the `zerotier-one` package. For more info about the network controller, you could read [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller/#readme).
 
