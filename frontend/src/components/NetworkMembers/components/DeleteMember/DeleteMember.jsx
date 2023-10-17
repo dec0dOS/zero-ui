@@ -9,9 +9,9 @@ import {
   DialogActions,
   IconButton,
 } from "@material-ui/core";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline.js";
 
-import API from "utils/API";
+import API from "utils/API.js";
 import { useTranslation } from "react-i18next";
 
 function DeleteMember({ nwid, mid, callback }) {

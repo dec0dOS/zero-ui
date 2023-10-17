@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Divider, Button, Grid, Typography, Box } from "@material-ui/core";
-import useStyles from "./HomeLoggedIn.styles";
+import useStyles from "./HomeLoggedIn.styles.jsx";
 
-import NetworkButton from "./components/NetworkButton";
+import NetworkButton from "./components/NetworkButton/NetworkButton.jsx";
 
-import API from "utils/API";
-import { generateNetworkConfig } from "utils/NetworkConfig";
+import API from "utils/API.js";
+import { generateNetworkConfig } from "utils/NetworkConfig.js";
 
 import { useTranslation } from "react-i18next";
 

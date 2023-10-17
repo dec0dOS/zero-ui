@@ -1,1 +1,1 @@
-export { default } from "./NetworkMembers";
+export { default } from "./NetworkMembers.jsx";

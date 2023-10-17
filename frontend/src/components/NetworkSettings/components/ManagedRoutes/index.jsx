@@ -1,1 +1,1 @@
-export { default } from "./ManagedRoutes";
+export { default } from "./ManagedRoutes.jsx";

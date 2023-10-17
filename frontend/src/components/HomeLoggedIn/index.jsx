@@ -1,1 +1,1 @@
-export { default } from "./HomeLoggedIn";
+export { default } from "./HomeLoggedIn.jsx";

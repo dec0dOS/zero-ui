@@ -9,9 +9,9 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import BuildIcon from "@material-ui/icons/Build";
+import BuildIcon from "@material-ui/icons/Build.js";
 import { useState } from "react";
-import Tag from "./components/Tag";
+import Tag from "./components/Tag/Tag.jsx";
 
 import { useTranslation } from "react-i18next";
 

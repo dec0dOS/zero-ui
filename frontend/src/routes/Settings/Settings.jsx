@@ -1,12 +1,12 @@
 import { Grid, Link, Typography } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import SettingsComponent from "components/SettingsComponent";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack.js";
+import SettingsComponent from "components/SettingsComponent/SettingsComponent.jsx";
 
 import { useCallback, useEffect, useState } from "react";
 import { Link as RouterLink, useHistory, useParams } from "react-router-dom";
 import { useLocalStorage } from "react-use";
 import API from "utils/API";
-import useStyles from "./Settings.styles";
+import useStyles from "./Settings.styles.jsx";
 
 import { useTranslation } from "react-i18next";
 

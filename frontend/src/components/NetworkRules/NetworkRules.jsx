@@ -9,13 +9,13 @@ import {
   Snackbar,
   Typography,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore.js";
 import CodeMirror from "@uiw/react-codemirror";
 import "codemirror/theme/3024-day.css";
-import { compile } from "external/RuleCompiler";
-import debounce from "lodash/debounce";
+import { compile } from "external/RuleCompiler.js";
+import debounce from "lodash/debounce.js";
 import { useState } from "react";
-import API from "utils/API";
+import API from "utils/API.js";
 
 import { useTranslation, Trans } from "react-i18next";
 

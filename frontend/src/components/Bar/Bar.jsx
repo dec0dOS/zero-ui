@@ -1,8 +1,8 @@
 import logo from "./assets/logo.png";
 
-import { useState } from "react";
-import { Link as RouterLink, useHistory } from "react-router-dom";
-import { useLocalStorage } from "react-use";
+import { useEffect, useRef, useState } from "react";
+import { Redirect, Link as RouterLink, useHistory } from "react-router-dom";
+import { useLocalStorage, useWindowScroll } from "react-use";
 
 import {
   AppBar,
@@ -15,18 +15,56 @@ import {
   MenuItem,
   Link,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import MenuIcon from "@material-ui/icons/Menu.js";
 
-import LogIn from "components/LogIn";
+import LogIn from "components/LogIn/LogIn.jsx";
+import "ninja-keys";
 
 import { useTranslation } from "react-i18next";
+import API from "utils/API.js";
+import { generateNetworkConfig } from "utils/NetworkConfig.js";
 
 function Bar() {
+  const ninjaKeys = useRef(null);
+  const history = useHistory();
+  const { t, i18n } = useTranslation();
+
+  const [hotkeys, setHotkeys] = useState([
+    {
+      id: "Settings",
+      title: t("settings"),
+      hotkey: "cmd+shift+s",
+      handler: () => {
+        history.push("/settings");
+      },
+    },
+    {
+      id: "createNet",
+      title: t("createNetwork"),
+      hotkey: "cmd+shift+n",
+      handler: () => {
+        createNetwork();
+      },
+    },
+    {
+      id: "LogOut",
+      title: t("logOut"),
+      hotkey: "cmd+shift+g",
+      handler: () => {
+        onLogOutClick();
+      },
+    },
+  ]);
+
   const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
   const [disabledAuth] = useLocalStorage("disableAuth", false);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const history = useHistory();
+  const createNetwork = async () => {
+    const network = await API.post("network", generateNetworkConfig());
+    console.log(network);
+    history.push("/network/" + network.data["config"]["id"]);
+  };
 
   const openMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -43,7 +81,11 @@ function Bar() {
     history.go(0);
   };
 
-  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    if (ninjaKeys.current) {
+      ninjaKeys.current.data = hotkeys;
+    }
+  }, []);
 
   const menuItems = [
     // TODO: add settings page
@@ -68,6 +110,11 @@ function Bar() {
       style={{ background: "#000000" }}
       position="static"
     >
+      {loggedIn && (
+        <>
+          <ninja-keys ref={ninjaKeys}></ninja-keys>
+        </>
+      )}
       <Toolbar>
         <Box display="flex" flexGrow={1}>
           <Typography color="inherit" variant="h6">

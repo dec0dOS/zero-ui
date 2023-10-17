@@ -9,10 +9,10 @@ import {
   TextField,
   Select,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore.js";
 
-import API from "utils/API";
-import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
+import API from "utils/API.js";
+import { parseValue, replaceValue, setValue } from "utils/ChangeHelper.js";
 
 import { useTranslation } from "react-i18next";
 

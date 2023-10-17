@@ -1,7 +1,7 @@
 import { useLocalStorage } from "react-use";
 
-import HomeLoggedIn from "components/HomeLoggedIn";
-import HomeLoggedOut from "components/HomeLoggedOut";
+import HomeLoggedIn from "components/HomeLoggedIn/HomeLoggedIn.jsx";
+import HomeLoggedOut from "components/HomeLoggedOut/HomeLoggedOut.jsx";
 
 function Home() {
   const [loggedIn] = useLocalStorage("loggedIn", false);

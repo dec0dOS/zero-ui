@@ -8,7 +8,7 @@ import {
   Select,
   Typography,
 } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
+import DeleteIcon from "@material-ui/icons/Delete.js";
 import { useEffect, useState } from "react";
 import { useDebounce } from "react-use";
 

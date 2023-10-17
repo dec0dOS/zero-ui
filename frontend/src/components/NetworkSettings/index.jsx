@@ -1,1 +1,1 @@
-export { default } from "./NetworkSettings";
+export { default } from "./NetworkSettings.jsx";

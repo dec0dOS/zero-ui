@@ -1,1 +1,1 @@
-export { default } from "./NetworkManagement";
+export { default } from "./NetworkManagement.jsx";
