@@ -7,19 +7,19 @@ import {
   IconButton,
   Typography,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import RefreshIcon from "@material-ui/icons/Refresh";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore.js";
+import RefreshIcon from "@material-ui/icons/Refresh.js";
 import { useCallback, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useParams } from "react-router-dom";
-import API from "utils/API";
-import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
+import API from "utils/API.js";
+import { parseValue, replaceValue, setValue } from "utils/ChangeHelper.js";
 import { formatDistance } from "date-fns";
-import AddMember from "./components/AddMember";
-import DeleteMember from "./components/DeleteMember";
-import ManagedIP from "./components/ManagedIP";
-import MemberName from "./components/MemberName";
-import MemberSettings from "./components/MemberSettings";
+import AddMember from "./components/AddMember/AddMember.jsx";
+import DeleteMember from "./components/DeleteMember/DeleteMember.jsx";
+import ManagedIP from "./components/ManagedIP/ManagedIP.jsx";
+import MemberName from "./components/MemberName/MemberName.jsx";
+import MemberSettings from "./components/MemberSettings/MemberSettings.jsx";
 
 function NetworkMembers({ network }) {
   const { nwid } = useParams();

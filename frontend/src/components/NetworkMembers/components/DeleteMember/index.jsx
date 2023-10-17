@@ -1,1 +1,1 @@
-export { default } from "./DeleteMember";
+export { default } from "./DeleteMember.jsx";

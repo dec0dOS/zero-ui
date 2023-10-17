@@ -1,1 +1,1 @@
-export { default } from "./NetworkRules";
+export { default } from "./NetworkRules.jsx";

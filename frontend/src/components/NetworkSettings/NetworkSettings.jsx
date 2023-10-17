@@ -9,13 +9,13 @@ import {
   TextField,
   Select,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore.js";
 
-import ManagedRoutes from "./components/ManagedRoutes";
-import IPv4AutoAssign from "./components/IPv4AutoAssign";
+import ManagedRoutes from "./components/ManagedRoutes/ManagedRoutes.jsx";
+import IPv4AutoAssign from "./components/IPv4AutoAssign/IPv4AutoAssign.jsx";
 
-import API from "utils/API";
-import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
+import API from "utils/API.js";
+import { parseValue, replaceValue, setValue } from "utils/ChangeHelper.js";
 
 function NetworkSettings({ network, setNetwork }) {
   const sendReq = async (data) => {

@@ -1,1 +1,1 @@
-export { default } from "./MemberSettings";
+export { default } from "./MemberSettings.jsx";

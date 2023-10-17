@@ -1,1 +1,1 @@
-export { default } from "./IPv4AutoAssign";
+export { default } from "./IPv4AutoAssign.jsx";

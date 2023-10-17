@@ -1,1 +1,1 @@
-export { default } from "./NetworkHeader";
+export { default } from "./NetworkHeader.jsx";
