@@ -13,7 +13,7 @@ i18n
     compatibilityJSON: "v4",
     lng: userLanguage || "en",
     fallbackLng: "en",
-    debug: true,
+    debug: false,
     //keySeparator: false, // we use content as keys
     interpolation: {
       escapeValue: true,
