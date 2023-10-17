@@ -32,7 +32,7 @@ function SettingsComponent() {
         <Grid item>
           <Select native value={i18n.language} onChange={handleChange()}>
             <option value={"en"}>English</option>
-            <option value={"es-ES"}>Spanish</option>
+            <option value={"es-ES"}>Español</option>
           </Select>
         </Grid>
       </AccordionDetails>

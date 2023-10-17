@@ -11,15 +11,19 @@ i18n
   .use(Backend)
   .init({
     compatibilityJSON: "v4",
-    lng: userLanguage || "en",
+    //lng: "en",
     fallbackLng: "en",
-    debug: false,
+    detection: {
+      order: ["path", "cookie", "localStorage", "htmlTag"],
+      caches: ["localStorage", "cookie"], // cache user language on
+    },
+    debug: true,
     //keySeparator: false, // we use content as keys
     interpolation: {
       escapeValue: true,
     },
     react: {
-      useSuspense: false,
+      useSuspense: true,
     },
     supportedLngs: ["en", "es-ES"],
     backend: {
