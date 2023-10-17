@@ -56,5 +56,6 @@
   "multicastLimit": "Límite de destinatarios multicast",
   "enaBroadcast": "Habilitar broadcast",
   "logInFailed": "Nombre de usuario o contraseña incorrecto",
-  "tooManyAttemps": "Demasiados intentos de inicio de sesión. Vuelvee a intentarlo en 15 minutos"
+  "tooManyAttemps": "Demasiados intentos de inicio de sesión. Vuelvee a intentarlo en 15 minutos",
+  "language": "Idioma"
 }

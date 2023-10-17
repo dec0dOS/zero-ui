@@ -48,7 +48,7 @@ function Bar() {
   const menuItems = [
     // TODO: add settings page
     {
-      name: "Settings",
+      name: t("settings"),
       to: "/settings",
     },
     ...(!disabledAuth

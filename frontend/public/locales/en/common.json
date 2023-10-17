@@ -56,5 +56,6 @@
   "multicastLimit": "Multicast Recipient Limit",
   "enaBroadcast": "Enable Broadcast",
   "logInFailed": "Invalid username or password",
-  "tooManyAttemps": "Too many login attempts, please try again in 15 minutes."
+  "tooManyAttemps": "Too many login attempts, please try again in 15 minutes.",
+  "language": "Language"
 }

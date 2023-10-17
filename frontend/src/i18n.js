@@ -21,12 +21,12 @@ i18n
     react: {
       useSuspense: false,
     },
-    supportedLngs: ["en", "es", "es-ES"],
+    supportedLngs: ["en", "es-ES"],
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
-    ns: ["translation"],
-    defaultNS: "translation",
+    ns: ["common"],
+    defaultNS: "common",
   });
 
 export default i18n;
