@@ -5,7 +5,7 @@ import SettingsComponent from "components/SettingsComponent/SettingsComponent.js
 import { useCallback, useEffect, useState } from "react";
 import { Link as RouterLink, useHistory, useParams } from "react-router-dom";
 import { useLocalStorage } from "react-use";
-import API from "utils/API";
+import API from "utils/API.js";
 import useStyles from "./Settings.styles.jsx";
 
 import { useTranslation } from "react-i18next";
