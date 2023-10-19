@@ -134,7 +134,7 @@ function NetworkRules({ network, callback }) {
             </Typography>
           ) : (
             <Button variant="contained" color="primary" onClick={saveChanges}>
-              Save Changes
+              {t("saveChanges")}
             </Button>
           )}
         </Grid>

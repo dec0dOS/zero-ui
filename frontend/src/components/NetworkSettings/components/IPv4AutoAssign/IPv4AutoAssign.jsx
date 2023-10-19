@@ -145,7 +145,7 @@ function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
             <TextField
               value={start}
               onChange={handleStartInput}
-              placeholder={"Start"}
+              placeholder={t("start")}
             />
             <Divider
               orientation="vertical"
@@ -157,7 +157,7 @@ function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
             <TextField
               value={end}
               onChange={handleEndInput}
-              placeholder={"End"}
+              placeholder={t("end")}
             />
             <IconButton
               size="small"

@@ -58,5 +58,10 @@
   "logInFailed": "Invalid username or password",
   "tooManyAttempts": "Too many login attempts, please try again in 15 minutes.",
   "language": "Language",
-  "notAuthorized": "You are not authorized. Please Log In."
+  "notAuthorized": "You are not authorized. Please Log In.",
+  "saveChanges": "Save changes",
+  "optional": "Optional",
+  "destination": "Destination",
+  "username": "Username",
+  "password": "Password"
 }

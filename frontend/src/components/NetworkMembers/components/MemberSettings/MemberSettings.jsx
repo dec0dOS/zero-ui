@@ -33,7 +33,9 @@ function MemberSettings({ member, network, handleChange }) {
         <BuildIcon style={{ fontSize: 20 }} />
       </IconButton>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>{"Member " + member.config.id + " settings"}</DialogTitle>
+        <DialogTitle>
+          {t("member") + member.config.id + t("settings")}
+        </DialogTitle>
         <DialogContent>
           <Grid item>
             <Checkbox

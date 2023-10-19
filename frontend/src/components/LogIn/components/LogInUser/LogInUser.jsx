@@ -91,7 +91,7 @@ function LogInUser() {
               setUsername(e.target.value);
             }}
             margin="dense"
-            label="username"
+            label={t("username")}
             type="username"
             fullWidth
           />
@@ -101,7 +101,7 @@ function LogInUser() {
               setPassword(e.target.value);
             }}
             margin="dense"
-            label="password"
+            label={t("password")}
             type="password"
             fullWidth
           />

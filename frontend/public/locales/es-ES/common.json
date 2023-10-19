@@ -51,12 +51,17 @@
   "start": "Inicio",
   "end": "Final",
   "autoAssignPool": "Rango de IPv4 autoasignables",
-  "ipv4AutoAssign": "IPv4 Auto-Assign",
+  "ipv4AutoAssign": "Rangos de IPv4 automáticos",
   "addIPv4Pool": "Añadir rango IPv4",
   "multicastLimit": "Límite de destinatarios multicast",
   "enableBroadcast": "Habilitar broadcast",
   "logInFailed": "Nombre de usuario o contraseña incorrecto",
   "tooManyAttempts": "Demasiados intentos de inicio de sesión. Vuelvee a intentarlo en 15 minutos",
   "language": "Idioma",
-  "notAuthorized": "No estás autorizado. Por favor, inicia sesión."
+  "notAuthorized": "No estás autorizado. Por favor, inicia sesión.",
+  "saveChanges": "Guardar cambios",
+  "optional": "Opcional",
+  "destination": "Destino",
+  "username": "Nombre de usuario",
+  "password": "Contraseña"
 }

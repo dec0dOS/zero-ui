@@ -74,12 +74,12 @@ function ManagedRoutes({ routes, handleChange }) {
     },
     {
       id: "target",
-      name: "Target",
+      name: t("target"),
       cell: (row) => row["target"],
     },
     {
       id: "via",
-      name: "via",
+      name: t("via"),
       cell: (row) => (row["via"] ? row["via"] : "(LAN)"),
     },
   ];
@@ -103,7 +103,7 @@ function ManagedRoutes({ routes, handleChange }) {
             <TextField
               value={destination}
               onChange={handleDestinationInput}
-              placeholder={"Destination (CIDR)"}
+              placeholder={t("destination") + " (CIDR)"}
             />
             <Divider
               orientation="vertical"
@@ -115,7 +115,7 @@ function ManagedRoutes({ routes, handleChange }) {
             <TextField
               value={via}
               onChange={handleViaInput}
-              placeholder={"Via (Optional)"}
+              placeholder={t("via") + " (" + t("optional") + ")"}
             />
             <IconButton size="small" color="primary" onClick={addRouteReq}>
               <AddIcon
