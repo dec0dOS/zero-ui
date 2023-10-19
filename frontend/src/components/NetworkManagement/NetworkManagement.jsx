@@ -18,6 +18,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 import API from "utils/API";
 
+import { useTranslation } from "react-i18next";
+
 function NetworkManagement() {
   const { nwid } = useParams();
   const history = useHistory();
@@ -42,10 +44,12 @@ function NetworkManagement() {
     history.go(0);
   };
 
+  const { t, i18n } = useTranslation();
+
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>Management</Typography>
+        <Typography>{t("management")}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Button
@@ -54,21 +58,19 @@ function NetworkManagement() {
           startIcon={<DeleteIcon />}
           onClick={handleClickOpen}
         >
-          Delete Network
+          {t("deleteNetwork")}
         </Button>
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>
-            {"Are you sure you want to delete this network?"}
-          </DialogTitle>
+          <DialogTitle>{t("deleteNetworkConfirm")}</DialogTitle>
           <DialogContent>
-            <DialogContentText>This action cannot be undone.</DialogContentText>
+            <DialogContentText>{t("deleteAlert")}</DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="primary">
-              Cancel
+              {t("cancel")}
             </Button>
             <Button onClick={deleteNetwork} color="secondary">
-              Delete
+              {t("delete")}
             </Button>
           </DialogActions>
         </Dialog>

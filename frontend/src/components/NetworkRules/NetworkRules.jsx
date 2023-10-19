@@ -17,7 +17,11 @@ import debounce from "lodash/debounce";
 import { useState } from "react";
 import API from "utils/API";
 
+import { useTranslation, Trans } from "react-i18next";
+
 function NetworkRules({ network, callback }) {
+  const { t, i18n } = useTranslation();
+
   const [editor, setEditor] = useState(null);
   const [flowData, setFlowData] = useState({
     rules: [...network.config.rules],
@@ -87,12 +91,12 @@ function NetworkRules({ network, callback }) {
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>Flow Rules</Typography>
+        <Typography>{t("flowRules")}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         {/*   Important note: value in CodeMirror instance means INITAIL VALUE
               or it could be used to replace editor state with the new value.
-              No need to update on every user character input
+              No need to update on every user character input Flow Rules
         */}
         <CodeMirror
           value={network["rulesSource"]}
@@ -130,7 +134,7 @@ function NetworkRules({ network, callback }) {
             </Typography>
           ) : (
             <Button variant="contained" color="primary" onClick={saveChanges}>
-              Save Changes
+              {t("saveChanges")}
             </Button>
           )}
         </Grid>

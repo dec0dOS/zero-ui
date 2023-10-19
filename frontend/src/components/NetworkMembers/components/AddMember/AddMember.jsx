@@ -5,6 +5,8 @@ import AddIcon from "@material-ui/icons/Add";
 
 import API from "utils/API";
 
+import { useTranslation } from "react-i18next";
+
 function AddMember({ nwid, callback }) {
   const [member, setMember] = useState("");
 
@@ -24,9 +26,11 @@ function AddMember({ nwid, callback }) {
     setMember("");
   };
 
+  const { t, i18n } = useTranslation();
+
   return (
     <>
-      <Typography>Manually Add Member</Typography>
+      <Typography>{t("addMemberManually")}</Typography>
       <List
         disablePadding={true}
         style={{

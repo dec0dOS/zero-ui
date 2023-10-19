@@ -8,12 +8,12 @@ export async function authorize(username, password, callback) {
     throw err;
   }
   const user = users.find({ username: username });
-  if (!user.value()) return callback(new Error("Invalid username or password")); // If return "user not found" someone can do a user listing
+  if (!user.value()) return callback(new Error("logInFailed")); // If return "user not found" someone can do a user listing
   const verified = await verifyHash(password, user.value()["password_hash"]);
   if (verified) {
     return callback(null, user.value());
   } else {
-    return callback(new Error("Invalid username or password"));
+    return callback(new Error("logInFailed"));
   }
 }
 

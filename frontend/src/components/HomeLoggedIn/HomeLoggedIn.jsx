@@ -9,6 +9,8 @@ import NetworkButton from "./components/NetworkButton";
 import API from "utils/API";
 import { generateNetworkConfig } from "utils/NetworkConfig";
 
+import { useTranslation } from "react-i18next";
+
 function HomeLoggedIn() {
   const [networks, setNetworks] = useState([]);
 
@@ -30,6 +32,8 @@ function HomeLoggedIn() {
     fetchData();
   }, []);
 
+  const { t, i18n } = useTranslation();
+
   return (
     <div className={classes.root}>
       <Button
@@ -38,19 +42,19 @@ function HomeLoggedIn() {
         className={classes.createBtn}
         onClick={createNetwork}
       >
-        Create A Network
+        {t("createNetwork")}
       </Button>
       <Divider />
       <Grid container spacing={3} className={classes.container}>
         <Grid item xs={6}>
-          <Typography variant="h5">Controller networks</Typography>
-          {networks[0] && "Network controller address"}
+          <Typography variant="h5">{t("controllerNetworks")}</Typography>
+          {networks[0] && t("controllerAddress")}
           <Box fontWeight="fontWeightBold">
             {networks[0] && networks[0]["id"].slice(0, 10)}
           </Box>
         </Grid>
         <Grid item xs="auto">
-          <Typography>Networks</Typography>
+          <Typography>{t("network", { count: networks.length })}</Typography>
           <Grid item>
             {networks[0] ? (
               networks.map((network) => (
@@ -59,7 +63,7 @@ function HomeLoggedIn() {
                 </Grid>
               ))
             ) : (
-              <div>Please create at least one network</div>
+              <div>{t("createOneNetwork")}</div>
             )}
           </Grid>
         </Grid>

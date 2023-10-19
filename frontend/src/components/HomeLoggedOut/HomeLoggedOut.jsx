@@ -3,6 +3,8 @@ import { Grid, Typography } from "@material-ui/core";
 import { useLocalStorage } from "react-use";
 import { useHistory } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import axios from "axios";
 
 function HomeLoggedOut() {
@@ -29,6 +31,8 @@ function HomeLoggedOut() {
     fetchData();
   }, [history, setDisableAuth, setLoggedIn, setToken]);
 
+  const { t, i18n } = useTranslation();
+
   return (
     <Grid
       container
@@ -42,14 +46,11 @@ function HomeLoggedOut() {
     >
       <Grid item xs={10}>
         <Typography variant="h5">
-          <span>
-            ZeroUI - ZeroTier Controller Web UI - is a web user interface for a
-            self-hosted ZeroTier network controller.
-          </span>
+          <span>{t("zerouiDesc")}</span>
         </Typography>
 
         <Typography>
-          <span>Please Log In to continue</span>
+          <span>{t("loginToContinue")}</span>
         </Typography>
       </Grid>
     </Grid>

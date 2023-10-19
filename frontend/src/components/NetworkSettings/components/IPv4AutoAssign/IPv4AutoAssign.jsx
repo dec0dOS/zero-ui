@@ -18,7 +18,10 @@ import DataTable from "react-data-table-component";
 import { addressPool } from "utils/NetworkConfig";
 import { getCIDRAddress, validateIP, normilizeIP } from "utils/IP";
 
+import { useTranslation } from "react-i18next";
+
 function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
+  const { t, i18n } = useTranslation();
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
@@ -89,19 +92,19 @@ function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
     },
     {
       id: "Start",
-      name: "Start",
+      name: t("start"),
       cell: (row) => row["ipRangeStart"],
     },
     {
       id: "End",
-      name: "End",
+      name: t("end"),
       cell: (row) => row["ipRangeEnd"],
     },
   ];
 
   return (
     <>
-      <Typography>IPv4 Auto-Assign</Typography>
+      <Typography>{t("ipv4AutoAssign")}</Typography>
       <div
         style={{
           padding: "30px",
@@ -122,7 +125,7 @@ function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
         </Grid>
       </div>
       <Typography style={{ paddingBottom: "10px" }}>
-        Auto-Assign Pools
+        {t("autoAssignPool")}
       </Typography>
       <Box border={1} borderColor="grey.300">
         <Grid item style={{ margin: "10px" }}>
@@ -132,7 +135,7 @@ function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
             data={ipAssignmentPools}
           />
           <Divider />
-          <Typography>Add IPv4 Pool</Typography>
+          <Typography>{t("addIPv4Pool")}</Typography>
           <List
             style={{
               display: "flex",
@@ -142,7 +145,7 @@ function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
             <TextField
               value={start}
               onChange={handleStartInput}
-              placeholder={"Start"}
+              placeholder={t("start")}
             />
             <Divider
               orientation="vertical"
@@ -154,7 +157,7 @@ function IPv4AutoAssign({ ipAssignmentPools, handleChange }) {
             <TextField
               value={end}
               onChange={handleEndInput}
-              placeholder={"End"}
+              placeholder={t("end")}
             />
             <IconButton
               size="small"
