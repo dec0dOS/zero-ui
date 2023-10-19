@@ -16,7 +16,10 @@ import DataTable from "react-data-table-component";
 
 import { validateIP, normilizeIP, validateCIDR } from "utils/IP";
 
+import { useTranslation } from "react-i18next";
+
 function ManagedRoutes({ routes, handleChange }) {
+  const { t, i18n } = useTranslation();
   const [destination, setDestination] = useState("");
   const [via, setVia] = useState("");
 
@@ -84,13 +87,13 @@ function ManagedRoutes({ routes, handleChange }) {
   return (
     <>
       <Typography style={{ paddingBottom: "10px" }}>
-        Managed Routes ({routes.length + "/128"})
+        {t("managedRoutes")} ({routes.length + "/128"})
       </Typography>
       <Box border={1} borderColor="grey.300">
         <Grid item style={{ margin: "10px" }}>
           <DataTable noHeader={true} columns={columns} data={routes} />
           <Divider />
-          <Typography>Add Routes</Typography>
+          <Typography>{t("addRoute")}</Typography>
           <List
             style={{
               display: "flex",
