@@ -12,7 +12,6 @@ function LogIn() {
           <Divider orientation="vertical" />
         </>
       )}
-      &nbsp;
       <LogInUser />
     </>
   );

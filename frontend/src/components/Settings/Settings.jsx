@@ -16,7 +16,7 @@ import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
 
 import { useTranslation } from "react-i18next";
 
-function SettingsComponent() {
+function Settings() {
   const { t, i18n } = useTranslation();
 
   const handleChange = () => (event) => {
@@ -40,4 +40,4 @@ function SettingsComponent() {
   );
 }
 
-export default SettingsComponent;
+export default Settings;

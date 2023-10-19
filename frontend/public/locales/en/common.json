@@ -22,7 +22,7 @@
   "noDevices": "No devices have joined this network. Use the app on your devices to join",
   "member_one": "Member",
   "member_other": "Members",
-  "addMemberMan": "Manually Add Member",
+  "addMemberManually": "Manually Add Member",
   "name": "Name",
   "description": "Description",
   "allowBridging": "Allow Ethernet Bridging",
@@ -40,7 +40,7 @@
   "latency": "Latency",
   "settings": "Settings",
   "generalSettings": "General settings",
-  "netId": "Network ID",
+  "networkId": "Network ID",
   "accessControl": "Access control",
   "public": "Public",
   "private": "Private",
@@ -54,8 +54,9 @@
   "autoAssignPool": "IPv4 Auto-Assign",
   "addIPv4Pool": "Add IPv4 Pool",
   "multicastLimit": "Multicast Recipient Limit",
-  "enaBroadcast": "Enable Broadcast",
+  "enableBroadcast": "Enable Broadcast",
   "logInFailed": "Invalid username or password",
-  "tooManyAttemps": "Too many login attempts, please try again in 15 minutes.",
-  "language": "Language"
+  "tooManyAttempts": "Too many login attempts, please try again in 15 minutes.",
+  "language": "Language",
+  "notAuthorized": "You are not authorized. Please Log In."
 }

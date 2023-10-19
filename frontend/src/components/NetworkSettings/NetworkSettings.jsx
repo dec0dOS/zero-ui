@@ -51,7 +51,7 @@ function NetworkSettings({ network, setNetwork }) {
       <AccordionDetails>
         <Grid container direction="column" spacing={3}>
           <Grid item>
-            <Typography>{t("netId")}</Typography>
+            <Typography>{t("networkId")}</Typography>
             <Typography variant="h5">
               <span>{network["config"]["id"]}</span>
             </Typography>
@@ -129,7 +129,7 @@ function NetworkSettings({ network, setNetwork }) {
               color="primary"
               onChange={handleChange("config", "enableBroadcast", "checkbox")}
             />
-            <span>{t("enaBroadcast")}</span>
+            <span>{t("enableBroadcast")}</span>
           </Grid>
           {/* TODO: */}
           {/* <Grid item>

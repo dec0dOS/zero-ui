@@ -22,7 +22,7 @@
   "noDevices": "Ningún dispositivo se ha unido a esta red. Utilice la aplicación en sus dispositivos para unirse",
   "member_one": "Miembro",
   "member_other": "Miembros",
-  "addMemberMan": "Añadir miembro manualmente",
+  "addMemberManually": "Añadir miembro manualmente",
   "name": "Nombre",
   "description": "Descripción",
   "allowBridging": "Permitir puente Ethernet",
@@ -40,7 +40,7 @@
   "latency": "Latencia",
   "settings": "Ajustes",
   "generalSettings": "Ajustes generales",
-  "netId": "ID de red",
+  "networkId": "ID de red",
   "accessControl": "Control de acceso",
   "public": "Público",
   "private": "Privado",
@@ -54,8 +54,9 @@
   "ipv4AutoAssign": "IPv4 Auto-Assign",
   "addIPv4Pool": "Añadir rango IPv4",
   "multicastLimit": "Límite de destinatarios multicast",
-  "enaBroadcast": "Habilitar broadcast",
+  "enableBroadcast": "Habilitar broadcast",
   "logInFailed": "Nombre de usuario o contraseña incorrecto",
-  "tooManyAttemps": "Demasiados intentos de inicio de sesión. Vuelvee a intentarlo en 15 minutos",
-  "language": "Idioma"
+  "tooManyAttempts": "Demasiados intentos de inicio de sesión. Vuelvee a intentarlo en 15 minutos",
+  "language": "Idioma",
+  "notAuthorized": "No estás autorizado. Por favor, inicia sesión."
 }

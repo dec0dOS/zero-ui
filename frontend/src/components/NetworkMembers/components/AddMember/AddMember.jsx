@@ -30,7 +30,7 @@ function AddMember({ nwid, callback }) {
 
   return (
     <>
-      <Typography>{t("addMemberMan")}</Typography>
+      <Typography>{t("addMemberManually")}</Typography>
       <List
         disablePadding={true}
         style={{

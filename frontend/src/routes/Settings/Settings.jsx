@@ -1,11 +1,10 @@
 import { Grid, Link, Typography } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import SettingsComponent from "components/SettingsComponent";
+import SettingsComponent from "components/Settings";
 
-import { useCallback, useEffect, useState } from "react";
-import { Link as RouterLink, useHistory, useParams } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { useLocalStorage } from "react-use";
-import API from "utils/API";
+
 import useStyles from "./Settings.styles";
 
 import { useTranslation } from "react-i18next";
@@ -13,10 +12,8 @@ import { useTranslation } from "react-i18next";
 function Settings() {
   const { t, i18n } = useTranslation();
   const [loggedIn] = useLocalStorage("loggedIn", false);
-  const [network, setNetwork] = useState({});
 
   const classes = useStyles();
-  const history = useHistory();
 
   if (loggedIn) {
     return (
@@ -45,9 +42,7 @@ function Settings() {
         }}
       >
         <Grid item xs={10}>
-          <Typography variant="h5">
-            You are not authorized. Please Log In
-          </Typography>
+          <Typography variant="h5">{t("notAuthorized")}</Typography>
         </Grid>
       </Grid>
     );

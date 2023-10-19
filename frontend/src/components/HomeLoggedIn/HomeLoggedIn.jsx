@@ -50,7 +50,7 @@ function HomeLoggedIn() {
           <Typography variant="h5">{t("controllerNetworks")}</Typography>
           {networks[0] && t("controllerAddress")}
           <Box fontWeight="fontWeightBold">
-            {networks[0] && String(networks[0]["id"]).slice(0, 10)}
+            {networks[0] && networks[0]["id"].slice(0, 10)}
           </Box>
         </Grid>
         <Grid item xs="auto">
