@@ -97,13 +97,13 @@ function NetworkMembers({ network }) {
     },
     {
       id: "ips",
-      name: t("ips"),
+      name: t("managedIPs"),
       minWidth: "220px",
       cell: (row) => <ManagedIP member={row} handleChange={handleChange} />,
     },
     {
-      id: "status",
-      name: t("status"),
+      id: "lastSeen",
+      name: t("lastSeen"),
       minWidth: "100px",
       cell: (row) =>
         row.online === 1 ? (
