@@ -24,6 +24,8 @@ import { useTranslation } from "react-i18next";
 import API from "utils/API.js";
 import { generateNetworkConfig } from "utils/NetworkConfig.js";
 
+import { useTranslation } from "react-i18next";
+
 function Bar() {
   const ninjaKeys = useRef(null);
   const history = useHistory();
@@ -89,14 +91,14 @@ function Bar() {
 
   const menuItems = [
     // TODO: add settings page
-    // {
-    //   name: "Settings",
-    //   to: "/settings",
-    // },
+    {
+      name: t("settings"),
+      to: "/settings",
+    },
     ...(!disabledAuth
       ? [
           {
-            name: "Log out",
+            name: t("logOut"),
             divide: true,
             onClick: onLogOutClick,
           },
@@ -166,7 +168,6 @@ function Bar() {
                       key={index}
                       onClick={() => {
                         closeMenu();
-
                         menuItem.onClick();
                       }}
                     >

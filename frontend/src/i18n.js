@@ -9,14 +9,12 @@ i18n
   .use(Backend)
   .init({
     compatibilityJSON: "v4",
-    //lng: "en",
     fallbackLng: "en",
     detection: {
       order: ["path", "cookie", "localStorage", "htmlTag"],
       caches: ["localStorage", "cookie"], // cache user language on
     },
     debug: true,
-    //keySeparator: false, // we use content as keys
     interpolation: {
       escapeValue: true,
     },

@@ -12,9 +12,11 @@ import {
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline.js";
 
 import API from "utils/API.js";
+
 import { useTranslation } from "react-i18next";
 
 function DeleteMember({ nwid, mid, callback }) {
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -38,18 +40,16 @@ function DeleteMember({ nwid, mid, callback }) {
         <DeleteOutlineIcon color="secondary" style={{ fontSize: 20 }} />
       </IconButton>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>
-          {"Are you sure you want to delete this member?"}
-        </DialogTitle>
+        <DialogTitle>{t("deleteMemberConfirm")}</DialogTitle>
         <DialogContent>
-          <DialogContentText>This action cannot be undone.</DialogContentText>
+          <DialogContentText>{t("deleteAlert")}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Cancel
+            {t("cancel")}
           </Button>
           <Button onClick={deleteMemberReq} color="secondary">
-            Delete
+            {t("delete")}
           </Button>
         </DialogActions>
       </Dialog>

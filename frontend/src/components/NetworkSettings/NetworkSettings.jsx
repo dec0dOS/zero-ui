@@ -17,7 +17,10 @@ import IPv4AutoAssign from "./components/IPv4AutoAssign/IPv4AutoAssign.jsx";
 import API from "utils/API.js";
 import { parseValue, replaceValue, setValue } from "utils/ChangeHelper.js";
 
+import { useTranslation } from "react-i18next";
+
 function NetworkSettings({ network, setNetwork }) {
+  const { t, i18n } = useTranslation();
   const sendReq = async (data) => {
     try {
       const req = await API.post("/network/" + network["config"]["id"], data);
@@ -43,12 +46,12 @@ function NetworkSettings({ network, setNetwork }) {
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>General settings</Typography>
+        <Typography>{t("generalSettings")}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Grid container direction="column" spacing={3}>
           <Grid item>
-            <Typography>Network ID</Typography>
+            <Typography>{t("networkId")}</Typography>
             <Typography variant="h5">
               <span>{network["config"]["id"]}</span>
             </Typography>
@@ -57,7 +60,7 @@ function NetworkSettings({ network, setNetwork }) {
             <TextField
               value={network["config"]["name"]}
               onChange={handleChange("config", "name")}
-              label="Name"
+              label={t("name")}
               variant="filled"
               InputLabelProps={{
                 shrink: true,
@@ -71,7 +74,7 @@ function NetworkSettings({ network, setNetwork }) {
               multiline
               minRows={2}
               maxRows={Infinity}
-              label="Description"
+              label={t("description")}
               variant="filled"
               InputLabelProps={{
                 shrink: true,
@@ -80,14 +83,14 @@ function NetworkSettings({ network, setNetwork }) {
           </Grid>
           <Divider />
           <Grid item>
-            <Typography>Access Control</Typography>
+            <Typography>{t("accessControl")}</Typography>
             <Select
               native
               value={network["config"]["private"]}
               onChange={handleChange("config", "private", "json")}
             >
-              <option value={true}>Private</option>
-              <option value={false}>Public</option>
+              <option value={1}>{t("private")}</option>
+              <option value={0}>{t("public")}</option>
             </Select>
           </Grid>
           <Divider />
@@ -111,7 +114,7 @@ function NetworkSettings({ network, setNetwork }) {
           <Divider />
           <Grid item>
             <TextField
-              label="Multicast Recipient Limit"
+              label={t("multicastLimit")}
               type="number"
               value={network["config"]["multicastLimit"]}
               onChange={handleChange("config", "multicastLimit", "json")}
@@ -126,7 +129,7 @@ function NetworkSettings({ network, setNetwork }) {
               color="primary"
               onChange={handleChange("config", "enableBroadcast", "checkbox")}
             />
-            <span>Enable Broadcast</span>
+            <span>{t("enableBroadcast")}</span>
           </Grid>
           {/* TODO: */}
           {/* <Grid item>

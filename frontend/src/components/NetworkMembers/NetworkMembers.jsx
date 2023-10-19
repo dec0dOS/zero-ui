@@ -21,6 +21,8 @@ import ManagedIP from "./components/ManagedIP/ManagedIP.jsx";
 import MemberName from "./components/MemberName/MemberName.jsx";
 import MemberSettings from "./components/MemberSettings/MemberSettings.jsx";
 
+import { useTranslation } from "react-i18next";
+
 function NetworkMembers({ network }) {
   const { nwid } = useParams();
   const [members, setMembers] = useState([]);
@@ -46,6 +48,8 @@ function NetworkMembers({ network }) {
     console.log("Action:", req);
   };
 
+  const { t, i18n } = useTranslation();
+
   const handleChange =
     (member, key1, key2 = null, mode = "text", id = null) =>
     (event) => {
@@ -67,7 +71,7 @@ function NetworkMembers({ network }) {
   const columns = [
     {
       id: "auth",
-      name: "Authorized",
+      name: t("authorized"),
       minWidth: "80px",
       cell: (row) => (
         <Checkbox
@@ -79,7 +83,7 @@ function NetworkMembers({ network }) {
     },
     {
       id: "address",
-      name: "Address",
+      name: t("address"),
       minWidth: "150px",
       cell: (row) => (
         <Typography variant="body2">{row.config.address}</Typography>
@@ -87,19 +91,19 @@ function NetworkMembers({ network }) {
     },
     {
       id: "name",
-      name: "Name / Description",
+      name: t("name") + "/" + t("description"),
       minWidth: "250px",
       cell: (row) => <MemberName member={row} handleChange={handleChange} />,
     },
     {
       id: "ips",
-      name: "Managed IPs",
+      name: t("managedIPs"),
       minWidth: "220px",
       cell: (row) => <ManagedIP member={row} handleChange={handleChange} />,
     },
     {
-      id: "status",
-      name: "Last Seen",
+      id: "lastSeen",
+      name: t("lastSeen"),
       minWidth: "100px",
       cell: (row) =>
         row.online === 1 ? (
@@ -121,7 +125,7 @@ function NetworkMembers({ network }) {
     },
     {
       id: "physicalip",
-      name: "Version / Physical IP / Latency",
+      name: t("version") + " / " + t("physIp") + " / " + t("latency"),
       minWidth: "220px",
       cell: (row) =>
         row.online === 1 ? (
@@ -143,7 +147,7 @@ function NetworkMembers({ network }) {
     },
     {
       id: "delete",
-      name: "",
+      name: t("settings"),
       minWidth: "50px",
       right: true,
       cell: (row) => (
@@ -162,7 +166,7 @@ function NetworkMembers({ network }) {
   return (
     <Accordion defaultExpanded={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>Members</Typography>
+        <Typography>{t("member", { count: members.length })}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Grid container direction="column" spacing={3}>
@@ -188,8 +192,7 @@ function NetworkMembers({ network }) {
                 }}
               >
                 <Typography variant="h6" style={{ padding: "10%" }}>
-                  No devices have joined this network. Use the app on your
-                  devices to join <b>{nwid}</b>.
+                  {t("noDevices")} <b>{nwid}</b>.
                 </Typography>
               </Grid>
             )}

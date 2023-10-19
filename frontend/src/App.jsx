@@ -18,6 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/network/:nwid" component={Network} />
+          <Route path="/settings" component={Settings} />
           <Route path="/404" component={NotFound} />
           <Redirect to="/404" />
         </Switch>

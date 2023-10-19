@@ -11,7 +11,10 @@ import { useLocalStorage } from "react-use";
 import API from "utils/API.js";
 import useStyles from "./Network.styles.jsx";
 
+import { useTranslation } from "react-i18next";
+
 function Network() {
+  const { t, i18n } = useTranslation();
   const { nwid } = useParams();
   const [loggedIn] = useLocalStorage("loggedIn", false);
   const [network, setNetwork] = useState({});
@@ -42,7 +45,7 @@ function Network() {
         <div className={classes.breadcrumbs}>
           <Link color="inherit" component={RouterLink} to="/" underline="none">
             <ArrowBackIcon className={classes.backIcon}></ArrowBackIcon>
-            Networks
+            {t("network", { count: 2 })}
           </Link>
         </div>
         <div className={classes.container}>
@@ -73,9 +76,7 @@ function Network() {
         }}
       >
         <Grid item xs={10}>
-          <Typography variant="h5">
-            You are not authorized. Please Log In
-          </Typography>
+          <Typography variant="h5">{t("notAuthorized")}</Typography>
         </Grid>
       </Grid>
     );

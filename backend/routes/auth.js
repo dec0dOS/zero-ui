@@ -10,7 +10,7 @@ const loginLimiter = rateLimit({
   max: Number(process.env.ZU_LOGIN_LIMIT_ATTEMPTS) || 50, // limit each IP to 50 requests per windowMs
   message: {
     status: 429,
-    error: "Too many login attempts, please try again in 15 minutes.",
+    error: "tooManyAttempts",
   },
 });
 

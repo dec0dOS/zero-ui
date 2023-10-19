@@ -13,10 +13,12 @@ import { useTranslation } from "react-i18next";
 function Settings() {
   const { t, i18n } = useTranslation();
   const [loggedIn] = useLocalStorage("loggedIn", false);
+
   const [network, setNetwork] = useState({});
 
   const classes = useStyles();
   const history = useHistory();
+
 
   if (loggedIn) {
     return (
@@ -45,9 +47,7 @@ function Settings() {
         }}
       >
         <Grid item xs={10}>
-          <Typography variant="h5">
-            You are not authorized. Please Log In
-          </Typography>
+          <Typography variant="h5">{t("notAuthorized")}</Typography>
         </Grid>
       </Grid>
     );
