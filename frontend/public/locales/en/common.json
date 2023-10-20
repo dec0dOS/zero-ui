@@ -63,5 +63,6 @@
   "optional": "Optional",
   "destination": "Destination",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "yourLanguage": "English"
 }

@@ -2,19 +2,14 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Checkbox,
-  Divider,
   Grid,
   Typography,
-  TextField,
   Select,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import API from "utils/API";
-import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
-
 import { useTranslation } from "react-i18next";
+import localesList from "../../utils/localesList.json";
 
 function Settings() {
   const { t, i18n } = useTranslation();
@@ -31,8 +26,11 @@ function Settings() {
       <AccordionDetails>
         <Grid item>
           <Select native value={i18n.language} onChange={handleChange()}>
-            <option value={"en"}>English</option>
-            <option value={"es-ES"}>Español</option>
+            {localesList.map((locale) => (
+              <option key={locale.code} value={locale.code}>
+                {locale.name}
+              </option>
+            ))}
           </Select>
         </Grid>
       </AccordionDetails>
