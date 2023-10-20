@@ -7,7 +7,7 @@ function Loading() {
 
   return (
     <div className={classes.root}>
-      <CircularProgress color="secondary" />
+      <CircularProgress color="primary" />
       <Typography variant="h6" component="div" className={classes.loadingText}>
         Loading
         <span className="loadingDots"></span>
