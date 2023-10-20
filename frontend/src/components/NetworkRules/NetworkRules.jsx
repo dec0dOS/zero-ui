@@ -17,7 +17,7 @@ import debounce from "lodash/debounce";
 import { useState } from "react";
 import API from "utils/API";
 
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 function NetworkRules({ network, callback }) {
   const { t, i18n } = useTranslation();
