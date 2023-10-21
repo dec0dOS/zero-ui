@@ -21,7 +21,7 @@ export default function GenerateLocalesPlugin() {
               );
               return {
                 code: locale,
-                name: commonFile.yourLanguage || locale,
+                name: commonFile.languageName || locale,
               };
             }
             return {
