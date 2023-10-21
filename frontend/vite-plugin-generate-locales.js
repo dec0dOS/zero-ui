@@ -1,5 +1,8 @@
 import fs from "fs";
 import path from "path";
+import * as url from "url";
+
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 export default function GenerateLocalesPlugin() {
   return {
