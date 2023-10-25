@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import { List, Typography, IconButton, TextField } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@material-ui/icons/Add.js";
 
-import API from "utils/API";
+import API from "utils/API.js";
 
 import { useTranslation } from "react-i18next";
 

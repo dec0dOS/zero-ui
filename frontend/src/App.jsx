@@ -3,13 +3,13 @@ import "@fontsource/roboto";
 import { Suspense } from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
-import Theme from "./components/Theme";
-import Bar from "./components/Bar";
+import Theme from "./components/Theme/Theme.jsx";
+import Bar from "./components/Bar/Bar.jsx";
 
-import Home from "./routes/Home";
-import NotFound from "./routes/NotFound";
-import Network from "./routes/Network/Network";
-import Settings from "./routes/Settings";
+import Home from "./routes/Home/Home.jsx";
+import NotFound from "./routes/NotFound/NotFound.jsx";
+import Network from "./routes/Network/Network.jsx";
+import Settings from "./routes/Settings/Settings.jsx";
 
 import Loading from "./components/Loading";
 

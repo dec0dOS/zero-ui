@@ -1,11 +1,12 @@
 import { Grid, Link, Typography } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import SettingsComponent from "components/Settings";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack.js";
+import SettingsComponent from "components/SettingsComponent/SettingsComponent.jsx";
 
-import { Link as RouterLink } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { Link as RouterLink, useHistory, useParams } from "react-router-dom";
 import { useLocalStorage } from "react-use";
-
-import useStyles from "./Settings.styles";
+import API from "utils/API.js";
+import useStyles from "./Settings.styles.jsx";
 
 import { useTranslation } from "react-i18next";
 
@@ -13,7 +14,11 @@ function Settings() {
   const { t, i18n } = useTranslation();
   const [loggedIn] = useLocalStorage("loggedIn", false);
 
+  const [network, setNetwork] = useState({});
+
   const classes = useStyles();
+  const history = useHistory();
+
 
   if (loggedIn) {
     return (

@@ -13,10 +13,10 @@ import {
   DialogActions,
   Typography,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import DeleteIcon from "@material-ui/icons/Delete";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore.js";
+import DeleteIcon from "@material-ui/icons/Delete.js";
 
-import API from "utils/API";
+import API from "utils/API.js";
 
 import { useTranslation } from "react-i18next";
 

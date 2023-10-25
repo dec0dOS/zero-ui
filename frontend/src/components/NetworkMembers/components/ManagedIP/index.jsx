@@ -1,1 +1,1 @@
-export { default } from "./ManagedIP";
+export { default } from "./ManagedIP.jsx";

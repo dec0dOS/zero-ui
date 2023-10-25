@@ -9,12 +9,12 @@ import {
   TextField,
   IconButton,
 } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import AddIcon from "@material-ui/icons/Add.js";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline.js";
 
 import DataTable from "react-data-table-component";
 
-import { validateIP, normilizeIP, validateCIDR } from "utils/IP";
+import { validateIP, normilizeIP, validateCIDR } from "utils/IP.js";
 
 import { useTranslation } from "react-i18next";
 

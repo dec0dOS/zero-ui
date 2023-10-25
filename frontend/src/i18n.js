@@ -3,8 +3,6 @@ import languageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 
-const userLanguage = window.navigator.language;
-
 i18n
   .use(languageDetector)
   .use(initReactI18next)
@@ -14,7 +12,7 @@ i18n
     fallbackLng: "en",
     detection: {
       order: ["path", "cookie", "localStorage", "htmlTag"],
-      caches: ["localStorage", "cookie"],
+      caches: ["localStorage", "cookie"], // cache user language on
     },
     debug: true,
     interpolation: {

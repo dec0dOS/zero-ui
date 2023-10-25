@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 import { Grid, List, TextField, IconButton } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import AddIcon from "@material-ui/icons/Add.js";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline.js";
 
-import { validateIP, normilizeIP } from "utils/IP";
+import { validateIP, normilizeIP } from "utils/IP.js";
 
 function ManagedIP({ member, handleChange }) {
   const [ipInput, setIpInput] = useState();

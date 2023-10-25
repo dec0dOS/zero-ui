@@ -1,1 +1,1 @@
-export { default } from "./LogInToken";
+export { default } from "./LogInToken.jsx";

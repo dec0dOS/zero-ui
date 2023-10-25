@@ -1,15 +1,15 @@
 import { Grid, Link, Typography } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import NetworkHeader from "components/NetworkHeader";
-import NetworkManagement from "components/NetworkManagement";
-import NetworkMembers from "components/NetworkMembers";
-import NetworkRules from "components/NetworkRules";
-import NetworkSettings from "components/NetworkSettings";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack.js";
+import NetworkHeader from "components/NetworkHeader/NetworkHeader.jsx";
+import NetworkManagement from "components/NetworkManagement/NetworkManagement.jsx";
+import NetworkMembers from "components/NetworkMembers/NetworkMembers.jsx";
+import NetworkRules from "components/NetworkRules/NetworkRules.jsx";
+import NetworkSettings from "components/NetworkSettings/NetworkSettings.jsx";
 import { useCallback, useEffect, useState } from "react";
 import { Link as RouterLink, useHistory, useParams } from "react-router-dom";
 import { useLocalStorage } from "react-use";
-import API from "utils/API";
-import useStyles from "./Network.styles";
+import API from "utils/API.js";
+import useStyles from "./Network.styles.jsx";
 
 import { useTranslation } from "react-i18next";
 
