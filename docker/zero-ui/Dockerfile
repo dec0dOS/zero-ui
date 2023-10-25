@@ -2,6 +2,7 @@ FROM --platform=$BUILDPLATFORM node:lts-alpine as frontend-build
 
 ENV GENERATE_SOURCEMAP=false
 
+RUN corepack enable
 RUN mkdir -p /app/frontend
 WORKDIR /app/
 COPY tsconfig.json package.json yarn.lock* .yarnrc.yml ./
@@ -18,6 +19,7 @@ FROM node:lts-alpine
 WORKDIR /app/frontend/build
 COPY --from=frontend-build /app/frontend/build /app/frontend/build/
 
+RUN corepack enable
 RUN mkdir -p /app/backend
 WORKDIR /app/
 COPY package.json yarn.lock* .yarnrc.yml ./
