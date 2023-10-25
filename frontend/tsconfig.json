@@ -5,7 +5,8 @@
     "baseUrl": "src",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "resolveJsonModule": true
   },
   "include": ["src"]
 }

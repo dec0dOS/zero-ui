@@ -63,5 +63,6 @@
   "optional": "Opcional",
   "destination": "Destino",
   "username": "Nombre de usuario",
-  "password": "Contraseña"
+  "password": "Contraseña",
+  "languageName": "Español"
 }

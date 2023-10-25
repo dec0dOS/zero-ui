@@ -3,7 +3,8 @@ import languageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 
-const userLanguage = window.navigator.language;
+import localesList from "./utils/localesList.json";
+const supportedLngs = localesList.map((locale) => locale.code);
 
 i18n
   .use(languageDetector)
@@ -23,7 +24,7 @@ i18n
     react: {
       useSuspense: true,
     },
-    supportedLngs: ["en", "es-ES"],
+    supportedLngs,
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },

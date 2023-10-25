@@ -1,6 +1,7 @@
 import process from "node:process";
 import { defineConfig, searchForWorkspaceRoot } from "vite";
 import react from "@vitejs/plugin-react";
+import GenerateLocalesPlugin from "./vite-plugin-generate-locales.js";
 
 export default defineConfig({
   base: "/app",
@@ -27,5 +28,5 @@ export default defineConfig({
     outDir: "build",
     chunkSizeWarningLimit: 1000,
   },
-  plugins: [react()],
+  plugins: [react(), GenerateLocalesPlugin()],
 });
