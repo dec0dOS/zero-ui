@@ -2,7 +2,7 @@ version: "3"
 
 services:
   zerotier:
-    image: zyclonite/zerotier:1.10.6
+    image: zyclonite/zerotier:1.11.2
     container_name: zu-controller
     restart: unless-stopped
     volumes:
