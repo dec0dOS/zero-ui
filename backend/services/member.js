@@ -138,6 +138,9 @@ export async function updateMemberAdditionalData(nwid, mid, data) {
   if (data.hasOwnProperty("description")) {
     additionalData.description = data.description;
   }
+  if (data.hasOwnProperty("group")) {
+    additionalData.group = data.group;
+  }
 
   if (additionalData) {
     const member = db
@@ -152,13 +155,16 @@ export async function updateMemberAdditionalData(nwid, mid, data) {
         .map((additionalConfig) => _.assign(additionalConfig, additionalData))
         .write();
     } else {
-      additionalData = { name: "", description: "" };
+      additionalData = { name: "", description: "", group: "" };
 
       if (data.hasOwnProperty("name")) {
         additionalData.name = data.name;
       }
       if (data.hasOwnProperty("description")) {
         additionalData.description = data.description;
+      }
+      if (data.hasOwnProperty("group")) {
+        additionalData.group = data.group;
       }
       db.get("networks")
         .filter({ id: nwid })

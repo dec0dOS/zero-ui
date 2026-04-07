@@ -23,6 +23,7 @@
   "member_one": "Member",
   "member_other": "Members",
   "addMemberManually": "Manually Add Member",
+  "addGroup": "Add group",
   "name": "Name",
   "description": "Description",
   "allowBridging": "Allow Ethernet Bridging",

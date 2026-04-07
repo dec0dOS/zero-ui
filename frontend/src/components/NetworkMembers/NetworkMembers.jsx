@@ -11,11 +11,14 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import { useCallback, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
+import { DndProvider, useDrag, useDrop } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import { useParams } from "react-router-dom";
 import API from "utils/API";
 import { parseValue, replaceValue, setValue } from "utils/ChangeHelper";
 import { formatDistance } from "date-fns";
 import AddMember from "./components/AddMember";
+import AddGroup from "./components/AddGroup";
 import DeleteMember from "./components/DeleteMember";
 import ManagedIP from "./components/ManagedIP";
 import MemberName from "./components/MemberName";
@@ -23,13 +26,71 @@ import MemberSettings from "./components/MemberSettings";
 
 import { useTranslation } from "react-i18next";
 
+const MemberItemType = "MEMBER_ITEM";
+
+const DraggableRow = ({ zoneId, row, content, ...other }) => {
+  const [, drag] = useDrag({
+    type: MemberItemType,
+    item: { zoneId, row },
+  });
+
+  return (
+    <div style={{ userSelect: "text" }} ref={(node) => drag(node)} {...other}>
+      {content}
+    </div>
+  );
+};
+
+const DropZone = ({ zoneId, moveRow, children }) => {
+  const [, drop] = useDrop({
+    accept: MemberItemType,
+    canDrop: (item, monitor) => {
+      return item.zoneId !== zoneId;
+    },
+    drop: (item, monitor) => {
+      if (monitor.canDrop()) {
+        moveRow(item.zoneId, item.row, zoneId);
+      }
+    },
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
+    }),
+  });
+
+  return (
+    <div
+      style={{ all: "unset", display: "contents" }}
+      ref={(node) => drop(node)}
+    >
+      {children}
+    </div>
+  );
+};
+
 function NetworkMembers({ network }) {
   const { nwid } = useParams();
   const [members, setMembers] = useState([]);
+  const [groups, setGroups] = useState([]);
+  const [extraGroups, setExtraGroups] = useState([]);
+
+  const addGroup = useCallback(
+    async (name) => {
+      if (!groups.includes(name) && !groups.includes(name)) {
+        let mutableExtraGroups = [...extraGroups];
+        mutableExtraGroups.push(name);
+        setExtraGroups(mutableExtraGroups);
+      }
+    },
+    [groups, extraGroups]
+  );
 
   const fetchData = useCallback(async () => {
     try {
       const members = await API.get("network/" + nwid + "/member");
+      let groupSet = new Set();
+      members.data.forEach((x) => groupSet.add(x.group));
+      setGroups([...groupSet]);
       setMembers(members.data);
       console.log("Members:", members.data);
     } catch (err) {
@@ -62,7 +123,13 @@ function NetworkMembers({ network }) {
       });
       let mutableMembers = [...members];
       mutableMembers[index] = updatedMember;
+      const groups = new Set();
+      mutableMembers.forEach((x) => groups.add(x.group));
+      let mutableExtraGroups = extraGroups.filter((x) => !groups.has(x));
+
       setMembers(mutableMembers);
+      setGroups([...groups]);
+      setExtraGroups(mutableExtraGroups);
 
       const data = setValue({}, key1, key2, value);
       sendReq(member["config"]["id"], data);
@@ -163,44 +230,95 @@ function NetworkMembers({ network }) {
     },
   ];
 
+  const changeMemberGroup = (oldGroup, member, newGroup) => {
+    member.group = newGroup;
+
+    let mutableMembers = [...members];
+    const groups = new Set();
+    mutableMembers.forEach((x) => groups.add(x.group));
+
+    // Remove extra group
+    let mutableExtraGroups = extraGroups.filter((x) => !groups.has(x));
+
+    setGroups([...groups]);
+    setExtraGroups(mutableExtraGroups);
+    setMembers(mutableMembers);
+
+    const data = setValue({}, "group", null, newGroup);
+    sendReq(member["config"]["id"], data);
+  };
+
   return (
     <Accordion defaultExpanded={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>{t("member", { count: members.length })}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Grid container direction="column" spacing={3}>
-          <IconButton color="primary" onClick={fetchData}>
-            <RefreshIcon />
-          </IconButton>
-          <Grid container>
-            {members.length ? (
-              <DataTable
-                noHeader={true}
-                columns={columns}
-                data={[...members]}
-              />
-            ) : (
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                style={{
-                  minHeight: "50vh",
-                }}
-              >
-                <Typography variant="h6" style={{ padding: "10%" }}>
-                  {t("noDevices")} <b>{nwid}</b>.
-                </Typography>
-              </Grid>
-            )}
+        <DndProvider backend={HTML5Backend}>
+          <Grid container direction="column" spacing={3}>
+            {groups
+              .concat(extraGroups)
+              .sort()
+              .map((group) => (
+                <DropZone zoneId={group} moveRow={changeMemberGroup}>
+                  <Accordion defaultExpanded={group == ""} key={group}>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                      <Typography>{group || "Ungrouped"}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Grid container direction="column" spacing={3}>
+                        <IconButton color="primary" onClick={fetchData}>
+                          <RefreshIcon />
+                        </IconButton>
+                        <Grid container>
+                          {members.length ? (
+                            <DataTable
+                              noHeader={true}
+                              columns={columns}
+                              data={[
+                                ...members.filter((x) => x.group == group),
+                              ]}
+                              renderRow={(row, content) => (
+                                <DraggableRow
+                                  zoneId={group}
+                                  row={row}
+                                  content={content}
+                                  key={row.config.address}
+                                />
+                              )}
+                            />
+                          ) : (
+                            <Grid
+                              container
+                              spacing={0}
+                              direction="column"
+                              alignItems="center"
+                              justifyContent="center"
+                              style={{
+                                minHeight: "50vh",
+                              }}
+                            >
+                              <Typography
+                                variant="h6"
+                                style={{ padding: "10%" }}
+                              >
+                                {t("noDevices")} <b>{nwid}</b>.
+                              </Typography>
+                            </Grid>
+                          )}
+                        </Grid>
+                        <Grid item></Grid>
+                      </Grid>
+                    </AccordionDetails>
+                  </Accordion>
+                </DropZone>
+              ))}
+            <Grid item>
+              <AddMember nwid={nwid} callback={fetchData} />
+              <AddGroup callback={addGroup} />
+            </Grid>
           </Grid>
-          <Grid item>
-            <AddMember nwid={nwid} callback={fetchData} />
-          </Grid>
-        </Grid>
+        </DndProvider>
       </AccordionDetails>
     </Accordion>
   );
